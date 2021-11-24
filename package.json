@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "@chenfengyuan/vue-qrcode": "^2.0.0-rc.1",
+        "@mdi/font": "^6.5.95",
         "buefy": "^0.9.13",
         "qrcode": "^1.4.4"
     }
