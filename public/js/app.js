@@ -78,7 +78,8 @@ __webpack_require__.r(__webpack_exports__);
         imgSrc: '/img/banner_2.jpg'
       }, {
         imgSrc: '/img/banner_3.jpg'
-      }]
+      }],
+      locale: undefined
     };
   }
 });
@@ -19137,18 +19138,14 @@ var render = function () {
         key: "brand",
         fn: function () {
           return [
-            _c(
-              "b-navbar-item",
-              { attrs: { tag: "router-link", to: { path: "/" } } },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png",
-                    alt: "Lightweight UI components for Vue.js based on Bulma",
-                  },
-                }),
-              ]
-            ),
+            _c("b-navbar-item", [
+              _c("img", {
+                attrs: {
+                  src: "https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png",
+                  alt: "Lightweight UI components for Vue.js based on Bulma",
+                },
+              }),
+            ]),
           ]
         },
         proxy: true,

@@ -63,7 +63,10 @@ export default {
                 { imgSrc: '/img/banner_1.jpg'},
                 { imgSrc: '/img/banner_2.jpg'   },
                 { imgSrc: '/img/banner_3.jpg'   },
-            ]
+            ],
+
+            locale: undefined ,
+            
         }
     }
 }
