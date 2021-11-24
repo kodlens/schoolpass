@@ -40,7 +40,6 @@
                             </b-datetimepicker>
                         </b-field>
                     </div>
-                    
                 </div>
             </div>
         </section>
@@ -64,8 +63,6 @@ export default {
                 { imgSrc: '/img/banner_1.jpg'},
                 { imgSrc: '/img/banner_2.jpg'   },
                 { imgSrc: '/img/banner_3.jpg'   },
-
-               
             ]
         }
     }
