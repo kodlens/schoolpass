@@ -4,9 +4,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
 
 window.Vue = require('vue').default;
+
+
+//import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,11 +28,22 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('navbar-component', require('./components/NavbarComponent.vue').default);
+Vue.component('home-page', require('./components/HomePage.vue').default);
+Vue.component('register-components', require('./components/RegisterComponents.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+
+ Vue.use(Buefy, {
+    defaultIconPack: 'fas',
+ })
+
+
 
 const app = new Vue({
     el: '#app',
