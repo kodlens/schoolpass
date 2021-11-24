@@ -19137,16 +19137,7 @@ var render = function () {
       {
         key: "brand",
         fn: function () {
-          return [
-            _c("b-navbar-item", [
-              _c("img", {
-                attrs: {
-                  src: "https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png",
-                  alt: "Lightweight UI components for Vue.js based on Bulma",
-                },
-              }),
-            ]),
-          ]
+          return [_c("b-navbar-item")]
         },
         proxy: true,
       },
@@ -19154,7 +19145,7 @@ var render = function () {
         key: "start",
         fn: function () {
           return [
-            _c("b-navbar-item", { attrs: { href: "#" } }, [
+            _c("b-navbar-item", { attrs: { href: "/" } }, [
               _vm._v("\n            Home\n        "),
             ]),
             _vm._v(" "),
@@ -19179,7 +19170,7 @@ var render = function () {
                   "a",
                   {
                     staticClass: "button is-primary",
-                    attrs: { href: "/register-components" },
+                    attrs: { href: "/sign-up" },
                   },
                   [_c("strong", [_vm._v("Sign up")])]
                 ),
@@ -19218,81 +19209,83 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "b-field",
-        { attrs: { label: "Name" } },
-        [_c("b-input", { attrs: { value: "Kevin Garvey" } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-field",
-        {
-          attrs: {
-            label: "Email",
-            type: "is-danger",
-            message: "This email is invalid",
-          },
-        },
-        [
-          _c("b-input", {
-            attrs: { type: "email", value: "john@", maxlength: "30" },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-field",
-        {
-          attrs: {
-            label: "Username",
-            type: "is-success",
-            message: "This username is available",
-          },
-        },
-        [_c("b-input", { attrs: { value: "johnsilver", maxlength: "30" } })],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-field",
-        {
-          attrs: {
-            label: "Password",
-            type: "is-warning",
-            message: [
-              "Password is too short",
-              "Password must have at least 8 characters",
-            ],
-          },
-        },
-        [
-          _c("b-input", {
-            attrs: { value: "123", type: "password", maxlength: "30" },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-field",
-        { attrs: { label: "Subject" } },
-        [
-          _c("b-select", { attrs: { placeholder: "Select a subject" } }, [
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Option 1")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Option 2")]),
+  return _c("section", [
+    _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column is-8 is-offset-2" }, [
+        _c("div", { staticClass: "panel p-5" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Username" } },
+                  [_c("b-input", { attrs: { type: "text" } })],
+                  1
+                ),
+              ],
+              1
+            ),
           ]),
-        ],
-        1
-      ),
-    ],
-    1
-  )
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Password" } },
+                  [
+                    _c("b-input", {
+                      attrs: { type: "password", "password-reveal": "" },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Re-type Password" } },
+                  [
+                    _c("b-input", {
+                      attrs: { type: "password", "password-reveal": "" },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Email" } },
+                  [_c("b-input", { attrs: { type: "email" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

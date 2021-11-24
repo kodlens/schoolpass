@@ -22,4 +22,4 @@ Route::get('/sample',[App\Http\Controllers\SampleController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/register-components', [App\Http\Controllers\RegisterPageController::class, 'index']);
+Route::get('/sign-up', [App\Http\Controllers\SignUpController::class, 'index']);
