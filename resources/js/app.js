@@ -40,7 +40,7 @@ Vue.component('register-components', require('./components/RegisterComponents.vu
 
 
  Vue.use(Buefy, {
-    defaultIconPack: 'fas',
+    //defaultIconPack: 'fas',
  })
 
 

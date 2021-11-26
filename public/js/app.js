@@ -125,8 +125,7 @@ Vue.component('register-components', (__webpack_require__(/*! ./components/Regis
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(buefy__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  defaultIconPack: 'fas'
+Vue.use(buefy__WEBPACK_IMPORTED_MODULE_1__["default"], {//defaultIconPack: 'fas',
 });
 var app = new Vue({
   el: '#app'
@@ -19212,198 +19211,234 @@ var render = function () {
   return _c("section", [
     _c("div", { staticClass: "columns" }, [
       _c("div", { staticClass: "column is-8 is-offset-2" }, [
-        _c(
-          "div",
-          { staticClass: "panel p-5" },
-          [
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Username" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Password" } },
-                    [
-                      _c("b-input", {
-                        attrs: { type: "password", "password-reveal": "" },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Re-type Password" } },
-                    [
-                      _c("b-input", {
-                        attrs: { type: "password", "password-reveal": "" },
-                      }),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Email" } },
-                    [_c("b-input", { attrs: { type: "email" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Last Name" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "First Name" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Middle Name" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "Province" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "City/Municipality" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns" }, [
-              _c(
-                "div",
-                { staticClass: "column" },
-                [
-                  _c(
-                    "b-field",
-                    { attrs: { label: "House #. Street, Barangay" } },
-                    [_c("b-input", { attrs: { type: "text" } })],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ]),
-            _vm._v(" "),
+        _c("div", { staticClass: "panel p-5" }, [
+          _c("div", { staticClass: "columns" }, [
             _c(
-              "b-field",
+              "div",
+              { staticClass: "column" },
               [
                 _c(
-                  "b-select",
-                  { attrs: { placeholder: "Sex", icon: "account" } },
+                  "b-field",
+                  { attrs: { label: "Username" } },
+                  [_c("b-input", { attrs: { type: "text", icon: "account" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Password" } },
                   [
-                    _c("option", { attrs: { value: "1" } }, [_vm._v("Male")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("female")]),
-                  ]
+                    _c("b-input", {
+                      attrs: {
+                        type: "password",
+                        icon: "lock",
+                        "password-reveal": "",
+                      },
+                    }),
+                  ],
+                  1
                 ),
               ],
               1
             ),
             _vm._v(" "),
-            _c("b-button", { on: { click: _vm.Register } }, [
-              _vm._v("Register"),
-            ]),
-          ],
-          1
-        ),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Re-type Password" } },
+                  [
+                    _c("b-input", {
+                      attrs: { type: "password", "password-reveal": "" },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Email" } },
+                  [_c("b-input", { attrs: { type: "email" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Last Name" } },
+                  [_c("b-input", { attrs: { type: "text" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "First Name" } },
+                  [_c("b-input", { attrs: { type: "text" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Middle Name" } },
+                  [_c("b-input", { attrs: { type: "text" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column is-3" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Sex", expanded: "" } },
+                  [
+                    _c(
+                      "b-select",
+                      {
+                        attrs: {
+                          placeholder: "Sex",
+                          icon: "account",
+                          expanded: "",
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "MALE" } }, [
+                          _vm._v("MALE"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "FEMALE" } }, [
+                          _vm._v("FEMALE"),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Province", expanded: "" } },
+                  [_c("b-select", { attrs: { expanded: "" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "City/Municipality", expanded: "" } },
+                  [_c("b-select", { attrs: { expanded: "" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns" }, [
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "Barangay", expanded: "" } },
+                  [_c("b-select", { attrs: { expanded: "" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "column" },
+              [
+                _c(
+                  "b-field",
+                  { attrs: { label: "House #. Street" } },
+                  [_c("b-input", { attrs: { type: "text" } })],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "buttons is-right" },
+            [
+              _c(
+                "b-button",
+                { attrs: { type: "is-success" }, on: { click: _vm.Register } },
+                [_vm._v("Register")]
+              ),
+            ],
+            1
+          ),
+        ]),
       ]),
     ]),
   ])
