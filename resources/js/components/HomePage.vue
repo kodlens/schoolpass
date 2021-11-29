@@ -1,105 +1,162 @@
 <template>
     <div>
 
-        <section>
-        
+        <section class="hero is-fullheight">
+            <!-- Hero head: will stick at the top -->
+            <div class="hero-head">
+                <b-navbar>
+                    <template #brand>
+                        <img class ="logo"
+                             src="/img/logo.png">
+                    </template>
 
-            <b-carousel
-                :arrow="arrow"
-                :repeat="arrowBoth"
-                :arrow-hover="arrowHover"
-                :icon-pack="iconPack"
-                :icon-prev="iconPrev"
-                :icon-next="iconNext"
-                :icon-size="iconSize">
-                <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-                    <section :class="`hero is-medium is-${carousel.color}`">     
-                        <!-- <img :src="carousel.imgSrc" /> 
-                        <div class="hero-body has-text-centered">     
-                            <h1 class="title">{{carousel.title}}</h1>
-                             
-                        </div> -->
-                        <a class="image">
-                            <img :src="carousel.imgSrc" /> 
-                        </a>
-                    </section>
-                </b-carousel-item>
-            </b-carousel>
+
+                    <template #start>
+                        <b-navbar-item href="/">
+                            Home
+                        </b-navbar-item>
+                        <b-navbar-item href="#">
+                            About
+                        </b-navbar-item>
+                        <b-navbar-item href="#">
+                            Contact
+                        </b-navbar-item>
+
+                    </template>
+
+                    <template #end>
+                        <b-navbar-item tag="div">
+                            <div class="buttons">
+                                <a class="button is-primary" href="/sign-up">
+                                    <strong>Sign up</strong>
+                                </a>
+                                <a class="button is-light">
+                                    Log in
+                                </a>
+                            </div>
+                        </b-navbar-item>
+                    </template>
+                </b-navbar>
+            </div>
+
+            <!-- Hero content: will be in the middle -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <p class="title">
+                        GOV. ALFONSO D. TAN COLLEGE
+                    </p>
+                    <p class="subtitle">
+                        SCHOOL PASS
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hero footer: will stick at the bottom -->
+            <div class="hero-foot">
+<!--                <nav class="tabs is-boxed is-fullwidth">
+                    <div class="container">
+                        <ul>
+                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>Modifiers</a></li>
+                            <li><a>Grid</a></li>
+                            <li><a>Elements</a></li>
+                            <li><a>Components</a></li>
+                            <li><a>Layout</a></li>
+                        </ul>
+                    </div>
+                </nav>-->
+            </div>
         </section>
 
         <section>
             <div class="columns">
-                <div class="column is-4 is-offset-4">
+                <div class="column is-6 is-offset-3">
                     <div class="time-container">
-                        <b-field label="SELECT DATE">
-                            <b-datetimepicker
-                                placeholder="Type or select a date..."
-                                icon="calendar-today"
-                                :locale="locale"
-                                editable>
-                            </b-datetimepicker>
-                        </b-field>
+
+                        <div class="reserve-control">
+                            <b-field label="SELECT DATE" grouped class="is-centered">
+                                <b-datetimepicker rounded
+                                      placeholder="Type or select a date..."
+                                      icon="calendar-today"
+                                      :locale="locale"
+                                      editable>
+                                </b-datetimepicker>
+                                <p class="control">
+                                    <b-button class="button is-primary is-rounded">APPOINT NOW</b-button>
+                                </p>
+                            </b-field>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
+
         </section>
-            <section>
-                <h2>MISSION</h2>
 
-        
-                        <p>
-                            To provide opportunities for continuing education for faculty and staff, 
-                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.</p>
-                                   
-                                    <img src="/img/gadtc.png">
-                                
-                  
-              
 
-                <h2>VISION</h2>
-                <p>GADTC is integral to Tangub 
-						City’s becoming a center for learning and eco-cultural tourism by producing God-centered citizens committed to be <b>THE LIGHT OF THE WORLD.</b></p>
 
-                        <img src="/img/facilities.jpg">
-            </section>
-
-            <section>
-
-            </section>
-        </div>
-
-    
+    </div>
 </template>
-
 
 <script>
 export default {
-    data() {
-        return {
-            arrow: true,
-            arrowBoth: false,
-            arrowHover: false,
-            iconPack: 'mdi',
-            iconPrev: 'arrow-left',
-            iconNext: 'arrow-right',
-            iconSize: '',
-            carousels: [
-                { imgSrc: '/img/banner_1.jpg'},
-                { imgSrc: '/img/banner_2.jpg'   },
-                { imgSrc: '/img/banner_3.jpg'   },
-                { imgSrc: '/img/banner_4.jpg'   },
-            ],
-
-            locale: undefined ,
-            
+    data(){
+        return{
+            locale: undefined,
         }
     }
 }
 </script>
 
-
 <style scoped>
-    .time-container{
-        padding: 30px 15px 30px 15px;
+    .navbar{
+        height: 80px;
     }
+    .navbar > .navbar-menu > .navbar-start > .navbar-item{
+        color: white;
+        font-weight: bold;
+        transition: 0.5s;
+    }
+    .navbar > .navbar-menu > .navbar-start > .navbar-item:hover{
+        background-color: transparent;
+        border-bottom: 3px solid blue;
+    }
+    .navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link:hover{
+        border-bottom: 3px solid blue;
+    }
+
+
+    .hero{
+        background-image: url("/img/bg-hero.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .hero-body > .container > .title{
+        color: white;
+        font-size: 3em;
+    }
+    .hero-body > .container > .subtitle{
+        color: white;
+        font-size: 2em;
+    }
+
+    .time-container{
+        position: relative;
+        top: -50px;
+        z-index: 100;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid red;
+    }
+
+    .reserve-control{
+        border: 1px solid blue;
+        min-width: 150px;
+    }
+
+
+
 </style>

@@ -28954,4 +28954,10 @@
   clip: auto;
 }
 
+html {
+  background-color: #f8f8f8 !important;
+}
 
+.panel {
+  background-color: white !important;
+}
