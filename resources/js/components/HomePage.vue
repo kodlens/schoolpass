@@ -43,8 +43,32 @@
                 </div>
             </div>
         </section>
+            <section>
+                <h2>MISSION</h2>
 
-    </div>
+        
+                        <p>
+                            To provide opportunities for continuing education for faculty and staff, 
+                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.</p>
+                                   
+                                    <img src="/img/gadtc.png">
+                                
+                  
+              
+
+                <h2>VISION</h2>
+                <p>GADTC is integral to Tangub 
+						City’s becoming a center for learning and eco-cultural tourism by producing God-centered citizens committed to be <b>THE LIGHT OF THE WORLD.</b></p>
+
+                        <img src="/img/facilities.jpg">
+            </section>
+
+            <section>
+
+            </section>
+        </div>
+
+    
 </template>
 
 
@@ -63,6 +87,7 @@ export default {
                 { imgSrc: '/img/banner_1.jpg'},
                 { imgSrc: '/img/banner_2.jpg'   },
                 { imgSrc: '/img/banner_3.jpg'   },
+                { imgSrc: '/img/banner_4.jpg'   },
             ],
 
             locale: undefined ,

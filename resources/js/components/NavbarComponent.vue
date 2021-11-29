@@ -1,10 +1,10 @@
 <template>
     <b-navbar>
         <template #brand>
-            <b-navbar-item>
-                
-            </b-navbar-item>
+            <img class ="logo"
+                src="/img/logo.png">
         </template>
+        
         
         <template #start>
             <b-navbar-item href="/">
@@ -33,3 +33,15 @@
         </template>
     </b-navbar>
 </template>
+ 
+<style scoped>
+    .logo{
+        padding: 0 30px 0 30px;
+        height: 90px;
+    }
+
+    .navbar{
+        height: 100px;
+        background-color:whitesmoke;
+    }
+</style>                                      
