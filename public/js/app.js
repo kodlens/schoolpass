@@ -18369,7 +18369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n    height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n    color: white;\n    font-weight: bold;\n    transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n    background-color: transparent;\n    border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n    border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n    background-image: url(\"/img/bg-hero.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n    color: white;\n    font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n    color: white;\n    font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n    position: relative;\n    top: -50px;\n    z-index: 100;\n    padding: 15px;\n    background: white;\n    border-radius: 10px;\n    border: 1px solid red;\n}\n.reserve-control[data-v-fa44bb0e]{\n    border: 1px solid blue;\n    min-width: 150px;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n    height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n    color: white;\n    font-weight: bold;\n    transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n    background-color: transparent;\n    border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n    border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n    background-image: url(\"/img/bg-hero.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n    color: white;\n    font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n    color: white;\n    font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n    position: relative;\n    top: -50px;\n    z-index: 100;\n    padding: 15px;\n    background: white;\n    border-radius: 10px;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n    margin: auto;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19304,18 +19304,24 @@ var render = function () {
           _c("div", { staticClass: "time-container" }, [
             _c(
               "div",
-              { staticClass: "reserve-control" },
+              { staticClass: "reserve-control p-2" },
               [
                 _c(
                   "b-field",
                   {
                     staticClass: "is-centered",
-                    attrs: { label: "SELECT DATE", grouped: "" },
+                    attrs: {
+                      label: "SELECT DATE",
+                      grouped: "",
+                      expanded: "",
+                      "label-position": "on-border",
+                    },
                   },
                   [
                     _c("b-datetimepicker", {
                       attrs: {
                         rounded: "",
+                        expanded: "",
                         placeholder: "Type or select a date...",
                         icon: "calendar-today",
                         locale: _vm.locale,

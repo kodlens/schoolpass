@@ -73,9 +73,9 @@
                 <div class="column is-6 is-offset-3">
                     <div class="time-container">
 
-                        <div class="reserve-control">
-                            <b-field label="SELECT DATE" grouped class="is-centered">
-                                <b-datetimepicker rounded
+                        <div class="reserve-control p-2">
+                            <b-field label="SELECT DATE" grouped  expanded class="is-centered" label-position="on-border">
+                                <b-datetimepicker rounded expanded
                                       placeholder="Type or select a date..."
                                       icon="calendar-today"
                                       :locale="locale"
@@ -149,12 +149,12 @@ export default {
         padding: 15px;
         background: white;
         border-radius: 10px;
-        border: 1px solid red;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
     }
 
     .reserve-control{
-        border: 1px solid blue;
-        min-width: 150px;
+        margin: auto;
     }
 
 
