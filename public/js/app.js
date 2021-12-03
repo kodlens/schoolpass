@@ -2252,6 +2252,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -20602,7 +20658,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n    height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n    color: white;\n    font-weight: bold;\n    transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n    background-color: transparent;\n    border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n    border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n    background-image: url(\"/img/bg-hero.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n    color: white;\n    font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n    color: white;\n    font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n    position: relative;\n    top: -50px;\n    z-index: 100;\n    padding: 15px;\n    background: white;\n    border-radius: 10px;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n    margin: auto;\n}\n.mission-title[data-v-fa44bb0e]{\n    font-size: 1.5em;\n}\n.mission-wrapper[data-v-fa44bb0e]{\n    max-width: 640px;\n    font-size: 1.5em;\n    margin: auto;\n}\n.mission-section[data-v-fa44bb0e]{\n    display: flex;\n    justify-content: center;\n}\n.mission-img[data-v-fa44bb0e]{\n    margin: auto;\n}\n.mission-section > div[data-v-fa44bb0e]{\n    margin: 15px;\n}\n.vision-section[data-v-fa44bb0e]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: center;\n}\n.vision-title[data-v-fa44bb0e]{\n    font-size: 1.5em;\n}\n.vision-wrapper[data-v-fa44bb0e]{\n    max-width: 640px;\n    font-size: 1.5em;\n    margin: auto;\n}\n.vision-img[data-v-fa44bb0e]{\n    margin: auto;\n}\n.vision-section > div[data-v-fa44bb0e]{\n    margin: 15px;\n}\n@media only screen and (max-width: 940px) {\n.vision-section[data-v-fa44bb0e]{\n        flex-direction: column;\n        align-items: center;\n}\n.mission-section[data-v-fa44bb0e]{\n        flex-direction: column;\n        align-items: center;\n}\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n        height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n        color: white;\n        font-weight: bold;\n        transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n        background-color: transparent;\n        border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n        border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n        background-image: url(\"/img/bg-hero.jpg\");\n        background-repeat: no-repeat;\n        background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n        color: white;\n        font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n        color: white;\n        font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n        position: relative;\n        top: -50px;\n        z-index: 100;\n        padding: 15px;\n        background: white;\n        border-radius: 10px;\n        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.mission-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.mission-section[data-v-fa44bb0e]{\n        display: flex;\n        justify-content: center;\n}\n.mission-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n.vision-section[data-v-fa44bb0e]{\n        margin-top: 50px;\n        display: flex;\n        justify-content: center;\n}\n.vision-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.vision-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.vision-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.vision-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n@media only screen and (max-width: 940px) {\n.vision-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n.mission-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n}\n.mask[data-v-fa44bb0e]{\n        border-radius: 50%;\n         width:200px;\n}\n.hand[data-v-fa44bb0e]{ \n        border-radius: 50%;\n         width:200px;\n}\n.touch[data-v-fa44bb0e]{ \n        border-radius: 50%;\n         width:200px;\n}\n.tissue[data-v-fa44bb0e]{ \n        border-radius: 50%;\n         width:200px;\n}\nh3[data-v-fa44bb0e]{\n    background-color: #80ced6;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21819,6 +21875,8 @@ var render = function () {
       _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
       _c(
         "b-modal",
         {
@@ -22030,6 +22088,80 @@ var staticRenderFns = [
               _vm._v(
                 "\n                            To provide opportunities for continuing education for faculty and staff,\n                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.\n                        "
               ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { staticClass: "covid" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "column is-10 is-offset-1" }, [
+            _c("div", { staticClass: "panel p-5" }, [
+              _c("div", { staticClass: "panel-heading" }, [
+                _vm._v(
+                  "\n                                COVID-19 SAFETY TIPS\n                                "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel p-2" }, [
+                _c("div", { staticClass: "panel-subheading" }, [
+                  _vm._v(
+                    "\n                        \n                                  Help prevent the prevent the spread of respiratory disease like COVID-19\n                                "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body" }, [
+                _c("h3", [_vm._v("WEAR FACEMASK")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(" Everyone must wear mask ")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mask" }, [
+                  _c("img", { attrs: { src: "/img/mask.png" } }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "hand" }, [
+                  _c("img", { attrs: { src: "/img/hands.png" } }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("WASH YOUR HANDS")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Wash your hands frequently with soap and water"),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("DON'T TOUCH")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(" Do not touch your eyes with dirty hands")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "touch" }, [
+                  _c("img", { attrs: { src: "/img/touch.png" } }),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "tissue" }, [
+                  _c("img", { attrs: { src: "/img/tissue.png" } }),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("COVER A COUGH OR SNEEZE")]),
+                _vm._v(" "),
+                _c("p", [_vm._v("use tissue when cough/ sneeze")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dist" }, [
+                  _c("img", { attrs: { src: "/img/dist.png" } }),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("KEEP YOUR DISTANCE")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("Avoid close contact with poeple wwho are sick."),
+                ]),
+              ]),
             ]),
           ]),
         ]),
@@ -34553,7 +34685,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\Users\\\\eshen\\\\Desktop\\\\Github\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

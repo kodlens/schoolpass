@@ -141,6 +141,62 @@
             </div>
         </section>
 
+        <section>
+            <div class ="covid"> 
+                <div class="column">
+                    <div class="column is-10 is-offset-1">
+                        <div class="panel p-5">
+                              <div class="panel-heading">
+                                COVID-19 SAFETY TIPS
+                                </div>
+                                  <div class="panel p-2">
+                              <div class="panel-subheading">
+                        
+                                  Help prevent the prevent the spread of respiratory disease like COVID-19
+                                </div>
+                                  </div>
+                                 <div class="panel-body"> 
+                                     <h3>WEAR FACEMASK</h3>
+                                <p> Everyone must wear mask </p>
+                                
+                                 <div class ="mask">
+                                    <img src="/img/mask.png" >
+
+                                    </div>
+                                    
+                                     <div class ="hand">
+                                    <img src="/img/hands.png" >
+                                    <h3>WASH YOUR HANDS</h3>
+                                    <p>Wash your hands frequently with soap and water</p>
+                                    </div>
+                                    <h3>DON'T TOUCH</h3>
+                                    <p> Do not touch your eyes with dirty hands</p>
+
+                                    <div class ="touch">
+                                    <img src="/img/touch.png" >
+                                    
+                                    </div>
+                                     <div class ="tissue">
+                                    <img src="/img/tissue.png" >
+                                     </div>
+                                     <h3>COVER A COUGH OR SNEEZE</h3>
+                                     <p>use tissue when cough/ sneeze</p>
+
+                                      <div class ="dist">
+                                    <img src="/img/dist.png" >
+                                     </div>
+                                     <h3>KEEP YOUR DISTANCE</h3>
+                                     <p>Avoid close contact with poeple wwho are sick.</p>
+                                                                   
+                             </div>
+
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
 
         <!--modal-->
         <b-modal v-model="isModalActive" has-modal-card
@@ -315,6 +371,27 @@ export default {
         }
 
     }
-
+    .mask{
+        border-radius: 50%;
+         width:200px;
+    }
+  .hand{ 
+        border-radius: 50%;
+         width:200px;
+         
+    }
+    .touch{ 
+        border-radius: 50%;
+         width:200px;
+        
+    }
+    .tissue{ 
+        border-radius: 50%;
+         width:200px;
+      
+    }
+h3{
+    background-color: #80ced6;
+}
 
 </style>
