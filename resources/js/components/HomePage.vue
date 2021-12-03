@@ -30,7 +30,7 @@
                                 <a class="button is-primary" href="/sign-up">
                                     <strong>Sign up</strong>
                                 </a>
-                                <a class="button is-light">
+                                <a class="button is-light" @click="isModalActive = true">
                                     Log in
                                 </a>
                             </div>
@@ -138,12 +138,49 @@
                         </p>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
 
+        <!--modal-->
+        <b-modal v-model="isModalActive" has-modal-card
+                 trap-focus width="640" aria-role="dialog" aria-modal>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Login</p>
+                    <button type="button" class="delete"
+                            @click="isModalActive = false"/>
+                </header>
+
+                <section class="modal-card-body">
+                    <div>
+                        <b-field label="Username"
+                                 label-position="on-border"
+                                 :type="errors.username ? 'is-danger' : ''"
+                                 :message="errors.username ? errors.username[0] : ''">
+                            <b-input type="text" v-model="fields.username" placeholder="Username" expanded auto-focus></b-input>
+                        </b-field>
+
+                        <b-field label="Password" label-position="on-border"
+                                 :type="errors.password ? 'is-danger' : ''"
+                                 :message="errors.password ? errors.password[0] : ''">
+                            <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" expanded auto-focus></b-input>
+                        </b-field>
+                    </div>
+                </section>
+
+                <footer class="modal-card-foot">
+                    <b-button
+                        label="LOGIN"
+                        type="is-success"
+                        @click="login"></b-button>
+
+                    <b-button
+                        label="Close"
+                        @click="isModalActive=false"></b-button>
+                </footer>
+            </div>
+        </b-modal>
 
     </div> <!--root div-->
 </template>
@@ -153,7 +190,26 @@ export default {
     data(){
         return{
             locale: undefined,
+            isModalActive: false,
+            fields: {},
+            errors: {},
         }
+    },
+
+    methods: {
+        login: function(){
+            axios.post('/login', this.fields).then(res=>{
+                console.log(res.data);
+            }).catch(err => {
+                if(err.response.status === 422){
+                    this.errors = err.response.data.errors;
+                }
+            });
+        }
+    },
+
+    mounted() {
+
     }
 }
 </script>
