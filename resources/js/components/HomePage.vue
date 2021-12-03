@@ -42,10 +42,10 @@
             <!-- Hero content: will be in the middle -->
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <p class="title">
+                    <p class="title animate__animated animate__backInLeft">
                         GOV. ALFONSO D. TAN COLLEGE
                     </p>
-                    <p class="subtitle">
+                    <p class="subtitle animate__animated animate__backInRight ">
                         SCHOOL PASS
                     </p>
                 </div>
@@ -142,7 +142,7 @@
         </section>
 
         <section>
-            <div class ="covid"> 
+            <div class ="covid">
                 <div class="column">
                     <div class="column is-10 is-offset-1">
                         <div class="panel p-5">
@@ -151,19 +151,19 @@
                                 </div>
                                   <div class="panel p-2">
                               <div class="panel-subheading">
-                        
+
                                   Help prevent the prevent the spread of respiratory disease like COVID-19
                                 </div>
                                   </div>
-                                 <div class="panel-body"> 
+                                 <div class="panel-body">
                                      <h3>WEAR FACEMASK</h3>
                                 <p> Everyone must wear mask </p>
-                                
+
                                  <div class ="mask">
                                     <img src="/img/mask.png" >
 
                                     </div>
-                                    
+
                                      <div class ="hand">
                                     <img src="/img/hands.png" >
                                     <h3>WASH YOUR HANDS</h3>
@@ -174,7 +174,7 @@
 
                                     <div class ="touch">
                                     <img src="/img/touch.png" >
-                                    
+
                                     </div>
                                      <div class ="tissue">
                                     <img src="/img/tissue.png" >
@@ -187,7 +187,7 @@
                                      </div>
                                      <h3>KEEP YOUR DISTANCE</h3>
                                      <p>Avoid close contact with poeple wwho are sick.</p>
-                                                                   
+
                              </div>
 
                           </div>
@@ -271,21 +271,11 @@ export default {
 </script>
 
 <style scoped>
-    .navbar{
+    .logo{
         height: 80px;
     }
-    .navbar > .navbar-menu > .navbar-start > .navbar-item{
-        color: white;
-        font-weight: bold;
-        transition: 0.5s;
-    }
-    .navbar > .navbar-menu > .navbar-start > .navbar-item:hover{
-        background-color: transparent;
-        border-bottom: 3px solid blue;
-    }
-    .navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link:hover{
-        border-bottom: 3px solid blue;
-    }
+
+
 
 
     .hero{
@@ -359,7 +349,7 @@ export default {
         margin: 15px;
     }
 
-    @media only screen and (max-width: 940px) {
+    @media only screen and (max-width: 1024px) {
         .vision-section{
             flex-direction: column;
             align-items: center;
@@ -371,27 +361,29 @@ export default {
         }
 
     }
+
+
     .mask{
         border-radius: 50%;
          width:200px;
     }
-  .hand{ 
+
+    .hand{
         border-radius: 50%;
-         width:200px;
-         
+        width:200px;
+
     }
-    .touch{ 
+
+    .touch{
         border-radius: 50%;
-         width:200px;
-        
+        width:200px;
     }
-    .tissue{ 
+    .tissue{
         border-radius: 50%;
-         width:200px;
-      
+        width:200px;
     }
-h3{
-    background-color: #80ced6;
-}
+    h3{
+        background-color: #80ced6;
+    }
 
 </style>
