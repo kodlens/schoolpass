@@ -113,6 +113,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -18369,7 +18418,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n    height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n    color: white;\n    font-weight: bold;\n    transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n    background-color: transparent;\n    border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n    border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n    background-image: url(\"/img/bg-hero.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n    color: white;\n    font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n    color: white;\n    font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n    position: relative;\n    top: -50px;\n    z-index: 100;\n    padding: 15px;\n    background: white;\n    border-radius: 10px;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n    margin: auto;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.navbar[data-v-fa44bb0e]{\n    height: 80px;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]{\n    color: white;\n    font-weight: bold;\n    transition: 0.5s;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item[data-v-fa44bb0e]:hover{\n    background-color: transparent;\n    border-bottom: 3px solid blue;\n}\n.navbar > .navbar-menu > .navbar-start > .navbar-item > .navbar-link[data-v-fa44bb0e]:hover{\n    border-bottom: 3px solid blue;\n}\n.hero[data-v-fa44bb0e]{\n    background-image: url(\"/img/bg-hero.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n    color: white;\n    font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n    color: white;\n    font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n    position: relative;\n    top: -50px;\n    z-index: 100;\n    padding: 15px;\n    background: white;\n    border-radius: 10px;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n    margin: auto;\n}\n.mission-title[data-v-fa44bb0e]{\n    font-size: 1.5em;\n}\n.mission-wrapper[data-v-fa44bb0e]{\n    max-width: 640px;\n    font-size: 1.5em;\n    margin: auto;\n}\n.mission-section[data-v-fa44bb0e]{\n    display: flex;\n    justify-content: center;\n}\n.mission-img[data-v-fa44bb0e]{\n    margin: auto;\n}\n.mission-section > div[data-v-fa44bb0e]{\n    margin: 15px;\n}\n.vision-section[data-v-fa44bb0e]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: center;\n}\n.vision-title[data-v-fa44bb0e]{\n    font-size: 1.5em;\n}\n.vision-wrapper[data-v-fa44bb0e]{\n    max-width: 640px;\n    font-size: 1.5em;\n    margin: auto;\n}\n.vision-img[data-v-fa44bb0e]{\n    margin: auto;\n}\n.vision-section > div[data-v-fa44bb0e]{\n    margin: 15px;\n}\n@media only screen and (max-width: 940px) {\n.vision-section[data-v-fa44bb0e]{\n        flex-direction: column;\n        align-items: center;\n}\n.mission-section[data-v-fa44bb0e]{\n        flex-direction: column;\n        align-items: center;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19351,6 +19400,10 @@ var render = function () {
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
   ])
 }
 var staticRenderFns = [
@@ -19368,6 +19421,70 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "subtitle" }, [
           _vm._v("\n                        SCHOOL PASS\n                    "),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { staticClass: "mission-section" }, [
+        _c("div", { staticClass: "mission-wrapper" }, [
+          _c("div", { staticClass: "mission-title" }, [
+            _c("h2", [
+              _c("span", [_vm._v("“")]),
+              _vm._v(
+                "\n                            MISSION\n                            "
+              ),
+              _c("span", [_vm._v("“")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", { staticStyle: { "text-align": "justify" } }, [
+              _vm._v(
+                "\n                            To provide opportunities for continuing education for faculty and staff,\n                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.\n                        "
+              ),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mission-img" }, [
+          _c("img", { attrs: { src: "/img/gadtc.png" } }),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { staticClass: "vision-section" }, [
+        _c("div", { staticClass: "vision-img" }, [
+          _c("img", { attrs: { src: "/img/facilities.jpg" } }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "vision-wrapper" }, [
+          _c("div", { staticClass: "vision-title" }, [
+            _c("h2", [
+              _c("span", [_vm._v("“")]),
+              _vm._v(
+                "\n                            VISION\n                            "
+              ),
+              _c("span", [_vm._v("“")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", [
+              _vm._v(
+                "\n                            To provide opportunities for continuing education for faculty and staff,\n                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.\n                        "
+              ),
+            ]),
+          ]),
         ]),
       ]),
     ])

@@ -91,12 +91,61 @@
 
                 </div>
             </div>
+        </section>
+
+
+        <section>
+            <div class="mission-section">
+                <div class="mission-wrapper">
+                    <div class="mission-title">
+                        <h2>
+                            <span>&#8220;</span>
+                            MISSION
+                            <span>&#8220;</span>
+                        </h2>
+                    </div>
+                    <div>
+                        <p style="text-align: justify;">
+                            To provide opportunities for continuing education for faculty and staff,
+                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mission-img">
+                    <img src="/img/gadtc.png" />
+                </div>
+            </div> <!-- mission section -->
+        </section>
+
+        <section>
+            <div class="vision-section">
+                <div class="vision-img">
+                    <img src="/img/facilities.jpg">
+                </div>
+                <div class="vision-wrapper">
+                    <div class="vision-title">
+                        <h2>
+                            <span>&#8220;</span>
+                            VISION
+                            <span>&#8220;</span>
+                        </h2>
+                    </div>
+                    <div>
+                        <p>
+                            To provide opportunities for continuing education for faculty and staff,
+                            providing upgraded facilities for quality and research-based instruction to students towards community engagement and linkages to industry.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
 
         </section>
 
 
 
-    </div>
+    </div> <!--root div-->
 </template>
 
 <script>
@@ -157,6 +206,59 @@ export default {
         margin: auto;
     }
 
+
+    .mission-title{
+        font-size: 1.5em;
+    }
+    .mission-wrapper{
+        max-width: 640px;
+        font-size: 1.5em;
+        margin: auto;
+    }
+    .mission-section{
+        display: flex;
+        justify-content: center;
+    }
+    .mission-img{
+        margin: auto;
+    }
+    .mission-section > div{
+        margin: 15px;
+    }
+
+
+    .vision-section{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    .vision-title{
+        font-size: 1.5em;
+    }
+    .vision-wrapper{
+        max-width: 640px;
+        font-size: 1.5em;
+        margin: auto;
+    }
+    .vision-img{
+        margin: auto;
+    }
+    .vision-section > div{
+        margin: 15px;
+    }
+
+    @media only screen and (max-width: 940px) {
+        .vision-section{
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mission-section{
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
 
 
 </style>
