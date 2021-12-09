@@ -214,8 +214,8 @@
                 <div class = "columns">
 
                     <div class="column">
-                        <div class="footer-logo-wrapper">
-                            <img class="footer-logo" src="/img/gadtclogo.jpg">
+                        <div class="footertwo-logo-wrapper">
+                            <img class="footer-logo" src="/img/gadtclogo.png">
                         </div>
                          </div>
 
@@ -433,13 +433,17 @@ export default {
         border-radius: 50%;
         width:200px;
     }
+     .dist{
+        border-radius: 50%;
+        width:200px;
+    }
 
     .footertwo{
         background-color: whitesmoke;
         color: black;
     }
     .footertwo-logo{
-        height: 100px;
+        width: 150px;
         margin: auto;
     }
     .footertwo-logo-wrapper{
@@ -453,7 +457,7 @@ export default {
 }
 .flex-container > div {
 
-  margin: 10px;
+  margin: 20px;
   padding: 20px;
   font-size: 20px;
 }
