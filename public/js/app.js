@@ -2373,18 +2373,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -21900,46 +21888,6 @@ var render = function () {
       _vm._m(3),
       _vm._v(" "),
       _vm._m(4),
-      _vm._v(" "),
-      _c(
-        "section",
-        [
-          _c(
-            "b-carousel",
-            {
-              attrs: { "indicator-inside": false },
-              scopedSlots: _vm._u([
-                {
-                  key: "indicators",
-                  fn: function (props) {
-                    return [
-                      _c("b-image", {
-                        staticClass: "al image",
-                        attrs: { src: _vm.getImgUrl(props.i), title: props.i },
-                      }),
-                    ]
-                  },
-                },
-              ]),
-            },
-            _vm._l(6, function (item, i) {
-              return _c(
-                "b-carousel-item",
-                { key: i },
-                [
-                  _c("b-image", {
-                    staticClass: "image",
-                    attrs: { src: _vm.getImgUrl(i) },
-                  }),
-                ],
-                1
-              )
-            }),
-            1
-          ),
-        ],
-        1
-      ),
       _vm._v(" "),
       _c(
         "b-modal",
