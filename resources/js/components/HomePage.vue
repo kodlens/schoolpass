@@ -7,7 +7,7 @@
                 <b-navbar>
                     <template #brand>
                         <img class ="logo"
-                             src="/img/logo.png">
+                             src="/img/logogadtc.png">
                     </template>
 
 
@@ -167,9 +167,9 @@
 
                                     </div>
                                       <div class ="hand">
+                                          <img src="/img/hands.png" >
                                           <h3>WASH YOUR HANDS</h3>
                                     <p>Wash your hands frequently with soap and water</p>
-                                    <img src="/img/hands.png" >
                                     </div>
                                     <div class ="touch">
                                      <h3>DON'T TOUCH</h3>
@@ -239,14 +239,40 @@
                                     Maloro, Tangub City
                                     Misamis Occidental
                                     Philippines
-                                                                        </div>
+                            </div>
                         </div>
 
-                         </div>
+                    </div>
+                     <div class="column">
+                        <div class="p-5">
+                            <div class="footer-component-title">
+                                 Address
+                            </div>
+                             <div>
+                                    Juan Luna St.
+                                    Maloro, Tangub City
+                                    Misamis Occidental
+                                    Philippines
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
-        </section>
+        </section> 
+       <section>
+    <b-carousel :indicator-inside="false">
+        <b-carousel-item v-for="(item, i) in 6" :key="i">
+            <b-image class="image" :src="getImgUrl(i)"></b-image>
+        </b-carousel-item>
+        <template #indicators="props">
+            <b-image class="al image" :src="getImgUrl(props.i)" :title="props.i"></b-image>
+        </template>
+         </b-carousel>
+     </section>
+
+
 
 
         <!--modal-->
@@ -323,7 +349,7 @@ export default {
 
 <style scoped>
     .logo{
-        height: 80px;
+        height: 150px;
     }
 
 
@@ -441,24 +467,28 @@ export default {
     .footertwo{
         background-color: whitesmoke;
         color: black;
+        width: 100%;
+        margin: auto;
     }
     .footertwo-logo{
-        width: 150px;
+        width: 100px;
         margin: auto;
     }
     .footertwo-logo-wrapper{
         display: flex;
-        height: 100%;
+        height: 100px;
+         width: 100px;
         justify-content: center;
         align-items: center;
+        margin: auto;
     }.flex-container {
   display: flex;
   
 }
 .flex-container > div {
 
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   font-size: 20px;
 }
 

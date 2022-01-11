@@ -2359,6 +2359,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -20684,7 +20710,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-fa44bb0e]{\n        height: 80px;\n}\n.hero[data-v-fa44bb0e]{\n        background-image: url(\"/img/bg-hero.jpg\");\n        background-repeat: no-repeat;\n        background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n        color: white;\n        font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n        color: white;\n        font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n        position: relative;\n        top: -50px;\n        z-index: 100;\n        padding: 15px;\n        background: white;\n        border-radius: 10px;\n        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.mission-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.mission-section[data-v-fa44bb0e]{\n        display: flex;\n        justify-content: center;\n}\n.mission-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n.vision-section[data-v-fa44bb0e]{\n        margin-top: 50px;\n        display: flex;\n        justify-content: center;\n}\n.vision-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.vision-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.vision-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.vision-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n@media only screen and (max-width: 1024px) {\n.vision-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n.mission-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n}\n.mask[data-v-fa44bb0e]{\n        border-radius: 50%;\n         width:200px;\n}\n.hand[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.touch[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.tissue[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.dist[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.footertwo[data-v-fa44bb0e]{\n        background-color: whitesmoke;\n        color: black;\n}\n.footertwo-logo[data-v-fa44bb0e]{\n        width: 150px;\n        margin: auto;\n}\n.footertwo-logo-wrapper[data-v-fa44bb0e]{\n        display: flex;\n        height: 100%;\n        justify-content: center;\n        align-items: center;\n}.flex-container[data-v-fa44bb0e] {\n  display: flex;\n}\n.flex-container > div[data-v-fa44bb0e] {\n\n  margin: 20px;\n  padding: 20px;\n  font-size: 20px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-fa44bb0e]{\n        height: 150px;\n}\n.hero[data-v-fa44bb0e]{\n        background-image: url(\"/img/bg-hero.jpg\");\n        background-repeat: no-repeat;\n        background-size: cover;\n}\n.hero-body > .container > .title[data-v-fa44bb0e]{\n        color: white;\n        font-size: 3em;\n}\n.hero-body > .container > .subtitle[data-v-fa44bb0e]{\n        color: white;\n        font-size: 2em;\n}\n.time-container[data-v-fa44bb0e]{\n        position: relative;\n        top: -50px;\n        z-index: 100;\n        padding: 15px;\n        background: white;\n        border-radius: 10px;\n        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n.reserve-control[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.mission-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.mission-section[data-v-fa44bb0e]{\n        display: flex;\n        justify-content: center;\n}\n.mission-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.mission-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n.vision-section[data-v-fa44bb0e]{\n        margin-top: 50px;\n        display: flex;\n        justify-content: center;\n}\n.vision-title[data-v-fa44bb0e]{\n        font-size: 1.5em;\n}\n.vision-wrapper[data-v-fa44bb0e]{\n        max-width: 640px;\n        font-size: 1.5em;\n        margin: auto;\n}\n.vision-img[data-v-fa44bb0e]{\n        margin: auto;\n}\n.vision-section > div[data-v-fa44bb0e]{\n        margin: 15px;\n}\n@media only screen and (max-width: 1024px) {\n.vision-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n.mission-section[data-v-fa44bb0e]{\n            flex-direction: column;\n            align-items: center;\n}\n}\n.mask[data-v-fa44bb0e]{\n        border-radius: 50%;\n         width:200px;\n}\n.hand[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.touch[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.tissue[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.dist[data-v-fa44bb0e]{\n        border-radius: 50%;\n        width:200px;\n}\n.footertwo[data-v-fa44bb0e]{\n        background-color: whitesmoke;\n        color: black;\n        width: 100%;\n        margin: auto;\n}\n.footertwo-logo[data-v-fa44bb0e]{\n        width: 100px;\n        margin: auto;\n}\n.footertwo-logo-wrapper[data-v-fa44bb0e]{\n        display: flex;\n        height: 100px;\n         width: 100px;\n        justify-content: center;\n        align-items: center;\n        margin: auto;\n}.flex-container[data-v-fa44bb0e] {\n  display: flex;\n}\n.flex-container > div[data-v-fa44bb0e] {\n\n  margin: 10px;\n  padding: 10px;\n  font-size: 20px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21734,7 +21760,7 @@ var render = function () {
                     return [
                       _c("img", {
                         staticClass: "logo",
-                        attrs: { src: "/img/logo.png" },
+                        attrs: { src: "/img/logogadtc.png" },
                       }),
                     ]
                   },
@@ -21874,6 +21900,46 @@ var render = function () {
       _vm._m(3),
       _vm._v(" "),
       _vm._m(4),
+      _vm._v(" "),
+      _c(
+        "section",
+        [
+          _c(
+            "b-carousel",
+            {
+              attrs: { "indicator-inside": false },
+              scopedSlots: _vm._u([
+                {
+                  key: "indicators",
+                  fn: function (props) {
+                    return [
+                      _c("b-image", {
+                        staticClass: "al image",
+                        attrs: { src: _vm.getImgUrl(props.i), title: props.i },
+                      }),
+                    ]
+                  },
+                },
+              ]),
+            },
+            _vm._l(6, function (item, i) {
+              return _c(
+                "b-carousel-item",
+                { key: i },
+                [
+                  _c("b-image", {
+                    staticClass: "image",
+                    attrs: { src: _vm.getImgUrl(i) },
+                  }),
+                ],
+                1
+              )
+            }),
+            1
+          ),
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "b-modal",
@@ -22136,13 +22202,13 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "hand" }, [
+                    _c("img", { attrs: { src: "/img/hands.png" } }),
+                    _vm._v(" "),
                     _c("h3", [_vm._v("WASH YOUR HANDS")]),
                     _vm._v(" "),
                     _c("p", [
                       _vm._v("Wash your hands frequently with soap and water"),
                     ]),
-                    _vm._v(" "),
-                    _c("img", { attrs: { src: "/img/hands.png" } }),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "touch" }, [
@@ -22224,7 +22290,23 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("div", [
                 _vm._v(
-                  "\n                                    Juan Luna St.\n                                    Maloro, Tangub City\n                                    Misamis Occidental\n                                    Philippines\n                                                                        "
+                  "\n                                    Juan Luna St.\n                                    Maloro, Tangub City\n                                    Misamis Occidental\n                                    Philippines\n                            "
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "column" }, [
+            _c("div", { staticClass: "p-5" }, [
+              _c("div", { staticClass: "footer-component-title" }, [
+                _vm._v(
+                  "\n                                 Address\n                            "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _vm._v(
+                  "\n                                    Juan Luna St.\n                                    Maloro, Tangub City\n                                    Misamis Occidental\n                                    Philippines\n                            "
                 ),
               ]),
             ]),
