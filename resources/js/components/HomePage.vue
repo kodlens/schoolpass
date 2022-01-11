@@ -86,15 +86,13 @@
                                 </p>
                             </b-field>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
 
 
-        <section>
+        <section class="section">
             <div class="mission-section">
                 <div class="mission-wrapper">
                     <div class="mission-title">
@@ -118,7 +116,7 @@
             </div> <!-- mission section -->
         </section>
 
-        <section>
+        <section class="section">
             <div class="vision-section">
                 <div class="vision-img">
                     <img src="/img/facilities.jpg">
@@ -142,82 +140,85 @@
         </section>
 
         <section>
-            <div class ="covid">
-                <div class="column">
-                    <div class="column is-10 is-offset-1">
-                        <div class="panel p-5">
-                              <div class="panel-heading">
-                                COVID-19 SAFETY TIPS
-                                </div>
-                                  <div class="panel p-2">
-                              <div class="panel-subheading">
-
-                                  Help prevent the prevent the spread of respiratory disease like COVID-19
-                                </div>
-                                  </div>
-                                 <div class="panel-body">
-                                       
-
-                                     <div class="flex-container">
-                                 
-                                 <div class ="mask">
-                                      <h3>WEAR FACEMASK</h3>
-                                <p> Everyone must wear mask </p>
-                                    <img src="/img/mask.png" >
-
-                                    </div>
-                                      <div class ="hand">
-                                          <img src="/img/hands.png" >
-                                          <h3>WASH YOUR HANDS</h3>
-                                    <p>Wash your hands frequently with soap and water</p>
-                                    </div>
-                                    <div class ="touch">
-                                     <h3>DON'T TOUCH</h3>
-                                    <p> Do not touch your eyes with dirty hands</p>
-
-                                    
-                                    <img src="/img/touch.png" >
-
-                                    </div>
-                                     </div>
-  
-                                    
-
-                                   <div class="flex-container">
-                                   
-                                     <div class ="tissue">
-                                         <h3>COVER A COUGH OR SNEEZE</h3>
-                                     <p>use tissue when cough/ sneeze</p>
-                                    <img src="/img/tissue.png" >
-                                     </div>
-                                     
-
-                                      <div class ="dist">
-                                          <h3>KEEP YOUR DISTANCE</h3>
-                                     <p>Avoid close contact with poeple wwho are sick.</p>
-                                    <img src="/img/dist.png" >
-                                     </div>
-                                     
-                                   </div>
-
-                             </div>
-
-                          </div>
-                    </div>
-
+            <div style="background-color: #1d6530; padding: 30px; margin: 20px 0 20px 0; text-align: center;">
+                <div class="title" style="color: white;">
+                    COVID-19 SAFETY TIPS
+                </div>
+                <div class="subtitle" style="color: white;">
+                    Help prevent the prevent the spread of respiratory disease like COVID-19
                 </div>
             </div>
+            <div class="columns">
+                <div class="column is-10 is-offset-1">
+
+                    <div class="columns">
+
+                        <div class="column">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3 class="title">WEAR FACEMASK</h3>
+                                    <p> Everyone must wear mask </p>
+                                    <img src="/img/mask.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3 class="title">WASH YOUR HANDS</h3>
+                                    <p>Wash your hands frequently with soap and water</p>
+                                    <img src="/img/hands.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>DON'T TOUCH</h3>
+                                    <p> Do not touch your eyes with dirty hands</p>
+                                    <img src="/img/touch.png">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3>COVER A COUGH OR SNEEZE</h3>
+                                    <p>use tissue when cough/ sneeze</p>
+                                    <img src="/img/tissue.png">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h3 class="title">KEEP YOUR DISTANCE</h3>
+                                    <p>Avoid close contact with poeple wwho are sick.</p>
+                                    <img src="/img/dist.png" >
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </section>
+
+
         <section>
-            <div class ="footertwo">
-
+            <div class="footer" style="margin-top: 30px; background-color: #5a9669; color:white;">
                 <div class = "columns">
-
                     <div class="column">
                         <div class="footertwo-logo-wrapper">
                             <img class="footer-logo" src="/img/gadtclogo.png">
                         </div>
-                         </div>
+                    </div>
 
                     <div class = "column">
                         <div class="p-5">
@@ -235,13 +236,12 @@
                                  Address
                             </div>
                              <div>
-                                    Juan Luna St.
-                                    Maloro, Tangub City
-                                    Misamis Occidental
-                                    Philippines
+                                Juan Luna St.
+                                Maloro, Tangub City
+                                Misamis Occidental
+                                Philippines
                             </div>
                         </div>
-
                     </div>
                      <div class="column">
                         <div class="p-5">
@@ -249,10 +249,10 @@
                                  Address
                             </div>
                              <div>
-                                    Juan Luna St.
-                                    Maloro, Tangub City
-                                    Misamis Occidental
-                                    Philippines
+                                Juan Luna St.
+                                Maloro, Tangub City
+                                Misamis Occidental
+                                Philippines
                             </div>
                         </div>
 
@@ -260,7 +260,7 @@
 
                 </div>
             </div>
-        </section> 
+        </section>
 
 
         <!--modal-->
@@ -340,9 +340,6 @@ export default {
         height: 150px;
     }
 
-
-
-
     .hero{
         background-image: url("/img/bg-hero.jpg");
         background-repeat: no-repeat;
@@ -366,7 +363,6 @@ export default {
         background: white;
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
     }
 
     .reserve-control{
@@ -471,7 +467,7 @@ export default {
         margin: auto;
     }.flex-container {
   display: flex;
-  
+
 }
 .flex-container > div {
 
