@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
                 'barangay' => 'CANIANGAN',
                 'street' => 'P-6',
                 'email' => 'angel@dev.com',
+                'role' => 'ADMINISTRATOR',
                 'password' => Hash::make('a')
             ],
             [
@@ -42,6 +43,7 @@ class UserSeeder extends Seeder
                 'barangay' => 'SINUSZA',
                 'street' => 'P-SAMPLE',
                 'email' => 'riche@dev.com',
+                'role' => 'USER',
                 'password' => Hash::make('a')
             ]
         ];

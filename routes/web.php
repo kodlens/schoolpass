@@ -26,6 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sign-up', [App\Http\Controllers\SignUpController::class, 'index']);
 
 
+Route::resource('/dashboard', App\Http\Controllers\Administrator\AdminDashboardController::class);
+
+
 Route::get('/session', function(){
     return Session::all();
 });

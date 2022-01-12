@@ -1,25 +1,28 @@
 <template>
     <div class="login-wrapper">
         <div class="login">
-            <div class="panel">
-                <div class="panel-heading">
-                    SECURITY CHECK
-                </div>
+            <form @submit.prevent="submit">
+                <div class="panel">
+                    <div class="panel-heading">
+                        SECURITY CHECK
+                    </div>
 
-                <div class="panel-body">
-                    <b-field label="Email" label-position="on-border">
-                        <b-input type="text" v-model="fields.email" placeholder="Email" />
-                    </b-field>
+                    <div class="panel-body">
+                        <b-field label="Email" label-position="on-border">
+                            <b-input type="text" v-model="fields.username" placeholder="Email" />
+                        </b-field>
 
-                    <b-field label="Password" label-position="on-border">
-                        <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" />
-                    </b-field>
+                        <b-field label="Password" label-position="on-border">
+                            <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" />
+                        </b-field>
 
-                    <div class="buttons">
-                        <b-button type="is-success">LOGIN</b-button>
+                        <div class="buttons">
+                            <b-button type="is-success">LOGIN</b-button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
         </div>
     </div>
 </template>
@@ -30,14 +33,18 @@ export default {
     data(){
         return {
             fields: {
-                email: '',
+                username: '',
                 password: '',
             },
         }
     },
 
     methods: {
-
+        submit: function(){
+            axios.post('/login').then(()=>{
+                window.location = '/dashboard';
+            })
+        }
     }
 }
 </script>

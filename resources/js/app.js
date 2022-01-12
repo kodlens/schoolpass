@@ -28,7 +28,7 @@ import Buefy from 'buefy'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('navbar-component', require('./components/NavbarComponent.vue').default);
+Vue.component('navbar-component', require('./components/Administrator/NavbarComponent.vue').default);
 Vue.component('home-page', require('./components/HomePage.vue').default);
 Vue.component('register-components', require('./components/RegisterComponents.vue').default);
 
