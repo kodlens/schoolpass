@@ -77,7 +77,7 @@
 
         <navbar-component></navbar-component>
 
-    <div class="content">
+    <div>
         @yield('content')
     </div>
 

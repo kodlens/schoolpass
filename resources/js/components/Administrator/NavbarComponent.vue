@@ -104,8 +104,6 @@ export default {
         flex-direction: column;
     }
 
-
-
     .mynav{
         padding: 25px;
         border-bottom: 2px solid rgba(22, 69, 28, 0.53);

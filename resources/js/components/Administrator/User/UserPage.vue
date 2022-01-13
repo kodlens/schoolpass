@@ -1,93 +1,98 @@
 <template>
     <div>
-        <section class="section">
-            <div class="columns">
-                <div class="column is-10 is-offset-1">
-                    <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF USER</div>
+        <div class="section">
+            <div class="panel">
+                <div class="columns">
+                    <div class="column is-10 is-offset-1">
+                        <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF USER</div>
 
-                    <div class="level">
-                        <div class="level-left">
-                            <b-field label="Page">
-                                <b-select v-model="perPage" @input="setPerPage">
-                                    <option value="5">5 per page</option>
-                                    <option value="10">10 per page</option>
-                                    <option value="15">15 per page</option>
-                                    <option value="20">20 per page</option>
-                                </b-select>
-                                <b-select v-model="sortOrder" @input="loadAsyncData">
-                                    <option value="asc">ASC</option>
-                                    <option value="desc">DESC</option>
+                        <div class="level">
+                            <div class="level-left">
+                                <b-field label="Page">
+                                    <b-select v-model="perPage" @input="setPerPage">
+                                        <option value="5">5 per page</option>
+                                        <option value="10">10 per page</option>
+                                        <option value="15">15 per page</option>
+                                        <option value="20">20 per page</option>
+                                    </b-select>
+                                    <b-select v-model="sortOrder" @input="loadAsyncData">
+                                        <option value="asc">ASC</option>
+                                        <option value="desc">DESC</option>
 
-                                </b-select>
-                            </b-field>
-                        </div>
-
-                        <div class="level-right">
-                            <div class="level-item">
-                                <b-field label="Search">
-                                    <b-input type="text"
-                                        v-model="search.lname" placeholder="Search Lastname"
-                                        @keyup.native.enter="loadAsyncData"/>
-                                    <p class="control">
-                                        <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
-                                    </p>
+                                    </b-select>
                                 </b-field>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="buttons mt-3">
-                        <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success"></b-button>
-                    </div>
-
-                    <b-table
-                        :data="data"
-                        :loading="loading"
-                        paginated
-                        pagination-position="bottom"
-                        backend-pagination
-                        :total="total"
-                        :per-page="perPage"
-                        @page-change="onPageChange"
-                        aria-next-label="Next page"
-                        aria-previous-label="Previous page"
-                        aria-page-label="Page"
-                        aria-current-label="Current page"
-                        backend-sorting
-                        :default-sort-direction="defaultSortDirection"
-                        @sort="onSort">
-
-                        <b-table-column field="user_id" label="ID" v-slot="props">
-                            {{ props.row.user_id }}
-                        </b-table-column>
-
-                        <b-table-column field="username" label="Username" v-slot="props">
-                            {{ props.row.username }}
-                        </b-table-column>
-
-                        <b-table-column field="name" label="Name" v-slot="props">
-                            {{ props.row.lname }}, {{ props.row.fname }} {{ props.row.mname }}
-                        </b-table-column>
-
-                        <b-table-column field="email" label="Email" v-slot="props">
-                            {{ props.row.email }}
-                        </b-table-column>
-
-                        <b-table-column field="role" label="Role" v-slot="props">
-                            {{ props.row.role }}
-                        </b-table-column>
-
-                        <b-table-column label="Action" v-slot="props">
-                            <div class="is-flex">
-                                <b-button outlined class="button is-small is-warning mr-1" tag="a" icon-right="pencil" @click="getData(props.row.user_id)">EDIT</b-button>
-                                <b-button outlined class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.user_id)">DELETE</b-button>
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <b-field label="Search">
+                                        <b-input type="text"
+                                                 v-model="search.lname" placeholder="Search Lastname"
+                                                 @keyup.native.enter="loadAsyncData"/>
+                                        <p class="control">
+                                            <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
+                                        </p>
+                                    </b-field>
+                                </div>
                             </div>
-                        </b-table-column>
-                    </b-table>
+                        </div>
 
-                </div><!--close column-->
+                        <div class="buttons mt-3 is-right">
+                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
+                        </div>
+
+                        <b-table
+                            :data="data"
+                            :loading="loading"
+                            paginated
+                            backend-pagination
+                            :total="total"
+                            :per-page="perPage"
+                            @page-change="onPageChange"
+                            aria-next-label="Next page"
+                            aria-previous-label="Previous page"
+                            aria-page-label="Page"
+                            aria-current-label="Current page"
+                            backend-sorting
+                            :default-sort-direction="defaultSortDirection"
+                            @sort="onSort">
+
+                            <b-table-column field="user_id" label="ID" v-slot="props">
+                                {{ props.row.user_id }}
+                            </b-table-column>
+
+                            <b-table-column field="username" label="Username" v-slot="props">
+                                {{ props.row.username }}
+                            </b-table-column>
+
+                            <b-table-column field="name" label="Name" v-slot="props">
+                                {{ props.row.lname }}, {{ props.row.fname }} {{ props.row.mname }}
+                            </b-table-column>
+
+                            <b-table-column field="sex" label="Sex" v-slot="props">
+                                {{ props.row.sex }}
+                            </b-table-column>
+
+                            <b-table-column field="email" label="Email" v-slot="props">
+                                {{ props.row.email }}
+                            </b-table-column>
+
+                            <b-table-column field="role" label="Role" v-slot="props">
+                                {{ props.row.role }}
+                            </b-table-column>
+
+                            <b-table-column label="Action" v-slot="props">
+                                <div class="is-flex">
+                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="pencil" @click="getData(props.row.user_id)"></b-button>
+                                    <b-button class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.user_id)"></b-button>
+                                </div>
+                            </b-table-column>
+                        </b-table>
+                    </div><!--close column-->
+                </div>
+
             </div>
-        </section>
+        </div><!--section div-->
 
 
 
@@ -177,7 +182,7 @@
                                     </b-field>
                                 </div>
                             </div>
-                            <div class="columns">
+                            <div class="columns" v-if="global_id < 1">
                                 <div class="column">
                                     <b-field label="Password" label-position="on-border"
                                              :type="this.errors.password ? 'is-danger':''"
@@ -414,12 +419,17 @@ export default{
             if(this.global_id > 0){
                 //update
                 axios.put('/users/'+this.global_id, this.fields).then(res=>{
-                    if(res.data === 'updated'){
+                    if(res.data.status === 'updated'){
                         this.$buefy.dialog.confirm({
                             title: 'UPDATED!',
                             message: 'Successfully updated.',
                             type: 'is-success',
-                            onConfirm: ()=> this.loadAsyncData()
+                            onConfirm: () => {
+                                this.loadAsyncData();
+                                this.clearFields();
+                                this.global_id = 0;
+                                this.isModalCreate = false;
+                            }
                         })
                     }
                 }).catch(err=>{
@@ -485,6 +495,30 @@ export default{
                     sex : '', role: '',  email : '', contact_no : '',
                     province: '', city: '', barangay: '', street: ''
             };
+        },
+
+
+        //update code here
+        getData: function(data_id){
+            this.clearFields();
+            this.global_id = data_id;
+            this.isModalCreate = true;
+
+
+            //nested axios for getting the address 1 by 1 or request by request
+            axios.get('/users/'+data_id).then(res=>{
+                this.fields = res.data;
+                let tempData = res.data;
+                //load city first
+                axios.get('/load-cities?prov=' + this.fields.province).then(res=>{
+                    //load barangay
+                    this.cities = res.data;
+                    axios.get('/load-barangays?prov=' + this.fields.province + '&city_code='+this.fields.city).then(res=>{
+                        this.barangays = res.data;
+                        this.fields = tempData;
+                    });
+                });
+            });
         }
 
 
@@ -496,3 +530,11 @@ export default{
     }
 }
 </script>
+
+
+<style>
+    .panel{
+        padding: 25px;
+    }
+
+</style>

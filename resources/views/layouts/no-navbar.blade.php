@@ -22,7 +22,7 @@
 <body>
     <div id="app">
 
-        <div class="content">
+        <div>
             @yield('content')
         </div>
 
