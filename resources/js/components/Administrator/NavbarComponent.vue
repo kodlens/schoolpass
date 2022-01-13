@@ -1,12 +1,12 @@
 <template>
     <div>
-        <nav class="mynav">
+        <div class="mynav">
             <div class="burger-button" @click="open = true">
                 <div class="burger-div"></div>
                 <div class="burger-div"></div>
                 <div class="burger-div"></div>
             </div>
-        </nav>
+        </div>
 
         <section>
             <b-sidebar
@@ -21,13 +21,13 @@
                     <h3 class="title is-4">ADMINISTRATOR</h3>
                     <b-menu>
                         <b-menu-list label="Menu">
-                            <b-menu-item icon="information-outline" label="Info"></b-menu-item>
+                            <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard"></b-menu-item>
                             <b-menu-item icon="settings">
                                 <template #label="props">
                                     Administrator
                                     <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
                                 </template>
-                                <b-menu-item icon="account" label="Users"></b-menu-item>
+                                <b-menu-item icon="account" tag="a" href="/users" label="Users"></b-menu-item>
                                 <b-menu-item icon="cellphone-link">
                                     <template #label>
                                         Devices
@@ -43,13 +43,13 @@
                                 </b-menu-item>
                                 <b-menu-item icon="cash-multiple" label="Payments" disabled></b-menu-item>
                             </b-menu-item>
-                            <b-menu-item icon="account" label="My Account">
-                                <b-menu-item label="Account data"></b-menu-item>
-                                <b-menu-item label="Addresses"></b-menu-item>
+                            <b-menu-item icon="account" label="User Account">
+                                <b-menu-item label="Users Account"></b-menu-item>
+                                <b-menu-item label="My Account"></b-menu-item>
                             </b-menu-item>
                         </b-menu-list>
                         <b-menu-list>
-                            <b-menu-item label="Expo" icon="link" tag="router-link" target="_blank" to="/expo"></b-menu-item>
+                            <b-menu-item label="Expo" icon="link" target="_blank" to="/expo"></b-menu-item>
                         </b-menu-list>
                         <b-menu-list label="Actions">
                             <b-menu-item @click="logout" label="Logout"></b-menu-item>
@@ -91,10 +91,10 @@ export default {
     }
 
     .burger-div{
-        width: 40px;
-        height: 5px;
-        background-color: #0a0a0a;
-        margin: 0 0 5px 0;
+        width: 20px;
+        height: 3px;
+        background-color: #696969;
+        margin: 0 0 3px 0;
         margin-left: auto;
         border-radius: 10px;
     }

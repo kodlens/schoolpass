@@ -13,7 +13,7 @@
 
 
 //font awesome
-@import '~font-awesome/css/font-awesome.css';
+//@import '~font-awesome/css/font-awesome.css';
 //npm i font-awesome
 //https://fontawesome.com/v4.7.0/
 
@@ -31,13 +31,13 @@ html{
 
 
 
-@import '~animate.css/animate';
+//@import '~animate.css/animate';
 //npm install animate.css --save
 
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+//@import "~bulma/sass/utilities/_all";
 
-// Set your colors
+//Set your colors
 $primary: hsl(136, 55%, 28%);
 $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
@@ -50,68 +50,68 @@ $custom-colors: null !default;
 $custom-shades: null !default;
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
-$colors: mergeColorMaps(
-        (
-            "white": (
-                $white,
-                $black,
+    $colors: mergeColorMaps(
+            (
+                "white": (
+                    $white,
+                    $black,
+                ),
+                "black": (
+                    $black,
+                    $white,
+                ),
+                "light": (
+                    $light,
+                    $light-invert,
+                ),
+                "dark": (
+                    $dark,
+                    $dark-invert,
+                ),
+                "primary": (
+                    $primary,
+                    $primary-invert,
+                    $primary-light,
+                    $primary-dark,
+                ),
+                "link": (
+                    $link,
+                    $link-invert,
+                    $link-light,
+                    $link-dark,
+                ),
+                "info": (
+                    $info,
+                    $info-invert,
+                    $info-light,
+                    $info-dark,
+                ),
+                "success": (
+                    $success,
+                    $success-invert,
+                    $success-light,
+                    $success-dark,
+                ),
+                "warning": (
+                    $warning,
+                    $warning-invert,
+                    $warning-light,
+                    $warning-dark,
+                ),
+                "danger": (
+                    $danger,
+                    $danger-invert,
+                    $danger-light,
+                    $danger-dark,
+                ),
             ),
-            "black": (
-                $black,
-                $white,
-            ),
-            "light": (
-                $light,
-                $light-invert,
-            ),
-            "dark": (
-                $dark,
-                $dark-invert,
-            ),
-            "primary": (
-                $primary,
-                $primary-invert,
-                $primary-light,
-                $primary-dark,
-            ),
-            "link": (
-                $link,
-                $link-invert,
-                $link-light,
-                $link-dark,
-            ),
-            "info": (
-                $info,
-                $info-invert,
-                $info-light,
-                $info-dark,
-            ),
-            "success": (
-                $success,
-                $success-invert,
-                $success-light,
-                $success-dark,
-            ),
-            "warning": (
-                $warning,
-                $warning-invert,
-                $warning-light,
-                $warning-dark,
-            ),
-            "danger": (
-                $danger,
-                $danger-invert,
-                $danger-light,
-                $danger-dark,
-            ),
-        ),
-        $custom-colors
-);
+            $custom-colors
+    );
 
 // Links
-//$link: $primary;
-//$link-invert: $primary-invert;
-//$link-focus-border: $primary;
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
 
 
 //navbar
@@ -144,16 +144,16 @@ $colors: mergeColorMaps(
 
 
 // Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
-
-// Import only what you need from Bulma
-@import "~bulma/sass/utilities/_all.sass";
-@import "~bulma/sass/base/_all.sass";
-@import "~bulma/sass/elements/button.sass";
-@import "~bulma/sass/elements/container.sass";
-@import "~bulma/sass/elements/title.sass";
-@import "~bulma/sass/form/_all.sass";
-@import "~bulma/sass/components/navbar.sass";
-@import "~bulma/sass/layout/hero.sass";
-@import "~bulma/sass/layout/section.sass";
+//@import "~bulma";
+//@import "~buefy/src/scss/buefy";
+//
+//// Import only what you need from Bulma
+//@import "~bulma/sass/utilities/_all.sass";
+//@import "~bulma/sass/base/_all.sass";
+//@import "~bulma/sass/elements/button.sass";
+//@import "~bulma/sass/elements/container.sass";
+//@import "~bulma/sass/elements/title.sass";
+//@import "~bulma/sass/form/_all.sass";
+//@import "~bulma/sass/components/navbar.sass";
+//@import "~bulma/sass/layout/hero.sass";
+//@import "~bulma/sass/layout/section.sass";

@@ -182,8 +182,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="column">
+                    <div class="columns">
+                        <div class="column is-4">
                             <div class="panel">
                                 <div class="panel-body">
                                     <h3>COVER A COUGH OR SNEEZE</h3>
@@ -193,7 +195,7 @@
                             </div>
                         </div>
 
-                        <div class="column">
+                        <div class="column is-4">
                             <div class="panel">
                                 <div class="panel-body">
                                     <h3 class="title">KEEP YOUR DISTANCE</h3>
@@ -203,7 +205,6 @@
 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -273,31 +274,34 @@
 
                 <section class="modal-card-body">
                     <div>
-                        <b-field label="Username"
+                        <form @submit.prevent="submit">
+                            <b-field label="Username"
                                  label-position="on-border"
                                  :type="errors.username ? 'is-danger' : ''"
                                  :message="errors.username ? errors.username[0] : ''">
                             <b-input type="text" v-model="fields.username" placeholder="Username" expanded auto-focus></b-input>
-                        </b-field>
+                            </b-field>
 
-                        <b-field label="Password" label-position="on-border"
-                                 :type="errors.password ? 'is-danger' : ''"
-                                 :message="errors.password ? errors.password[0] : ''">
-                            <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" expanded auto-focus></b-input>
-                        </b-field>
+                            <b-field label="Password" label-position="on-border"
+                                    :type="errors.password ? 'is-danger' : ''"
+                                    :message="errors.password ? errors.password[0] : ''">
+                                <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" expanded auto-focus></b-input>
+                            </b-field>
+
+                            <footer class="modal-card-foot">
+                                <button
+                                    class="button is-success"
+                                    label="LOGIN"
+                                    type="is-success">LOGIN</button>
+
+                                <b-button
+                                    label="Close"
+                                    @click="isModalActive=false"></b-button>
+                            </footer>
+                        </form>
                     </div>
                 </section>
 
-                <footer class="modal-card-foot">
-                    <b-button
-                        label="LOGIN"
-                        type="is-success"
-                        @click="login"></b-button>
-
-                    <b-button
-                        label="Close"
-                        @click="isModalActive=false"></b-button>
-                </footer>
             </div>
         </b-modal>
 
@@ -316,9 +320,11 @@ export default {
     },
 
     methods: {
-        login: function(){
+        submit: function(){
+           
             axios.post('/login', this.fields).then(res=>{
                 console.log(res.data);
+                window.location = '/dashboard'
             }).catch(err => {
                 if(err.response.status === 422){
                     this.errors = err.response.data.errors;
