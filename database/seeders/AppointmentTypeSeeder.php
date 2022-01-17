@@ -16,11 +16,17 @@ class AppointmentTypeSeeder extends Seeder
         //
         $data = [
             [
-                'appointment' => 'AA1234'
+                'appointment_type' => '(REGISTRAR) GRADE INQUIRY'
             ],
             [
-                'appointment' => 'AA1234'
-            ]
+                'appointment_type' => '(OSA) CLAIM UNIFORM'
+            ],
+            [
+                'appointment_type' => '(ACCOUNTING) PAYMENT'
+            ],
+            [
+                'appointment_type' => '(REGISTRAR) EVALUATION'
+            ],
         ];
 
         \App\Models\AppointmentType::insertOrIgnore($data);

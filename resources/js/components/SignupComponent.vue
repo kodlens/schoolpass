@@ -1,16 +1,13 @@
 <template>
-    <section>
-
-
+    <section class="section">
         <div class="columns">
             <div class="column is-8 is-offset-2">
-                <div class="panel header-color">
+                <div class="panel">
                     <div class="panel-heading">
                         REGISTER HERE
                     </div>
 
                     <div class="panel-body">
-
                         <div class="columns">
                             <div class="column">
                                 <b-field label="Username">
@@ -111,9 +108,9 @@
 
 
 
-<style scope>
+<style>
     .panel-body{
-        padding: 25px;
+        /*padding: 25px;*/
     }
 
     .panel > .panel-heading{

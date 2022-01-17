@@ -10,7 +10,6 @@
                              src="/img/logogadtc.png">
                     </template>
 
-
                     <template #start>
                         <b-navbar-item href="/">
                             Home
@@ -72,8 +71,8 @@
             <div class="columns">
                 <div class="column is-6 is-offset-3">
                     <div class="time-container">
-
                         <div class="reserve-control p-2">
+                            <h1 class="title is-4 mb-4">APPOINT NOW</h1>
                             <b-field label="SELECT DATE" grouped  expanded class="is-centered" label-position="on-border">
                                 <b-datetimepicker rounded expanded
                                       placeholder="Type or select a date..."
@@ -81,10 +80,15 @@
                                       :locale="locale"
                                       editable>
                                 </b-datetimepicker>
-                                <p class="control">
-                                    <b-button class="button is-primary is-rounded">APPOINT NOW</b-button>
-                                </p>
                             </b-field>
+                            <b-field label="APPOINTMENT" expanded label-position="on-border">
+                                <b-select v-model="appointment_type" expanded rounded>
+                                    <option v-for="(item, index) in appointmentTypes" :key="index" :value="item.appointment_type_id">{{ item.appointment_type }}</option>
+                                </b-select>
+                            </b-field>
+                            <div class="buttons is-right">
+                                <b-button class="button is-primary is-rounded">APPOINT NOW</b-button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -316,25 +320,35 @@ export default {
             isModalActive: false,
             fields: {},
             errors: {},
+
+            appointment_type: '',
+
+            appointmentTypes: [],
         }
     },
 
     methods: {
         submit: function(){
-           
+
             axios.post('/login', this.fields).then(res=>{
-                console.log(res.data);
                 window.location = '/dashboard'
             }).catch(err => {
                 if(err.response.status === 422){
                     this.errors = err.response.data.errors;
                 }
             });
+        },
+
+        loadAppointmentType(){
+            axios.get('/get-open-appointment-types')
+            .then(res=>{
+                this.appointmentTypes = res.data;
+            });
         }
     },
 
     mounted() {
-
+        this.loadAppointmentType();
     }
 }
 </script>
@@ -361,8 +375,8 @@ export default {
 
     .time-container{
         position: relative;
-        top: -50px;
-        z-index: 100;
+        top: -100px;
+        z-index: 1;
         padding: 15px;
         background: white;
         border-radius: 10px;

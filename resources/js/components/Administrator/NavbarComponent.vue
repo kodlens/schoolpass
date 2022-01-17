@@ -44,13 +44,19 @@
                                 <b-menu-item icon="cash-multiple" label="Payments" disabled></b-menu-item>
                             </b-menu-item>
                             <b-menu-item icon="account" label="User Account">
-                                <b-menu-item label="Users Account"></b-menu-item>
+                                <b-menu-item label="Users Account" tag="a" href="/users"></b-menu-item>
                                 <b-menu-item label="My Account"></b-menu-item>
                             </b-menu-item>
                         </b-menu-list>
+
+                        <b-menu-list>
+                            <b-menu-item label="Appointment Type" icon="link" target="a" href="/appointment-type"></b-menu-item>
+                        </b-menu-list>
+
                         <b-menu-list>
                             <b-menu-item label="Expo" icon="link" target="_blank" to="/expo"></b-menu-item>
                         </b-menu-list>
+
                         <b-menu-list label="Actions">
                             <b-menu-item @click="logout" label="Logout"></b-menu-item>
                         </b-menu-list>

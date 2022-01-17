@@ -15,7 +15,7 @@ class CreateAppointmentTypesTable extends Migration
     {
         Schema::create('appointment_types', function (Blueprint $table) {
             $table->id('appointment_type_id');
-            $table->string('appointment');
+            $table->string('appointment_type');
             $table->timestamps();
         });
     }

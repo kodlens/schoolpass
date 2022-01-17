@@ -47,6 +47,22 @@ class UserSeeder extends Seeder
                 'contact_no' => '09167789584',
                 'role' => 'USER',
                 'password' => Hash::make('a')
+            ],
+            [
+                'qr_ref' => 'AAA111',
+                'username' => 'admin',
+                'lname' => 'AMPARADO',
+                'fname' => 'ETIENNE WAYNE',
+                'mname' => '',
+                'sex' => 'MALE',
+                'province' => 'MISMAIS OCCIDENTAL',
+                'city' => 'OZAMIS CITY',
+                'barangay' => 'SINUSZA',
+                'street' => 'P-SAMPLE',
+                'email' => 'admin@dev.com',
+                'contact_no' => '09167789584',
+                'role' => 'ADMINISTRATOR',
+                'password' => Hash::make('a')
             ]
         ];
 

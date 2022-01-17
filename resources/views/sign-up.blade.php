@@ -2,6 +2,6 @@
 
 @section('content')
 
-<register-components></register-components>
+<signup-component></signup-component>
 
 @endsection

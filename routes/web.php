@@ -26,16 +26,26 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sign-up', [App\Http\Controllers\SignUpController::class, 'index']);
 
 
-Route::resource('/dashboard', App\Http\Controllers\Administrator\AdminDashboardController::class);
-
-Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
-Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::class, 'getUsers']);
 
 
 //ADDRESS
 Route::get('/load-provinces', [App\Http\Controllers\AddressController::class, 'loadProvinces']);
 Route::get('/load-cities', [App\Http\Controllers\AddressController::class, 'loadCities']);
 Route::get('/load-barangays', [App\Http\Controllers\AddressController::class, 'loadBarangays']);
+
+
+
+
+//ADMINSITRATOR
+Route::resource('/dashboard', App\Http\Controllers\Administrator\AdminDashboardController::class);
+
+Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
+Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::class, 'getUsers']);
+
+Route::resource('/appointment-type', App\Http\Controllers\Administrator\AppointmentTypeController::class);
+Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
+Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
+
 
 
 

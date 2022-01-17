@@ -29,7 +29,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 //Vue.component('navbar-component', require('./components/Administrator/NavbarComponent.vue').default);
 //Vue.component('home-page', require('./components/HomePage.vue').default);
-//Vue.component('register-components', require('./components/RegisterComponents.vue').default);
+//Vue.component('register-components', require('./components/SignupComponent.vue').default);
 
 
 //USER

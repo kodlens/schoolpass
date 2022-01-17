@@ -13,4 +13,6 @@ class AppointmentType extends Model
 
     protected $primaryKey = 'appointment_type_id';
 
+    protected $fillable = ['appointment_type'];
+
 }
