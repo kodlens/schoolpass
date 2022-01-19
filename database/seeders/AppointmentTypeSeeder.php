@@ -16,16 +16,28 @@ class AppointmentTypeSeeder extends Seeder
         //
         $data = [
             [
-                'appointment_type' => '(REGISTRAR) GRADE INQUIRY'
+                'appointment_type' => 'GRADE INQUIRY (REGISTRAR)',
+                'cc_time' => 15,
+                'temp_sum' => 0,
+                'user_id' => 4
             ],
             [
-                'appointment_type' => '(OSA) CLAIM UNIFORM'
+                'appointment_type' => 'CLAIM UNIFORM (OSA)',
+                'cc_time' => 15,
+                'temp_sum' => 0,
+                'user_id' => 5
             ],
             [
-                'appointment_type' => '(ACCOUNTING) PAYMENT'
+                'appointment_type' => 'PAYMENT (ACCOUNTING)',
+                'cc_time' => 15,
+                'temp_sum' => 0,
+                'user_id' => 6
             ],
             [
-                'appointment_type' => '(REGISTRAR) EVALUATION'
+                'appointment_type' => 'EVALUATION (REGISTRAR)',
+                'cc_time' => 15,
+                'temp_sum' => 0,
+                'user_id' => 4
             ],
         ];
 

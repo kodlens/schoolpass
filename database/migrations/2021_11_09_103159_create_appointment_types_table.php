@@ -16,6 +16,11 @@ class CreateAppointmentTypesTable extends Migration
         Schema::create('appointment_types', function (Blueprint $table) {
             $table->id('appointment_type_id');
             $table->string('appointment_type');
+            $table->integer('cc_time')->default(0);
+            $table->integer('temp_sum')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->tinyInteger('is_auto_approved');
             $table->timestamps();
         });
     }
