@@ -1,12 +1,3 @@
-/*
-SQLyog Ultimate v12.14 (64 bit)
-MySQL - 10.4.13-MariaDB : Database - brgy_info_system
-*********************************************************************
-*/
-
-/*!40101 SET NAMES utf8 */;schoolpass
-
-/*!40101 SET SQL_MODE=''*/;
 
 
 DROP TABLE IF EXISTS `barangays`;
@@ -43832,7 +43823,4 @@ insert  into `provinces`(`id`,`psgcCode`,`provDesc`,`regCode`,`provCode`,`active
 (87,'166800000','SURIGAO DEL SUR','16','1668',0),
 (88,'168500000','DINAGAT ISLANDS','16','1685',0);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
