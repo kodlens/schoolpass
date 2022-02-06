@@ -41,8 +41,9 @@ export default {
 
     methods: {
         submit: function(){
-            axios.post('/login').then(()=>{
-                window.location = '/dashboard';
+            axios.post('/login').then(res=>{
+                console.log(res.data)
+               // window.location = '/dashboard';
             })
         }
     }

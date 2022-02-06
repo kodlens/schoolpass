@@ -18,7 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([
+    'login' => 'false'
+]);
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
 Route::get('/sample',[App\Http\Controllers\SampleController::class,'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -42,7 +47,7 @@ Route::get('/load-barangays', [App\Http\Controllers\AddressController::class, 'l
 
 
 //ADMINSITRATOR
-Route::resource('/dashboard', App\Http\Controllers\Administrator\AdminDashboardController::class);
+Route::resource('/dashboard-admin', App\Http\Controllers\Administrator\AdminDashboardController::class);
 
 Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
 Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::class, 'getUsers']);
@@ -52,6 +57,9 @@ Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\Appoint
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
 
 
+//USER
+Route::resource('/dashboard-user', App\Http\Controllers\User\DashboardUserController::class);
+Route::get('/get-user', [App\Http\Controllers\User\DashboardUserController::class, 'getUser']);
 
 
 Route::get('/session', function(){

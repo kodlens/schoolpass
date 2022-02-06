@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+//use App\Providers\RouteServiceProvider;
+//use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,14 +21,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    //use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -38,7 +40,37 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username(){
-        return 'username';
+//    public function showLoginForm (){
+//        return view('auth.login');
+//    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return Auth::user();
+            // return redirect()->intended('dashboard');
+        }
+        return response()->json([
+            'errors' => [
+                'username' => 'Username and password error. Access denied.'
+            ]
+        ], 422);
     }
+
+    public function logout(Request $req){
+        Auth::logout();
+        $req->session()->invalidate();
+
+        $req->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
 }

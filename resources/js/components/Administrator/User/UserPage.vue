@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="section">
-            <div class="panel">
-                <div class="columns">
-                    <div class="column is-10 is-offset-1">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="box">
+
                         <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF USER</div>
 
                         <div class="level">
@@ -35,10 +36,6 @@
                                     </b-field>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="buttons mt-3 is-right">
-                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
                         </div>
 
                         <b-table
@@ -88,10 +85,14 @@
                                 </div>
                             </b-table-column>
                         </b-table>
-                    </div><!--close column-->
-                </div>
 
-            </div>
+                        <div class="buttons mt-3">
+                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
+                        </div>
+
+                    </div>
+                </div><!--col -->
+            </div><!-- cols -->
         </div><!--section div-->
 
 

@@ -143,7 +143,7 @@
             </div>
         </section>
 
-        
+
 
 
         <section>
@@ -257,7 +257,14 @@ export default {
         submit: function(){
 
             axios.post('/login', this.fields).then(res=>{
-                window.location = '/dashboard'
+               if(res.data.role === 'ADMINISTRATOR'){
+                    window.location = '/dashboard-admin';
+               }else if(res.data.role === 'USER'){
+                   window.location = '/dashboard-user';
+               }else if(res.data.role === 'STAFF'){
+                   window.location = '/dashboard-staff';
+               }
+
             }).catch(err => {
                 if(err.response.status === 422){
                     this.errors = err.response.data.errors;
