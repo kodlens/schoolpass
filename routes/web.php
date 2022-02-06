@@ -24,7 +24,12 @@ Route::get('/sample',[App\Http\Controllers\SampleController::class,'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/sign-up', [App\Http\Controllers\SignUpController::class, 'index']);
+
 Route::get('/covid-updates', [App\Http\Controllers\CovidUpdatesController::class, 'index']);
+
+Route::post('/sign-up', [App\Http\Controllers\SignUpController::class, 'store']);
+
+
 
 
 

@@ -37,12 +37,14 @@ class AppointmentTypeController extends Controller
 
 
     public function store(Request $req){
-        $validate = $req->validate([
-            'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types']
+        $req->validate([
+            'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types'],
+            'cc_time' => ['required']
         ]);
 
         AppointmentType::create([
-            'appointment_type' => strtoupper($req->appointment_type)
+            'appointment_type' => strtoupper($req->appointment_type),
+            'cc_time' => $req->cc_time
         ]);
 
         return response()->json([
@@ -52,11 +54,13 @@ class AppointmentTypeController extends Controller
 
     public function update(Request $req, $id){
         $validate = $req->validate([
-            'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types,appointment_type,' .$id .',appointment_type_id']
+            'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types,appointment_type,' .$id .',appointment_type_id'],
+            'cc_time' => ['required']
         ]);
 
         $data = AppointmentType::find($id);
         $data->appointment_type = strtoupper($req->appointment_type);
+        $data->cc_time = $req->cc_time;
         $data->save();
 
         return response()->json([

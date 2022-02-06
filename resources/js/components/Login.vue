@@ -50,7 +50,7 @@ export default {
 </script>
 
 
-<style scope>
+<style scoped>
     .login-wrapper{
         height: 100vh;
         display: flex;
@@ -62,10 +62,6 @@ export default {
         width: 500px;
     }
 
-    .panel > .panel-body{
-        padding: 20px;
-
-    }
 
 
 

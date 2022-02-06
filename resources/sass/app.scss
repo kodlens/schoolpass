@@ -23,10 +23,6 @@ html{
     background-color: rgb(248, 248, 248) !important;
 }
 
-.panel{
-    background-color: white !important;
-}
-
 
 
 
@@ -144,7 +140,16 @@ $navbar-item-img-max-height: 4rem;
 // Import Bulma and Buefy styles
 
 @import "~bulma";
+
+.sidebar-content{
+    background-color: #2a2a2a;
+}
+
+
 @import "~buefy/src/scss/buefy";
+
+
+
 
 
 // Import only what you need from Bulma
@@ -157,3 +162,4 @@ $navbar-item-img-max-height: 4rem;
 //@import "~bulma/sass/components/navbar.sass";
 //@import "~bulma/sass/layout/hero.sass";
 //@import "~bulma/sass/layout/section.sass";
+

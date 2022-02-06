@@ -26635,10 +26635,6 @@ html {
   background-color: #f8f8f8 !important;
 }
 
-.panel {
-  background-color: white !important;
-}
-
 /* Bulma Utilities */
 .pagination-previous,
 .pagination-next,
@@ -37185,6 +37181,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
+}
+
+.sidebar-content {
+  background-color: #2a2a2a;
 }
 
 .is-noscroll {

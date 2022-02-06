@@ -4,7 +4,7 @@
 
             <div class="columns">
                 <div class="column is-8 is-offset-2">
-                    <div class="panel">
+                    <div class="box">
                         <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF APPOINTMENT TYPE</div>
 
                         <div class="level">
@@ -38,9 +38,7 @@
                             </div>
                         </div>
 
-                        <div class="buttons mt-3 is-right">
-                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
-                        </div>
+
 
                         <b-table
                             :data="data"
@@ -66,13 +64,26 @@
                                 {{ props.row.appointment_type }}
                             </b-table-column>
 
+                            <b-table-column field="cc_time" label="Time Allocated" v-slot="props">
+                                {{ props.row.cc_time }}
+                            </b-table-column>
+
+                            <b-table-column field="is_active" label="Active" v-slot="props">
+                                {{ props.row.is_active }}
+                            </b-table-column>
+
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
                                     <b-button class="button is-small is-warning mr-1" tag="a" icon-right="pencil" @click="getData(props.row.appointment_type_id)"></b-button>
                                     <b-button class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.appointment_type_id)"></b-button>
                                 </div>
                             </b-table-column>
+
                         </b-table>
+
+                        <div class="buttons mt-3">
+                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
+                        </div>
 
                     </div>
                 </div><!--close column-->
@@ -89,7 +100,8 @@
                  :width="640"
                  aria-role="dialog"
                  aria-label="Modal"
-                 aria-modal>
+                 aria-modal
+                type = "is-link">
 
             <form @submit.prevent="submit">
                 <div class="modal-card">
@@ -103,17 +115,22 @@
 
                     <section class="modal-card-body">
                         <div class="">
-                            <div class="columns">
-                                <div class="column">
-                                    <b-field label="Appointment Type" label-position="on-border"
-                                             :type="this.errors.appointment_type ? 'is-danger':''"
-                                             :message="this.errors.appointment_type ? this.errors.appointment_type[0] : ''">
-                                        <b-input v-model="fields.appointment_type"
-                                                 placeholder="Appointment Type" required>
-                                        </b-input>
-                                    </b-field>
-                                </div>
-                            </div>
+
+                            <b-field label="Appointment Type" label-position="on-border"
+                                     :type="this.errors.appointment_type ? 'is-danger':''"
+                                     :message="this.errors.appointment_type ? this.errors.appointment_type[0] : ''">
+                                <b-input v-model="fields.appointment_type"
+                                         placeholder="Appointment Type" required>
+                                </b-input>
+                            </b-field>
+
+                            <b-field label="Allocated Time" label-position="on-border"
+                                     :type="this.errors.cc_time ? 'is-danger':''"
+                                     :message="this.errors.cc_time ? this.errors.cc_time[0] : ''">
+                                <b-numberinput v-model="fields.cc_time" :controls="false"
+                                         placeholder="Allocated Time" required>
+                                </b-numberinput>
+                            </b-field>
 
 
                         </div>
@@ -281,7 +298,7 @@ export default {
                 //update
                 axios.put('/appointment-type/'+this.global_id, this.fields).then(res=>{
                     if(res.data.status === 'updated'){
-                        this.$buefy.dialog.confirm({
+                        this.$buefy.dialog.alert({
                             title: 'UPDATED!',
                             message: 'Successfully updated.',
                             type: 'is-success',
@@ -302,7 +319,7 @@ export default {
                 //INSERT HERE
                 axios.post('/appointment-type', this.fields).then(res=>{
                     if(res.data.status === 'saved'){
-                        this.$buefy.dialog.confirm({
+                        this.$buefy.dialog.alert({
                             title: 'SAVED!',
                             message: 'Successfully saved.',
                             type: 'is-success',

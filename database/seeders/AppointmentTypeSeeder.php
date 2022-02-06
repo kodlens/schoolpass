@@ -19,25 +19,25 @@ class AppointmentTypeSeeder extends Seeder
                 'appointment_type' => 'GRADE INQUIRY (REGISTRAR)',
                 'cc_time' => 15,
                 'temp_sum' => 0,
-                'user_id' => 4
+
             ],
             [
                 'appointment_type' => 'CLAIM UNIFORM (OSA)',
                 'cc_time' => 15,
                 'temp_sum' => 0,
-                'user_id' => 5
+
             ],
             [
                 'appointment_type' => 'PAYMENT (ACCOUNTING)',
                 'cc_time' => 15,
                 'temp_sum' => 0,
-                'user_id' => 6
+
             ],
             [
                 'appointment_type' => 'EVALUATION (REGISTRAR)',
                 'cc_time' => 15,
                 'temp_sum' => 0,
-                'user_id' => 4
+
             ],
         ];
 

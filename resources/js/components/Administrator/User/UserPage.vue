@@ -533,8 +533,6 @@ export default{
 
 
 <style>
-    .panel{
-        padding: 25px;
-    }
+
 
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="mynav">
+            <div class="mynav-brand">ADMINISTRATOR</div>
             <div class="burger-button" @click="open = true">
                 <div class="burger-div"></div>
                 <div class="burger-div"></div>
@@ -15,8 +16,7 @@
                 :fullwidth="fullwidth"
                 :overlay="overlay"
                 :right="right"
-                v-model="open"
-            >
+                v-model="open">
                 <div class="p-4">
                     <h3 class="title is-4">ADMINISTRATOR</h3>
                     <b-menu>
@@ -50,7 +50,7 @@
                         </b-menu-list>
 
                         <b-menu-list>
-                            <b-menu-item label="Appointment Type" icon="link" target="a" href="/appointment-type"></b-menu-item>
+                            <b-menu-item label="Appointment Type" icon="link" tag="a" href="/appointment-type"></b-menu-item>
                         </b-menu-list>
 
                         <b-menu-list>
@@ -108,11 +108,20 @@ export default {
     .burger-button{
         display: flex;
         flex-direction: column;
+        margin-left: auto;
     }
 
     .mynav{
         padding: 25px;
         border-bottom: 2px solid rgba(22, 69, 28, 0.53);
+        display: flex;
     }
+
+    .mynav-brand{
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+
 
 </style>

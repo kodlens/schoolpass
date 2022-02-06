@@ -18,9 +18,7 @@ class CreateAppointmentTypesTable extends Migration
             $table->string('appointment_type');
             $table->integer('cc_time')->default(0);
             $table->integer('temp_sum')->default(0);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->tinyInteger('is_auto_approved');
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
         });
     }
