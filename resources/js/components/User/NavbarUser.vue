@@ -20,6 +20,10 @@
                 <div class="p-4">
                     <h3 class="title is-4">{{ showName}} PANEL</h3>
                     <b-menu>
+                        <b-menu-list>
+                            <b-menu-item label="Home" icon="home" tag="a" href="/"></b-menu-item>
+                        </b-menu-list>
+
                         <b-menu-list label="Menu">
                             <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard"></b-menu-item>
 

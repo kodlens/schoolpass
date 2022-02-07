@@ -27,8 +27,8 @@
                             <div class="level-right">
                                 <div class="level-item">
                                     <b-field label="Search">
-                                        <b-input type="text"
-                                                 v-model="search.appointment_type" placeholder="Search Appointment Type"
+                                        <b-datepicker
+                                                 v-model="search.appointment_date" placeholder="Search Appointment Date"
                                                  @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
@@ -161,7 +161,7 @@ export default {
             data: [],
             total: 0,
             loading: false,
-            sortField: 'appointment_type_id',
+            sortField: 'appointment_id',
             sortOrder: 'desc',
             page: 1,
             perPage: 5,
@@ -198,13 +198,13 @@ export default {
         loadAsyncData() {
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,
-                `type=${this.search.appointment_type}`,
+                `type=${this.search.appointment_date}`,
                 `perpage=${this.perPage}`,
                 `page=${this.page}`
             ].join('&')
 
             this.loading = true
-            axios.get(`/get-appointment-types?${params}`)
+            axios.get(`/get-my-appointments?${params}`)
                 .then(({ data }) => {
                     this.data = [];
                     let currentTotal = data.total

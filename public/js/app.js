@@ -2489,6 +2489,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3312,6 +3314,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3320,7 +3342,12 @@ __webpack_require__.r(__webpack_exports__);
       fields: {},
       errors: {},
       appointment_type: '',
-      appointmentTypes: []
+      appointmentTypes: [],
+      appointment: {
+        appointment_date: null,
+        nAppointmentDate: '',
+        appointment_type: ''
+      }
     };
   },
   methods: {
@@ -3346,6 +3373,28 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/get-open-appointment-types').then(function (res) {
         _this2.appointmentTypes = res.data;
+      });
+    },
+    submitAppointment: function submitAppointment() {
+      var _this3 = this;
+
+      this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
+      this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
+      axios.post('/my-appointment', this.appointment).then(function (res) {
+        if (res.data.status === 'saved') {
+          _this3.$buefy.dialog.alert({
+            title: 'APPOINTMENT SAVED!',
+            message: 'Appointment saved.',
+            type: 'is-success',
+            onConfirm: function onConfirm() {
+              _this3.appointment = {};
+            }
+          });
+        }
+      })["catch"](function (err) {
+        if (err.response.status === 422) {
+          _this3.errors = err.response.data.errors;
+        }
       });
     }
   },
@@ -3839,7 +3888,7 @@ __webpack_require__.r(__webpack_exports__);
       data: [],
       total: 0,
       loading: false,
-      sortField: 'appointment_type_id',
+      sortField: 'appointment_id',
       sortOrder: 'desc',
       page: 1,
       perPage: 5,
@@ -3867,9 +3916,9 @@ __webpack_require__.r(__webpack_exports__);
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "type=".concat(this.search.appointment_type), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
+      var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "type=".concat(this.search.appointment_date), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
-      axios.get("/get-appointment-types?".concat(params)).then(function (_ref) {
+      axios.get("/get-my-appointments?".concat(params)).then(function (_ref) {
         var data = _ref.data;
         _this.data = [];
         var currentTotal = data.total;
@@ -4028,6 +4077,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -26275,102 +26328,170 @@ var render = function () {
           _c("div", { staticClass: "column is-6 is-offset-3" }, [
             _c("div", { staticClass: "time-container" }, [
               _c(
-                "div",
-                { staticClass: "reserve-control p-2" },
+                "form",
+                {
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.submitAppointment.apply(null, arguments)
+                    },
+                  },
+                },
                 [
-                  _c("h1", { staticClass: "title is-4 mb-4" }, [
-                    _vm._v("APPOINT NOW"),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "b-field",
-                    {
-                      staticClass: "is-centered",
-                      attrs: {
-                        label: "SELECT DATE",
-                        grouped: "",
-                        expanded: "",
-                        "label-position": "on-border",
-                      },
-                    },
-                    [
-                      _c("b-datetimepicker", {
-                        attrs: {
-                          rounded: "",
-                          expanded: "",
-                          placeholder: "Type or select a date...",
-                          icon: "calendar-today",
-                          locale: _vm.locale,
-                          editable: "",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-field",
-                    {
-                      attrs: {
-                        label: "APPOINTMENT",
-                        expanded: "",
-                        "label-position": "on-border",
-                      },
-                    },
-                    [
-                      _c(
-                        "b-select",
-                        {
-                          attrs: { expanded: "", rounded: "" },
-                          model: {
-                            value: _vm.appointment_type,
-                            callback: function ($$v) {
-                              _vm.appointment_type = $$v
-                            },
-                            expression: "appointment_type",
-                          },
-                        },
-                        _vm._l(_vm.appointmentTypes, function (item, index) {
-                          return _c(
-                            "option",
-                            {
-                              key: index,
-                              domProps: { value: item.appointment_type_id },
-                            },
-                            [_vm._v(_vm._s(item.appointment_type))]
-                          )
-                        }),
-                        0
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "buttons is-right" },
+                    { staticClass: "reserve-control p-2" },
                     [
+                      _c("h1", { staticClass: "title is-4 mb-4" }, [
+                        _vm._v("SET AN APPOINTMENT NOW"),
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "b-button",
-                        { staticClass: "button is-primary is-rounded" },
-                        [_vm._v("APPOINT NOW")]
+                        "b-field",
+                        {
+                          staticClass: "is-centered",
+                          attrs: {
+                            label: "SELECT DATE",
+                            grouped: "",
+                            expanded: "",
+                            "label-position": "on-border",
+                          },
+                        },
+                        [
+                          _c("b-datetimepicker", {
+                            attrs: {
+                              rounded: "",
+                              expanded: "",
+                              placeholder: "Type or select a date...",
+                              icon: "calendar-today",
+                              locale: _vm.locale,
+                              editable: "",
+                            },
+                            model: {
+                              value: _vm.appointment.appointment_date,
+                              callback: function ($$v) {
+                                _vm.$set(
+                                  _vm.appointment,
+                                  "appointment_date",
+                                  $$v
+                                )
+                              },
+                              expression: "appointment.appointment_date",
+                            },
+                          }),
+                        ],
+                        1
                       ),
+                      _vm._v(" "),
+                      _c(
+                        "b-field",
+                        {
+                          attrs: {
+                            label: "APPOINTMENT",
+                            expanded: "",
+                            "label-position": "on-border",
+                            type: _vm.errors.appointment_type
+                              ? "is-danger"
+                              : "",
+                            message: _vm.errors.appointment_type
+                              ? _vm.errors.appointment_type[0]
+                              : "",
+                          },
+                        },
+                        [
+                          _c(
+                            "b-select",
+                            {
+                              attrs: { expanded: "", rounded: "" },
+                              model: {
+                                value: _vm.appointment.appointment_type,
+                                callback: function ($$v) {
+                                  _vm.$set(
+                                    _vm.appointment,
+                                    "appointment_type",
+                                    $$v
+                                  )
+                                },
+                                expression: "appointment.appointment_type",
+                              },
+                            },
+                            _vm._l(
+                              _vm.appointmentTypes,
+                              function (item, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    domProps: {
+                                      value: item.appointment_type_id,
+                                    },
+                                  },
+                                  [_vm._v(_vm._s(item.appointment_type))]
+                                )
+                              }
+                            ),
+                            0
+                          ),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      this.errors.conflict
+                        ? _c(
+                            "b-notification",
+                            {
+                              attrs: {
+                                type: "is-danger is-light",
+                                "aria-close-label": "Close notification",
+                                role: "alert",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(this.errors.conflict) +
+                                  "\n                                "
+                              ),
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      this.errors.not_allowed
+                        ? _c(
+                            "b-notification",
+                            {
+                              attrs: {
+                                type: "is-danger is-light",
+                                "aria-close-label": "Close notification",
+                                role: "alert",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(this.errors.not_allowed) +
+                                  "\n                                "
+                              ),
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm._m(1),
                     ],
                     1
                   ),
-                ],
-                1
+                ]
               ),
             ]),
           ]),
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
       _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
       _vm._v(" "),
       _c(
         "b-modal",
@@ -26546,6 +26667,16 @@ var staticRenderFns = [
             ),
           ]
         ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "buttons is-right" }, [
+      _c("button", { staticClass: "button is-primary is-rounded" }, [
+        _vm._v("SET APPOINTMENT"),
       ]),
     ])
   },
@@ -27530,11 +27661,8 @@ var render = function () {
                           "b-field",
                           { attrs: { label: "Search" } },
                           [
-                            _c("b-input", {
-                              attrs: {
-                                type: "text",
-                                placeholder: "Search Appointment Type",
-                              },
+                            _c("b-datepicker", {
+                              attrs: { placeholder: "Search Appointment Date" },
                               nativeOn: {
                                 keyup: function ($event) {
                                   if (
@@ -27556,11 +27684,11 @@ var render = function () {
                                 },
                               },
                               model: {
-                                value: _vm.search.appointment_type,
+                                value: _vm.search.appointment_date,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.search, "appointment_type", $$v)
+                                  _vm.$set(_vm.search, "appointment_date", $$v)
                                 },
-                                expression: "search.appointment_type",
+                                expression: "search.appointment_date",
                               },
                             }),
                             _vm._v(" "),
@@ -27987,6 +28115,21 @@ var render = function () {
                 _c(
                   "b-menu",
                   [
+                    _c(
+                      "b-menu-list",
+                      [
+                        _c("b-menu-item", {
+                          attrs: {
+                            label: "Home",
+                            icon: "home",
+                            tag: "a",
+                            href: "/",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c(
                       "b-menu-list",
                       { attrs: { label: "Menu" } },
@@ -40300,7 +40443,7 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\Users\\\\eshen\\\\Desktop\\\\Github\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

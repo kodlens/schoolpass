@@ -62,6 +62,16 @@ Route::resource('/dashboard-user', App\Http\Controllers\User\DashboardUserContro
 Route::get('/get-user', [App\Http\Controllers\User\DashboardUserController::class, 'getUser']);
 
 
+Route::resource('/my-appointment', App\Http\Controllers\User\MyAppointmentController::class);
+Route::get('/get-my-appointments', [App\Http\Controllers\User\MyAppointmentController::class, 'getMyAppointment']);
+
+
+
+
+
+
+
+
 Route::get('/session', function(){
     return Session::all();
 });

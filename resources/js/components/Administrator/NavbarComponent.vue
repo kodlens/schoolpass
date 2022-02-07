@@ -20,7 +20,9 @@
                 <div class="p-4">
                     <h3 class="title is-4">ADMINISTRATOR</h3>
                     <b-menu>
+
                         <b-menu-list label="Menu">
+
                             <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard"></b-menu-item>
 <!--                            <b-menu-item icon="settings">-->
 <!--                                <template #label="props">-->

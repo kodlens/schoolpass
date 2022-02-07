@@ -71,25 +71,45 @@
             <div class="columns">
                 <div class="column is-6 is-offset-3">
                     <div class="time-container">
-                        <div class="reserve-control p-2">
-                            <h1 class="title is-4 mb-4">APPOINT NOW</h1>
-                            <b-field label="SELECT DATE" grouped  expanded class="is-centered" label-position="on-border">
-                                <b-datetimepicker rounded expanded
-                                      placeholder="Type or select a date..."
-                                      icon="calendar-today"
-                                      :locale="locale"
-                                      editable>
-                                </b-datetimepicker>
-                            </b-field>
-                            <b-field label="APPOINTMENT" expanded label-position="on-border">
-                                <b-select v-model="appointment_type" expanded rounded>
-                                    <option v-for="(item, index) in appointmentTypes" :key="index" :value="item.appointment_type_id">{{ item.appointment_type }}</option>
-                                </b-select>
-                            </b-field>
-                            <div class="buttons is-right">
-                                <b-button class="button is-primary is-rounded">APPOINT NOW</b-button>
+                        <form @submit.prevent="submitAppointment">
+                            <div class="reserve-control p-2">
+                                <h1 class="title is-4 mb-4">SET AN APPOINTMENT NOW</h1>
+                                <b-field label="SELECT DATE" grouped  expanded class="is-centered" label-position="on-border">
+                                    <b-datetimepicker rounded expanded
+                                                      v-model="appointment.appointment_date"
+                                                      placeholder="Type or select a date..."
+                                                      icon="calendar-today"
+                                                      :locale="locale"
+                                                      editable>
+                                    </b-datetimepicker>
+                                </b-field>
+                                <b-field label="APPOINTMENT" expanded label-position="on-border"
+                                         :type="errors.appointment_type ? 'is-danger' : ''"
+                                         :message="errors.appointment_type ? errors.appointment_type[0] : ''">
+                                    <b-select v-model="appointment.appointment_type" expanded rounded>
+                                        <option v-for="(item, index) in appointmentTypes" :key="index" :value="item.appointment_type_id">{{ item.appointment_type }}</option>
+                                    </b-select>
+                                </b-field>
+
+                                <b-notification v-if="this.errors.conflict"
+                                    type="is-danger is-light"
+                                    aria-close-label="Close notification"
+                                    role="alert">
+                                    {{ this.errors.conflict }}
+                                </b-notification>
+
+                                <b-notification v-if="this.errors.not_allowed"
+                                        type="is-danger is-light"
+                                        aria-close-label="Close notification"
+                                        role="alert">
+                                    {{ this.errors.not_allowed }}
+                                </b-notification>
+
+                                <div class="buttons is-right">
+                                    <button class="button is-primary is-rounded">SET APPOINTMENT</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -250,6 +270,13 @@ export default {
             appointment_type: '',
 
             appointmentTypes: [],
+
+            appointment: {
+                appointment_date: null,
+                nAppointmentDate: '',
+                appointment_type: '',
+            },
+
         }
     },
 
@@ -264,7 +291,6 @@ export default {
                }else if(res.data.role === 'STAFF'){
                    window.location = '/dashboard-staff';
                }
-
             }).catch(err => {
                 if(err.response.status === 422){
                     this.errors = err.response.data.errors;
@@ -276,6 +302,27 @@ export default {
             axios.get('/get-open-appointment-types')
             .then(res=>{
                 this.appointmentTypes = res.data;
+            });
+        },
+
+        submitAppointment: function(){
+            this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
+            this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
+            axios.post('/my-appointment', this.appointment).then(res=>{
+                if(res.data.status === 'saved'){
+                    this.$buefy.dialog.alert({
+                        title: 'APPOINTMENT SAVED!',
+                        message: 'Appointment saved.',
+                        type: 'is-success',
+                        onConfirm: ()=>{
+                            this.appointment = {};
+                        }
+                    });
+                }
+            }).catch(err=>{
+                if(err.response.status === 422){
+                    this.errors = err.response.data.errors;
+                }
             });
         }
     },
