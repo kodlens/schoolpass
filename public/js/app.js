@@ -2220,6 +2220,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -3927,7 +3941,8 @@ __webpack_require__.r(__webpack_exports__);
       defaultSortDirection: 'asc',
       global_id: 0,
       search: {
-        appointment_type: ''
+        appointment_type: '',
+        appointment_date: new Date()
       },
       isModalCreate: false,
       fields: {
@@ -3948,7 +3963,8 @@ __webpack_require__.r(__webpack_exports__);
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "type=".concat(this.search.appointment_date), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
+      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "appdate=".concat(this.search.ndate), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
       axios.get("/get-my-appointments?".concat(params)).then(function (_ref) {
         var data = _ref.data;
@@ -4092,6 +4108,226 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.loadAsyncData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      fields: {},
+      errors: {},
+      global_id: 0,
+      provinces: [],
+      cities: [],
+      barangays: []
+    };
+  },
+  methods: {
+    /*
+    * Load async data
+    */
+    loadAsyncData: function loadAsyncData() {
+      var _this = this;
+
+      axios.get("/get-my-profile").then(function (res) {
+        _this.fields = res.data;
+        _this.global_id = res.data.user_id;
+        var tempData = res.data; //load city first
+
+        axios.get('/load-cities?prov=' + _this.fields.province).then(function (res) {
+          //load barangay
+          _this.cities = res.data;
+          axios.get('/load-barangays?prov=' + _this.fields.province + '&city_code=' + _this.fields.city).then(function (res) {
+            _this.barangays = res.data; //this.fields = tempData;
+          });
+        });
+      })["catch"](function (error) {
+        throw error;
+      });
+    },
+    submit: function submit() {
+      var _this2 = this;
+
+      axios.put('/my-profile/' + this.global_id, this.fields).then(function (res) {
+        if (res.data.status === 'updated') {
+          _this2.$buefy.dialog.alert({
+            title: 'UPDATED!',
+            message: 'Successfully udpated!',
+            type: 'is-success',
+            onConfirm: function onConfirm() {
+              _this2.loadAsyncData();
+            }
+          });
+        }
+      });
+    },
+    loadProvince: function loadProvince() {
+      var _this3 = this;
+
+      axios.get('/load-provinces').then(function (res) {
+        _this3.provinces = res.data;
+      });
+    },
+    loadCity: function loadCity() {
+      var _this4 = this;
+
+      axios.get('/load-cities?prov=' + this.fields.province).then(function (res) {
+        _this4.cities = res.data;
+      });
+    },
+    loadBarangay: function loadBarangay() {
+      var _this5 = this;
+
+      axios.get('/load-barangays?prov=' + this.fields.province + '&city_code=' + this.fields.city).then(function (res) {
+        _this5.barangays = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.loadProvince();
     this.loadAsyncData();
   }
 });
@@ -23838,6 +24074,45 @@ component.options.__file = "resources/js/components/User/MyAppointment.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/User/MyProfie.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/User/MyProfie.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyProfie.vue?vue&type=template&id=4b2753ec& */ "./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec&");
+/* harmony import */ var _MyProfie_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyProfie.vue?vue&type=script&lang=js& */ "./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MyProfie_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/User/MyProfie.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/User/NavbarUser.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/User/NavbarUser.vue ***!
@@ -24041,6 +24316,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MyAppointment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyAppointment.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfie_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MyProfie.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfie_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -24304,6 +24595,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyAppointment_vue_vue_type_template_id_08e6ed1a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyAppointment_vue_vue_type_template_id_08e6ed1a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MyAppointment.vue?vue&type=template&id=08e6ed1a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyAppointment.vue?vue&type=template&id=08e6ed1a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyProfie_vue_vue_type_template_id_4b2753ec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MyProfie.vue?vue&type=template&id=4b2753ec& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec&");
 
 
 /***/ }),
@@ -24728,75 +25036,130 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("section", { staticClass: "modal-card-body" }, [
-                  _c(
-                    "div",
-                    {},
-                    [
+                  _c("div", {}, [
+                    _c("div", { staticClass: "columns" }, [
                       _c(
-                        "b-field",
-                        {
-                          attrs: {
-                            label: "Appointment Type",
-                            "label-position": "on-border",
-                            type: this.errors.appointment_type
-                              ? "is-danger"
-                              : "",
-                            message: this.errors.appointment_type
-                              ? this.errors.appointment_type[0]
-                              : "",
-                          },
-                        },
+                        "div",
+                        { staticClass: "column" },
                         [
-                          _c("b-input", {
-                            attrs: {
-                              placeholder: "Appointment Type",
-                              required: "",
-                            },
-                            model: {
-                              value: _vm.fields.appointment_type,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.fields, "appointment_type", $$v)
+                          _c(
+                            "b-field",
+                            {
+                              attrs: {
+                                label: "Appointment Type",
+                                type: this.errors.appointment_type
+                                  ? "is-danger"
+                                  : "",
+                                message: this.errors.appointment_type
+                                  ? this.errors.appointment_type[0]
+                                  : "",
                               },
-                              expression: "fields.appointment_type",
                             },
-                          }),
+                            [
+                              _c("b-input", {
+                                attrs: {
+                                  placeholder: "Appointment Type",
+                                  required: "",
+                                },
+                                model: {
+                                  value: _vm.fields.appointment_type,
+                                  callback: function ($$v) {
+                                    _vm.$set(
+                                      _vm.fields,
+                                      "appointment_type",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "fields.appointment_type",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "columns" }, [
+                      _c(
+                        "div",
+                        { staticClass: "column" },
+                        [
+                          _c(
+                            "b-field",
+                            {
+                              attrs: {
+                                label: "Allocated Time",
+                                type: this.errors.cc_time ? "is-danger" : "",
+                                message: this.errors.cc_time
+                                  ? this.errors.cc_time[0]
+                                  : "",
+                              },
+                            },
+                            [
+                              _c("b-numberinput", {
+                                attrs: {
+                                  controls: false,
+                                  placeholder: "",
+                                  required: "",
+                                },
+                                model: {
+                                  value: _vm.fields.cc_time,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "cc_time", $$v)
+                                  },
+                                  expression: "fields.cc_time",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
-                        "b-field",
-                        {
-                          attrs: {
-                            label: "Allocated Time",
-                            "label-position": "on-border",
-                            type: this.errors.cc_time ? "is-danger" : "",
-                            message: this.errors.cc_time
-                              ? this.errors.cc_time[0]
-                              : "",
-                          },
-                        },
+                        "div",
+                        { staticClass: "column" },
                         [
-                          _c("b-numberinput", {
-                            attrs: {
-                              controls: false,
-                              placeholder: "Allocated Time",
-                              required: "",
-                            },
-                            model: {
-                              value: _vm.fields.cc_time,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.fields, "cc_time", $$v)
+                          _c(
+                            "b-field",
+                            {
+                              attrs: {
+                                label: "No of multiple",
+                                type: this.errors.max_multiple
+                                  ? "is-danger"
+                                  : "",
+                                message: this.errors.max_multiple
+                                  ? this.errors.max_multiple[0]
+                                  : "",
                               },
-                              expression: "fields.cc_time",
                             },
-                          }),
+                            [
+                              _c("b-numberinput", {
+                                attrs: {
+                                  max: "100",
+                                  controls: false,
+                                  placeholder: "No of multiple",
+                                  required: "",
+                                },
+                                model: {
+                                  value: _vm.fields.max_multiple,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "max_multiple", $$v)
+                                  },
+                                  expression: "fields.max_multiple",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
-                    ],
-                    1
-                  ),
+                    ]),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -27791,7 +28154,7 @@ var render = function () {
                             return [
                               _vm._v(
                                 "\n                            " +
-                                  _vm._s(props.row.appointment_type_id) +
+                                  _vm._s(props.row.appointment_id) +
                                   "\n                        "
                               ),
                             ]
@@ -27822,7 +28185,7 @@ var render = function () {
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
-                      attrs: { field: "cc_time", label: "Time Allocated" },
+                      attrs: { field: "from_to", label: "From/To" },
                       scopedSlots: _vm._u([
                         {
                           key: "default",
@@ -27830,7 +28193,9 @@ var render = function () {
                             return [
                               _vm._v(
                                 "\n                            " +
-                                  _vm._s(props.row.cc_time) +
+                                  _vm._s(props.row.app_time_from) +
+                                  " -   " +
+                                  _vm._s(props.row.app_time_to) +
                                   "\n                        "
                               ),
                             ]
@@ -27840,7 +28205,7 @@ var render = function () {
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
-                      attrs: { field: "is_active", label: "Active" },
+                      attrs: { field: "is_approved", label: "Is Approved" },
                       scopedSlots: _vm._u([
                         {
                           key: "default",
@@ -27848,7 +28213,7 @@ var render = function () {
                             return [
                               _vm._v(
                                 "\n                            " +
-                                  _vm._s(props.row.is_active) +
+                                  _vm._s(props.row.is_approved) +
                                   "\n                        "
                               ),
                             ]
@@ -28083,6 +28448,464 @@ var render = function () {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/MyProfie.vue?vue&type=template&id=4b2753ec& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "section" }, [
+      _c("div", { staticClass: "columns is-centered" }, [
+        _c("div", { staticClass: "column is-6" }, [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.submit.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "box" }, [
+                _c("h1", { staticClass: "title is-4" }, [_vm._v("MY PROFILE")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          { attrs: { label: "Username" } },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text", readonly: "" },
+                              model: {
+                                value: _vm.fields.username,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "username", $$v)
+                                },
+                                expression: "fields.username",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "Lastname",
+                              type: this.errors.lname ? "is-danger" : "",
+                              message: this.errors.lname
+                                ? this.errors.lname[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text" },
+                              model: {
+                                value: _vm.fields.lname,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "lname", $$v)
+                                },
+                                expression: "fields.lname",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "Firstname",
+                              type: this.errors.fname ? "is-danger" : "",
+                              message: this.errors.fname
+                                ? this.errors.fname[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text" },
+                              model: {
+                                value: _vm.fields.fname,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "fname", $$v)
+                                },
+                                expression: "fields.fname",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          { attrs: { label: "Middlename" } },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text" },
+                              model: {
+                                value: _vm.fields.mname,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "mname", $$v)
+                                },
+                                expression: "fields.mname",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          { attrs: { label: "Suffix" } },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text" },
+                              model: {
+                                value: _vm.fields.suffix,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "suffix", $$v)
+                                },
+                                expression: "fields.suffix",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "Sex",
+                              expanded: "",
+                              type: this.errors.sex ? "is-danger" : "",
+                              message: this.errors.sex
+                                ? this.errors.sex[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c(
+                              "b-select",
+                              {
+                                attrs: { expanded: "" },
+                                model: {
+                                  value: _vm.fields.sex,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "sex", $$v)
+                                  },
+                                  expression: "fields.sex",
+                                },
+                              },
+                              [
+                                _c("option", { attrs: { value: "MALE" } }, [
+                                  _vm._v("MALE"),
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "FEMALE" } }, [
+                                  _vm._v("FEMALE"),
+                                ]),
+                              ]
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          { attrs: { label: "Contact No." } },
+                          [
+                            _c("b-input", {
+                              attrs: { type: "text" },
+                              model: {
+                                value: _vm.fields.contact_no,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "contact_no", $$v)
+                                },
+                                expression: "fields.contact_no",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "Province",
+                              expanded: "",
+                              type: this.errors.province ? "is-danger" : "",
+                              message: this.errors.province
+                                ? this.errors.province[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c(
+                              "b-select",
+                              {
+                                attrs: { expanded: "" },
+                                on: { input: _vm.loadCity },
+                                model: {
+                                  value: _vm.fields.province,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "province", $$v)
+                                  },
+                                  expression: "fields.province",
+                                },
+                              },
+                              _vm._l(_vm.provinces, function (item, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    domProps: { value: item.provCode },
+                                  },
+                                  [_vm._v(_vm._s(item.provDesc))]
+                                )
+                              }),
+                              0
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "City",
+                              expanded: "",
+                              type: this.errors.city ? "is-danger" : "",
+                              message: this.errors.city
+                                ? this.errors.city[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c(
+                              "b-select",
+                              {
+                                attrs: { expanded: "" },
+                                on: { input: _vm.loadBarangay },
+                                model: {
+                                  value: _vm.fields.city,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "city", $$v)
+                                  },
+                                  expression: "fields.city",
+                                },
+                              },
+                              _vm._l(_vm.cities, function (item, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    domProps: { value: item.citymunCode },
+                                  },
+                                  [_vm._v(_vm._s(item.citymunDesc))]
+                                )
+                              }),
+                              0
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "columns" }, [
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          {
+                            attrs: {
+                              label: "Barangay",
+                              expanded: "",
+                              type: this.errors.barangay ? "is-danger" : "",
+                              message: this.errors.barangay
+                                ? this.errors.barangay[0]
+                                : "",
+                            },
+                          },
+                          [
+                            _c(
+                              "b-select",
+                              {
+                                attrs: { expanded: "" },
+                                model: {
+                                  value: _vm.fields.barangay,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.fields, "barangay", $$v)
+                                  },
+                                  expression: "fields.barangay",
+                                },
+                              },
+                              _vm._l(_vm.barangays, function (item, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: index,
+                                    domProps: { value: item.brgyCode },
+                                  },
+                                  [_vm._v(_vm._s(item.brgyDesc))]
+                                )
+                              }),
+                              0
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "column" },
+                      [
+                        _c(
+                          "b-field",
+                          { attrs: { label: "Street" } },
+                          [
+                            _c("b-input", {
+                              attrs: { placeholder: "Street" },
+                              model: {
+                                value: _vm.fields.street,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.fields, "street", $$v)
+                                },
+                                expression: "fields.street",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "buttons" }, [
+      _c("button", { staticClass: "button is-link" }, [_vm._v("UPDATE")]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -40457,6 +41280,7 @@ var map = {
 	"./components/SignupComponent.vue": "./resources/js/components/SignupComponent.vue",
 	"./components/User/DashboardUser.vue": "./resources/js/components/User/DashboardUser.vue",
 	"./components/User/MyAppointment.vue": "./resources/js/components/User/MyAppointment.vue",
+	"./components/User/MyProfie.vue": "./resources/js/components/User/MyProfie.vue",
 	"./components/User/NavbarUser.vue": "./resources/js/components/User/NavbarUser.vue",
 	"./components/Welcome.vue": "./resources/js/components/Welcome.vue"
 };

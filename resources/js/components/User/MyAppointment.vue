@@ -54,19 +54,19 @@
                             @sort="onSort">
 
                             <b-table-column field="appointment_type_id" label="ID" v-slot="props">
-                                {{ props.row.appointment_type_id }}
+                                {{ props.row.appointment_id }}
                             </b-table-column>
 
                             <b-table-column field="appointment_type" label="Appointment" v-slot="props">
                                 {{ props.row.appointment_type }}
                             </b-table-column>
 
-                            <b-table-column field="cc_time" label="Time Allocated" v-slot="props">
-                                {{ props.row.cc_time }}
+                            <b-table-column field="from_to" label="From/To" v-slot="props">
+                                {{ props.row.app_time_from }} -   {{ props.row.app_time_to }}
                             </b-table-column>
 
-                            <b-table-column field="is_active" label="Active" v-slot="props">
-                                {{ props.row.is_active }}
+                            <b-table-column field="is_approved" label="Is Approved" v-slot="props">
+                                {{ props.row.is_approved }}
                             </b-table-column>
 
                             <b-table-column label="Action" v-slot="props">
@@ -169,6 +169,7 @@ export default {
 
             search: {
                 appointment_type: '',
+                appointment_date: new Date(),
             },
 
             isModalCreate: false,
@@ -193,9 +194,11 @@ export default {
         * Load async data
         */
         loadAsyncData() {
+
+            this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,
-                `type=${this.search.appointment_date}`,
+                `appdate=${this.search.ndate}`,
                 `perpage=${this.perPage}`,
                 `page=${this.page}`
             ].join('&')

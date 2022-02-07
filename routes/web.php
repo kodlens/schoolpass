@@ -28,6 +28,8 @@ Route::get('/', function () {
 Auth::routes([
     'login' => 'false'
 ]);
+
+
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
@@ -72,6 +74,8 @@ Route::get('/get-user', [App\Http\Controllers\User\DashboardUserController::clas
 Route::resource('/my-appointment', App\Http\Controllers\User\MyAppointmentController::class);
 Route::get('/get-my-appointments', [App\Http\Controllers\User\MyAppointmentController::class, 'getMyAppointment']);
 
+Route::resource('/my-profile', App\Http\Controllers\User\MyProfileController::class);
+Route::get('/get-my-profile', [App\Http\Controllers\User\MyProfileController::class, 'getProfile']);
 
 
 

@@ -23,12 +23,19 @@ class MyAppointmentController extends Controller
         return view('user.my-appointment');
     }
 
-    public function getMyAppointment(){
+    public function getMyAppointment(Request $req){
         $user =  Auth::user();
 
-        Appointment::where('appointment_user_id', $user->user_id)
+        $date = $req->appdate;
+        $ndate = date('Y-m-d',strtotime($date)); //convert to format time UNIX
+
+        return Appointment::from('appointments as a')
+            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
+            ->join('offices as c', 'b.office_id', 'c.office_id')
+            ->where('appointment_user_id', $user->user_id)
+            ->where('app_date', $ndate)
             ->orderBy('appointment_id', 'desc')
-            ->paginate(5);
+            ->paginate($req->perpage);
     }
 
     public function store(Request $req){
@@ -64,7 +71,7 @@ class MyAppointmentController extends Controller
             ], 422);
         }
 
-        $exist = DB::table('appointments as a')
+        $countExist = DB::table('appointments as a')
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
             ->where('app_date', $ndate)
             ->where('app_time_from', '<=', $ntime)
@@ -72,7 +79,7 @@ class MyAppointmentController extends Controller
             ->where('a.appointment_type_id', $req->appointment_type)
             ->exists();
 
-        if($exist){
+        if($countExist){
             return response()->json([
                 'errors' => [
                     'conflict' =>  'Time already appointed to other. Please select another schedule.'

@@ -115,24 +115,38 @@
 
                     <section class="modal-card-body">
                         <div class="">
+                            <div class="columns">
+                                <div class="column">
+                                    <b-field label="Appointment Type"
+                                             :type="this.errors.appointment_type ? 'is-danger':''"
+                                             :message="this.errors.appointment_type ? this.errors.appointment_type[0] : ''">
+                                        <b-input v-model="fields.appointment_type"
+                                                 placeholder="Appointment Type" required>
+                                        </b-input>
+                                    </b-field>
+                                </div>
+                            </div>
 
-                            <b-field label="Appointment Type" label-position="on-border"
-                                     :type="this.errors.appointment_type ? 'is-danger':''"
-                                     :message="this.errors.appointment_type ? this.errors.appointment_type[0] : ''">
-                                <b-input v-model="fields.appointment_type"
-                                         placeholder="Appointment Type" required>
-                                </b-input>
-                            </b-field>
+                            <div class="columns">
+                                <div class="column">
+                                    <b-field label="Allocated Time"
+                                             :type="this.errors.cc_time ? 'is-danger':''"
+                                             :message="this.errors.cc_time ? this.errors.cc_time[0] : ''">
+                                        <b-numberinput v-model="fields.cc_time" :controls="false"
+                                                       placeholder="" required>
+                                        </b-numberinput>
+                                    </b-field>
+                                </div>
 
-                            <b-field label="Allocated Time" label-position="on-border"
-                                     :type="this.errors.cc_time ? 'is-danger':''"
-                                     :message="this.errors.cc_time ? this.errors.cc_time[0] : ''">
-                                <b-numberinput v-model="fields.cc_time" :controls="false"
-                                         placeholder="Allocated Time" required>
-                                </b-numberinput>
-                            </b-field>
-
-
+                                <div class="column">
+                                    <b-field label="No of multiple"
+                                             :type="this.errors.max_multiple ? 'is-danger':''"
+                                             :message="this.errors.max_multiple ? this.errors.max_multiple[0] : ''">
+                                        <b-numberinput v-model="fields.max_multiple" max="100" :controls="false" placeholder="No of multiple" required>
+                                        </b-numberinput>
+                                    </b-field>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
