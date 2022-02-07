@@ -25,12 +25,17 @@
 
                     <template #end>
                         <b-navbar-item tag="div">
-                            <div class="buttons">
+                            <div class="buttons" v-if="!currentLogin">
                                 <a class="button is-primary" href="/sign-up">
                                     <strong>Sign up</strong>
                                 </a>
                                 <a class="button is-light" @click="isModalActive = true">
                                     Log in
+                                </a>
+                            </div>
+                            <div class="buttons" v-else>
+                                <a class="button is-link" href="/dashboard-user">
+                                    DASHBOARD
                                 </a>
                             </div>
                         </b-navbar-item>
@@ -260,12 +265,14 @@
 
 <script>
 export default {
+    props: ['propUser'],
     data(){
         return{
             locale: undefined,
             isModalActive: false,
             fields: {},
             errors: {},
+            user: null,
 
             appointment_type: '',
 
@@ -287,7 +294,8 @@ export default {
                if(res.data.role === 'ADMINISTRATOR'){
                     window.location = '/dashboard-admin';
                }else if(res.data.role === 'USER'){
-                   window.location = '/dashboard-user';
+                  // window.location = '/dashboard-user';
+                   window.location = '/';
                }else if(res.data.role === 'STAFF'){
                    window.location = '/dashboard-staff';
                }
@@ -316,6 +324,7 @@ export default {
                         type: 'is-success',
                         onConfirm: ()=>{
                             this.appointment = {};
+                            this.errors = {};
                         }
                     });
                 }
@@ -323,12 +332,38 @@ export default {
                 if(err.response.status === 422){
                     this.errors = err.response.data.errors;
                 }
+                if(err.response.status === 401){
+                    this.isModalActive = true;
+                }
             });
+        },
+
+        initData: function(){
+            if(this.propUser){
+                this.user = JSON.parse(this.propUser);
+            }
+
         }
     },
 
     mounted() {
+        this.initData();
         this.loadAppointmentType();
+    },
+
+    computed: {
+        showName(){
+            if(this.user){
+                return this.user.fname.toUpperCase();
+            }
+            return '';
+        },
+        currentLogin(){
+            if(this.user){
+                return true;
+            }
+            return false;
+        }
     }
 }
 </script>

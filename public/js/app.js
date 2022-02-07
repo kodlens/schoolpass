@@ -3334,13 +3334,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['propUser'],
   data: function data() {
     return {
       locale: undefined,
       isModalActive: false,
       fields: {},
       errors: {},
+      user: null,
       appointment_type: '',
       appointmentTypes: [],
       appointment: {
@@ -3358,7 +3365,8 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.role === 'ADMINISTRATOR') {
           window.location = '/dashboard-admin';
         } else if (res.data.role === 'USER') {
-          window.location = '/dashboard-user';
+          // window.location = '/dashboard-user';
+          window.location = '/';
         } else if (res.data.role === 'STAFF') {
           window.location = '/dashboard-staff';
         }
@@ -3388,6 +3396,7 @@ __webpack_require__.r(__webpack_exports__);
             type: 'is-success',
             onConfirm: function onConfirm() {
               _this3.appointment = {};
+              _this3.errors = {};
             }
           });
         }
@@ -3395,11 +3404,37 @@ __webpack_require__.r(__webpack_exports__);
         if (err.response.status === 422) {
           _this3.errors = err.response.data.errors;
         }
+
+        if (err.response.status === 401) {
+          _this3.isModalActive = true;
+        }
       });
+    },
+    initData: function initData() {
+      if (this.propUser) {
+        this.user = JSON.parse(this.propUser);
+      }
     }
   },
   mounted: function mounted() {
+    this.initData();
     this.loadAppointmentType();
+  },
+  computed: {
+    showName: function showName() {
+      if (this.user) {
+        return this.user.fname.toUpperCase();
+      }
+
+      return '';
+    },
+    currentLogin: function currentLogin() {
+      if (this.user) {
+        return true;
+      }
+
+      return false;
+    }
   }
 });
 
@@ -26280,33 +26315,48 @@ var render = function () {
                   fn: function () {
                     return [
                       _c("b-navbar-item", { attrs: { tag: "div" } }, [
-                        _c("div", { staticClass: "buttons" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "button is-primary",
-                              attrs: { href: "/sign-up" },
-                            },
-                            [_c("strong", [_vm._v("Sign up")])]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "button is-light",
-                              on: {
-                                click: function ($event) {
-                                  _vm.isModalActive = true
+                        !_vm.currentLogin
+                          ? _c("div", { staticClass: "buttons" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "button is-primary",
+                                  attrs: { href: "/sign-up" },
                                 },
-                              },
-                            },
-                            [
-                              _vm._v(
-                                "\n                                    Log in\n                                "
+                                [_c("strong", [_vm._v("Sign up")])]
                               ),
-                            ]
-                          ),
-                        ]),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "button is-light",
+                                  on: {
+                                    click: function ($event) {
+                                      _vm.isModalActive = true
+                                    },
+                                  },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    Log in\n                                "
+                                  ),
+                                ]
+                              ),
+                            ])
+                          : _c("div", { staticClass: "buttons" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "button is-link",
+                                  attrs: { href: "/dashboard-user" },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    DASHBOARD\n                                "
+                                  ),
+                                ]
+                              ),
+                            ]),
                       ]),
                     ]
                   },

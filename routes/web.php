@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -15,7 +16,13 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', function () {
+    if(Auth::check()){
+        $user = Auth::user();
+        return view('welcome')
+            ->with('user', $user->only(['lname', 'fname', 'mname', 'suffix']));
+    }
     return view('welcome');
+
 });
 
 Auth::routes([
