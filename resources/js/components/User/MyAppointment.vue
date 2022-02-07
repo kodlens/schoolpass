@@ -19,7 +19,6 @@
                                     <b-select v-model="sortOrder" @input="loadAsyncData">
                                         <option value="asc">ASC</option>
                                         <option value="desc">DESC</option>
-
                                     </b-select>
                                 </b-field>
                             </div>
@@ -37,8 +36,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                         <b-table
                             :data="data"

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             OfficeSeeder::class,
             AppointmentTypeSeeder::class,
             AppClockSeeder::class,
+            HealthQuestionSeeder::class,
         ]);
     }
 }
