@@ -16,13 +16,37 @@ class HealthQuestionSeeder extends Seeder
         //
         $data = [
             [
-                'question' => 'Do you have ubo?',
+                'question' => 'Fever',
             ],
             [
-                'question' => 'Do you have sipon?',
+                'question' => 'Dry Cough',
             ],
             [
-                'question' => 'Nabuang naka?',
+                'question' => 'Fatigue',
+            ],
+            [
+                'question' => 'Aches and Pains',
+            ],
+            [
+                'question' => 'Runnny Nose',
+            ],
+            [
+                'question' => 'Sore Throat',
+            ],
+            [
+                'question' => 'Shorthness of Breath',
+            ],
+            [
+                'question' => 'Diarrhea',
+            ],
+            [
+                'question' => 'Headache',
+            ],
+            [
+                'question' => 'Loss of Smell and Taste',
+            ],
+            [
+                'question' => 'None of the Above',
             ],
 
         ];
