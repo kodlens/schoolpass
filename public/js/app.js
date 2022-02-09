@@ -2234,6 +2234,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -2252,9 +2273,11 @@ __webpack_require__.r(__webpack_exports__);
       },
       isModalCreate: false,
       fields: {
+        office_id: 0,
         appointment_type: ''
       },
       errors: {},
+      offices: [],
       btnClass: {
         'is-success': true,
         'button': true,
@@ -2314,9 +2337,16 @@ __webpack_require__.r(__webpack_exports__);
       this.fields = {};
       this.errors = {};
     },
+    loadOffices: function loadOffices() {
+      var _this2 = this;
+
+      axios.get('/get-offices').then(function (res) {
+        _this2.offices = res.data;
+      });
+    },
     //alert box ask for deletion
     confirmDelete: function confirmDelete(delete_id) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$buefy.dialog.confirm({
         title: 'DELETE!',
@@ -2325,32 +2355,32 @@ __webpack_require__.r(__webpack_exports__);
         cancelText: 'Cancel',
         confirmText: 'Delete',
         onConfirm: function onConfirm() {
-          return _this2.deleteSubmit(delete_id);
+          return _this3.deleteSubmit(delete_id);
         }
       });
     },
     //execute delete after confirming
     deleteSubmit: function deleteSubmit(delete_id) {
-      var _this3 = this;
+      var _this4 = this;
 
       axios["delete"]('/appointment-type/' + delete_id).then(function (res) {
-        _this3.loadAsyncData();
+        _this4.loadAsyncData();
       })["catch"](function (err) {
         if (err.response.status === 422) {
-          _this3.errors = err.response.data.errors;
+          _this4.errors = err.response.data.errors;
         }
       });
     },
     //update code here
     getData: function getData(data_id) {
-      var _this4 = this;
+      var _this5 = this;
 
       this.clearFields();
       this.global_id = data_id;
       this.isModalCreate = true; //nested axios for getting the address 1 by 1 or request by request
 
       axios.get('/appointment-type/' + data_id).then(function (res) {
-        _this4.fields = res.data;
+        _this5.fields = res.data[0];
       });
     },
     clearFields: function clearFields() {
@@ -2359,60 +2389,61 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     submit: function submit() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (this.global_id > 0) {
         //update
         axios.put('/appointment-type/' + this.global_id, this.fields).then(function (res) {
           if (res.data.status === 'updated') {
-            _this5.$buefy.dialog.alert({
+            _this6.$buefy.dialog.alert({
               title: 'UPDATED!',
               message: 'Successfully updated.',
               type: 'is-success',
               onConfirm: function onConfirm() {
-                _this5.loadAsyncData();
+                _this6.loadAsyncData();
 
-                _this5.clearFields();
+                _this6.clearFields();
 
-                _this5.global_id = 0;
-                _this5.isModalCreate = false;
+                _this6.global_id = 0;
+                _this6.isModalCreate = false;
               }
             });
           }
         })["catch"](function (err) {
           if (err.response.status === 422) {
-            _this5.errors = err.response.data.errors;
+            _this6.errors = err.response.data.errors;
           }
         });
       } else {
         //INSERT HERE
         axios.post('/appointment-type', this.fields).then(function (res) {
           if (res.data.status === 'saved') {
-            _this5.$buefy.dialog.alert({
+            _this6.$buefy.dialog.alert({
               title: 'SAVED!',
               message: 'Successfully saved.',
               type: 'is-success',
               confirmText: 'OK',
               onConfirm: function onConfirm() {
-                _this5.isModalCreate = false;
+                _this6.isModalCreate = false;
 
-                _this5.loadAsyncData();
+                _this6.loadAsyncData();
 
-                _this5.clearFields();
+                _this6.clearFields();
 
-                _this5.global_id = 0;
+                _this6.global_id = 0;
               }
             });
           }
         })["catch"](function (err) {
           if (err.response.status === 422) {
-            _this5.errors = err.response.data.errors;
+            _this6.errors = err.response.data.errors;
           }
         });
       }
     }
   },
   mounted: function mounted() {
+    this.loadOffices();
     this.loadAsyncData();
   }
 });
@@ -24859,6 +24890,24 @@ var render = function () {
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
+                      attrs: { field: "office_name", label: "Office Name" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(props.row.office_name) +
+                                  "\n                        "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
                       attrs: {
                         field: "appointment_type",
                         label: "Appointment",
@@ -24889,6 +24938,24 @@ var render = function () {
                               _vm._v(
                                 "\n                            " +
                                   _vm._s(props.row.cc_time) +
+                                  "\n                        "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: { field: "max_multiple", label: "Time Allocated" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(props.row.max_multiple) +
                                   "\n                        "
                               ),
                             ]
@@ -25046,6 +25113,58 @@ var render = function () {
                             "b-field",
                             {
                               attrs: {
+                                label: "Office",
+                                type: this.errors.office_id ? "is-danger" : "",
+                                message: this.errors.office_id
+                                  ? this.errors.office_id[0]
+                                  : "",
+                              },
+                            },
+                            [
+                              _c(
+                                "b-select",
+                                {
+                                  attrs: {
+                                    placeholder: "Office",
+                                    required: "",
+                                  },
+                                  model: {
+                                    value: _vm.fields.office_id,
+                                    callback: function ($$v) {
+                                      _vm.$set(_vm.fields, "office_id", $$v)
+                                    },
+                                    expression: "fields.office_id",
+                                  },
+                                },
+                                _vm._l(_vm.offices, function (item, index) {
+                                  return _c(
+                                    "option",
+                                    {
+                                      key: index,
+                                      domProps: { value: item.office_id },
+                                    },
+                                    [_vm._v(_vm._s(item.office_name))]
+                                  )
+                                }),
+                                0
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "columns" }, [
+                      _c(
+                        "div",
+                        { staticClass: "column" },
+                        [
+                          _c(
+                            "b-field",
+                            {
+                              attrs: {
                                 label: "Appointment Type",
                                 type: this.errors.appointment_type
                                   ? "is-danger"
@@ -25090,7 +25209,7 @@ var render = function () {
                             "b-field",
                             {
                               attrs: {
-                                label: "Allocated Time",
+                                label: "Allocated Time(Minute(s))",
                                 type: this.errors.cc_time ? "is-danger" : "",
                                 message: this.errors.cc_time
                                   ? this.errors.cc_time[0]

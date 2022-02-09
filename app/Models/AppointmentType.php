@@ -13,6 +13,6 @@ class AppointmentType extends Model
 
     protected $primaryKey = 'appointment_type_id';
 
-    protected $fillable = ['appointment_type', 'cc_time', 'temp_sum', 'is_multiple'];
+    protected $fillable = ['office_id', 'appointment_type', 'cc_time', 'temp_sum', 'is_multiple'];
 
 }

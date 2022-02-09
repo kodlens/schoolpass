@@ -23,7 +23,9 @@ class AppointmentTypeController extends Controller
     public function getAppointmentTypes(Request $req){
         $sort = explode('.', $req->sort_by);
 
-        $data = AppointmentType::where('appointment_type', 'like', $req->type . '%')
+        $data = \DB::table('appointment_types as a')
+            ->join('offices as b', 'a.office_id', 'b.office_id')
+            ->where('appointment_type', 'like', $req->type . '%')
             ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
 
@@ -31,19 +33,24 @@ class AppointmentTypeController extends Controller
     }
 
     public function show($id){
-        return AppointmentType::find($id);
+        return \DB::table('appointment_types as a')
+            ->join('offices as b', 'a.office_id', 'b.office_id')
+            ->where('a.appointment_type_id', $id)
+            ->get();
     }
 
 
 
     public function store(Request $req){
         $req->validate([
+            'office_id' => ['required'],
             'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types'],
             'cc_time' => ['required'],
             'max_multiple' => ['required']
         ]);
 
         AppointmentType::create([
+            'office_id' => $req->office_id,
             'appointment_type' => strtoupper($req->appointment_type),
             'cc_time' => $req->cc_time,
             'max_multiple' => $req->max_multiple
@@ -56,11 +63,13 @@ class AppointmentTypeController extends Controller
 
     public function update(Request $req, $id){
         $validate = $req->validate([
+            'office_id' => ['required'],
             'appointment_type' => ['required', 'max:100', 'string', 'unique:appointment_types,appointment_type,' .$id .',appointment_type_id'],
             'cc_time' => ['required']
         ]);
 
         $data = AppointmentType::find($id);
+        $data->office_id = $req->office_id;
         $data->appointment_type = strtoupper($req->appointment_type);
         $data->cc_time = $req->cc_time;
         $data->max_multiple = $req->max_multiple;

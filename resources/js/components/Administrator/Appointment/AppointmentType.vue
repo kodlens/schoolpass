@@ -60,12 +60,20 @@
                                 {{ props.row.appointment_type_id }}
                             </b-table-column>
 
+                            <b-table-column field="office_name" label="Office Name" v-slot="props">
+                                {{ props.row.office_name }}
+                            </b-table-column>
+
                             <b-table-column field="appointment_type" label="Appointment" v-slot="props">
                                 {{ props.row.appointment_type }}
                             </b-table-column>
 
                             <b-table-column field="cc_time" label="Time Allocated" v-slot="props">
                                 {{ props.row.cc_time }}
+                            </b-table-column>
+
+                            <b-table-column field="max_multiple" label="Time Allocated" v-slot="props">
+                                {{ props.row.max_multiple }}
                             </b-table-column>
 
                             <b-table-column field="is_active" label="Active" v-slot="props">
@@ -115,6 +123,19 @@
 
                     <section class="modal-card-body">
                         <div class="">
+
+                            <div class="columns">
+                                <div class="column">
+                                    <b-field label="Office"
+                                             :type="this.errors.office_id ? 'is-danger':''"
+                                             :message="this.errors.office_id ? this.errors.office_id[0] : ''">
+                                        <b-select v-model="fields.office_id" placeholder="Office" required>
+                                            <option v-for="(item, index) in offices" :key="index" :value="item.office_id">{{ item.office_name }}</option>
+                                        </b-select>
+                                    </b-field>
+                                </div>
+                            </div>
+
                             <div class="columns">
                                 <div class="column">
                                     <b-field label="Appointment Type"
@@ -129,11 +150,11 @@
 
                             <div class="columns">
                                 <div class="column">
-                                    <b-field label="Allocated Time"
+                                    <b-field label="Allocated Time(Minute(s))"
                                              :type="this.errors.cc_time ? 'is-danger':''"
                                              :message="this.errors.cc_time ? this.errors.cc_time[0] : ''">
                                         <b-numberinput v-model="fields.cc_time" :controls="false"
-                                                       placeholder="" required>
+                                                           placeholder="" required>
                                         </b-numberinput>
                                     </b-field>
                                 </div>
@@ -191,10 +212,13 @@ export default {
             isModalCreate: false,
 
             fields: {
+                office_id: 0,
                 appointment_type: '',
 
             },
             errors: {},
+
+            offices: [],
 
             btnClass: {
                 'is-success': true,
@@ -262,6 +286,14 @@ export default {
             this.isModalCreate=true;
             this.fields = {};
             this.errors = {};
+
+
+        },
+
+        loadOffices(){
+            axios.get('/get-offices').then(res=>{
+                this.offices = res.data;
+            })
         },
 
 
@@ -296,7 +328,7 @@ export default {
 
             //nested axios for getting the address 1 by 1 or request by request
             axios.get('/appointment-type/'+data_id).then(res=>{
-                this.fields = res.data;
+                this.fields = res.data[0];
             });
         },
 
@@ -357,6 +389,7 @@ export default {
     },
 
     mounted() {
+        this.loadOffices();
         this.loadAsyncData();
     }
 

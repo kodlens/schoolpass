@@ -61,9 +61,12 @@ Route::resource('/dashboard-admin', App\Http\Controllers\Administrator\AdminDash
 Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
 Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::class, 'getUsers']);
 
+//AppointmentType
 Route::resource('/appointment-type', App\Http\Controllers\Administrator\AppointmentTypeController::class);
 Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
+//Offices
+Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'getOffices']);
 
 
 //USER
