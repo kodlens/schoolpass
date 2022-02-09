@@ -12,6 +12,6 @@ class Office extends Model
     protected $table = 'offices';
     protected $primaryKey = 'office_id';
 
-    protected $fillable = ['office'];
+    protected $fillable = ['office_name'];
 
 }

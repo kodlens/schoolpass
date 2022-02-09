@@ -14,8 +14,63 @@ class OfficeController extends Controller
         $this->middleware('auth');
     }
 
+    public function index(){
+        return view('administrator.office');
+    }
+
     public function getOffices(){
+
+        //this is for select box in appointment
         return Office::all();
     }
+
+    public function loadOffices(Request $req){
+        $sort = explode('.',$req->sort_by);
+        $data = Office::where('office_name', 'like', $req->office . '%')
+            ->orderBy($sort[0], $sort[1])
+            ->paginate($req->perpage);
+
+        return $data;
+    }
+
+    public function show($id){
+        return Office::find($id);
+    }
+
+    public function store(Request $req){
+        $req->validate([
+            'office_name' => ['required', 'unique:offices'],
+
+        ]);
+
+        Office::create([
+            'office_name' => strtoupper($req->office_name),
+        ]);
+
+        return response()->json([
+            'status' => 'saved'
+        ],200);
+    }
+
+
+    public function update(Request $req, $id){
+        $req->validate([
+            'office_name' => ['required', 'unique:offices,office_name,' .$id. ',office_id'],
+        ]);
+
+        $data = Office::find($id);
+        $data->office_name = strtoupper($req->office_name);
+        $data->save();
+
+        return response()->json([
+            'status' => 'updated'
+        ],200);
+    }
+
+    public function destroy($id){
+        Office::destroy($id);
+    }
+
+
 
 }

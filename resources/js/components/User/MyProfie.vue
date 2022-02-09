@@ -10,6 +10,18 @@
                             <h1 class="title is-4">MY PROFILE</h1>
 
                             <div class="container">
+
+                                <div class="columns is-centered">
+                                    <div class="column is-6">
+                                        <div class="qr-container">
+                                            <div>QR CODE: {{ fields.qr_ref }}</div>
+                                            <div v-if="fields.qr_ref">
+                                                <qrcode  :value="fields.qr_ref" :options="{ width: 200 }"></qrcode>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="columns">
                                     <div class="column">
                                         <b-field label="Username">

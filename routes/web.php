@@ -66,7 +66,8 @@ Route::resource('/appointment-type', App\Http\Controllers\Administrator\Appointm
 Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
 //Offices
-Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'getOffices']);
+Route::resource('/offices', App\Http\Controllers\Administrator\OfficeController::class);
+Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'loadOffices']);
 
 
 //USER

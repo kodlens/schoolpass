@@ -53,13 +53,21 @@
                         <b-menu-list>
                             <b-menu-item label="User" icon="account" tag="a" href="/users"></b-menu-item>
                         </b-menu-list>
+
+                        <b-menu-list>
+                            <b-menu-item label="Offices" icon="calendar-blank" tag="a" href="/offices"></b-menu-item>
+                        </b-menu-list>
+
+
                         <b-menu-list>
                             <b-menu-item label="Appointment Type" icon="calendar-blank" tag="a" href="/appointment-type"></b-menu-item>
                         </b-menu-list>
 
-                        <b-menu-list>
-                            <b-menu-item label="Expo" icon="link" target="_blank" to="/expo"></b-menu-item>
-                        </b-menu-list>
+
+
+<!--                        <b-menu-list>-->
+<!--                            <b-menu-item label="Expo" icon="link" target="_blank" to="/expo"></b-menu-item>-->
+<!--                        </b-menu-list>-->
 
                         <b-menu-list label="Actions">
                             <b-menu-item @click="logout" label="Logout"></b-menu-item>
