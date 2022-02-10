@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -65,9 +66,20 @@ Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::cla
 Route::resource('/appointment-type', App\Http\Controllers\Administrator\AppointmentTypeController::class);
 Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
-//Offices
+//Offices Administrator (For office management
 Route::resource('/offices', App\Http\Controllers\Administrator\OfficeController::class);
-Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'loadOffices']);
+Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'getOffices']);
+
+
+
+
+
+
+
+
+
+//OFFICE ROLE
+Route::resource('/dashboard-office', App\Http\Controllers\Administrator\OfficeDashboardController::class);
 
 
 //USER
@@ -89,4 +101,13 @@ Route::get('/get-my-profile', [App\Http\Controllers\User\MyProfileController::cl
 
 Route::get('/session', function(){
     return Session::all();
+});
+
+
+Route::get('/applogout', function(Request $req){
+    \Auth::logout();
+    $req->session()->invalidate();
+    $req->session()->regenerateToken();
+
+
 });

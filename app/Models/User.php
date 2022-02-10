@@ -23,7 +23,7 @@ class User extends Authenticatable
         'qr_ref',
         'username', 'lname', 'fname', 'mname', 'suffix', 'sex',
         'province', 'city', 'barangay', 'street',
-        'email', 'contact_no', 'role',
+        'email', 'contact_no', 'role', 'remark',
         'password',
     ];
 

@@ -291,13 +291,14 @@ export default {
         submit: function(){
 
             axios.post('/login', this.fields).then(res=>{
+                console.log(res.data);
                if(res.data.role === 'ADMINISTRATOR'){
                     window.location = '/dashboard-admin';
                }else if(res.data.role === 'USER'){
                   // window.location = '/dashboard-user';
                    window.location = '/';
-               }else if(res.data.role === 'STAFF'){
-                   window.location = '/dashboard-staff';
+               }else if(res.data.role === 'OFFICE'){
+                   window.location = '/dashboard-office';
                }
             }).catch(err => {
                 if(err.response.status === 422){
