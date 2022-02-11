@@ -5,7 +5,7 @@
             <div class="columns">
                 <div class="column is-8 is-offset-2">
                     <div class="box">
-                        <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">MY APPOINTMENT</div>
+                        <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">OFFICE APPOINTMENT</div>
 
                         <div class="level">
                             <div class="level-left">
@@ -27,8 +27,8 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-datepicker
-                                                 v-model="search.appointment_date" placeholder="Search Appointment Date"
-                                                 @keyup.native.enter="loadAsyncData"/>
+                                            v-model="search.appointment_date" placeholder="Search Appointment Date"
+                                            @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
                                         </p>
@@ -53,12 +53,16 @@
                             :default-sort-direction="defaultSortDirection"
                             @sort="onSort">
 
-                            <b-table-column field="appointment_type_id" label="ID" v-slot="props">
+                            <b-table-column field="appointment_id" label="ID" v-slot="props">
                                 {{ props.row.appointment_id }}
                             </b-table-column>
 
                             <b-table-column field="appointment_type" label="Appointment" v-slot="props">
                                 {{ props.row.appointment_type }}
+                            </b-table-column>
+
+                            <b-table-column field="appointment_name" label="Student Name" v-slot="props">
+                                {{ props.row.lname }}, {{ props.row.fname }}
                             </b-table-column>
 
                             <b-table-column field="from_to" label="From/To" v-slot="props">
@@ -73,15 +77,14 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
+                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
                                     <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
                                 </div>
                             </b-table-column>
 
                         </b-table>
 
-                        <div class="buttons mt-3">
-                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
-                        </div>
+
 
                     </div>
                 </div><!--close column-->
@@ -197,6 +200,7 @@ export default {
         loadAsyncData() {
 
             this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,
                 `appdate=${this.search.ndate}`,
@@ -205,7 +209,7 @@ export default {
             ].join('&')
 
             this.loading = true
-            axios.get(`/get-my-appointments?${params}`)
+            axios.get(`/get-office-appointments?${params}`)
                 .then(({ data }) => {
                     this.data = [];
                     let currentTotal = data.total
@@ -253,20 +257,55 @@ export default {
 
 
         //alert box ask for deletion
+        approveAppointment(row) {
+            this.$buefy.dialog.confirm({
+                title: 'APPROVE?',
+                type: 'is-primary',
+                message: 'Are you sure you want to approve this appointment?',
+                cancelText: 'Cancel',
+                confirmText: 'APPROVE',
+                onConfirm: () => this.approveSubmit(row.appointment_id)
+            });
+        },
+        //execute delete after confirming
+        approveSubmit(dataId) {
+            axios.post('/office-appointment-approve/' + dataId).then(res => {
+                if(res.data.status === 'approved'){
+                    this.$buefy.toast.open({
+                        message: 'Appointment approved',
+                        type: 'is-success'
+                    });
+                    this.loadAsyncData();
+                }
+
+            }).catch(err => {
+                if (err.response.status === 422) {
+                    this.errors = err.response.data.errors;
+                }
+            });
+        },
+
         cancelAppointment(row) {
             this.$buefy.dialog.confirm({
                 title: 'CANCEL?',
                 type: 'is-danger',
-                message: 'Are you sure you want to cancel this data?',
+                message: 'Are you sure you want to cancel this appointment?',
                 cancelText: 'Close',
-                confirmText: 'Cancel',
-                onConfirm: () => this.cancelSubmit(row.appointment_id)
+                confirmText: 'CANCEL',
+                onConfirm: () => this.cancelAppointmentSubmit(row.appointment_id)
             });
         },
-        //execute delete after confirming
-        cancelSubmit(dataId) {
-            axios.post('/cancel-my-appointment/' + dataId).then(res => {
-                this.loadAsyncData();
+
+        cancelAppointmentSubmit(dataId) {
+            axios.post('/office-appointment-cancel/' + dataId).then(res => {
+                if(res.data.status === 'cancelled'){
+                    this.$buefy.toast.open({
+                        message: 'Appointment cancelled',
+                        type: 'is-success'
+                    });
+                    this.loadAsyncData();
+                }
+
             }).catch(err => {
                 if (err.response.status === 422) {
                     this.errors = err.response.data.errors;

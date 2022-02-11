@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
                 'email' => 'angel@dev.com',
                 'contact_no' => '09167789585',
                 'role' => 'ADMINISTRATOR',
+                'office_id' => 0,
                 'remark' => '',
                 'password' => Hash::make('a')
             ],
@@ -47,6 +48,7 @@ class UserSeeder extends Seeder
                 'email' => 'riche@dev.com',
                 'contact_no' => '09167789584',
                 'role' => 'USER',
+                'office_id' => 0,
                 'remark' => '',
                 'password' => Hash::make('a')
             ],
@@ -64,6 +66,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@dev.com',
                 'contact_no' => '09167789584',
                 'role' => 'ADMINISTRATOR',
+                'office_id' => 0,
                 'remark' => '',
                 'password' => Hash::make('a')
             ],
@@ -81,6 +84,7 @@ class UserSeeder extends Seeder
                 'email' => 'reg@dev.com',
                 'contact_no' => '09167781122',
                 'role' => 'OFFICE',
+                'office_id' => 6,
                 'remark' => 'PROCESSING',
                 'password' => Hash::make('a')
             ],
@@ -98,6 +102,7 @@ class UserSeeder extends Seeder
                 'email' => 'osa@dev.com',
                 'contact_no' => '09167781123',
                 'role' => 'OFFICE',
+                'office_id' => 1,
                 'remark' => 'PROCESSING',
                 'password' => Hash::make('a')
             ],
@@ -115,6 +120,7 @@ class UserSeeder extends Seeder
                 'email' => 'acc@dev.com',
                 'contact_no' => '09167781124',
                 'role' => 'OFFICE',
+                'office_id' => 5,
                 'remark' => 'PROCESSING',
                 'password' => Hash::make('a')
             ]

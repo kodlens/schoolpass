@@ -2,8 +2,8 @@
     <div>
         <div class="section">
 
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
+            <div class="columns is-centered">
+                <div class="column is-6">
                     <div class="box">
                         <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF OFFICES</div>
 
@@ -63,8 +63,6 @@
                             <b-table-column field="office_name" label="Office Name" v-slot="props">
                                 {{ props.row.office_name }}
                             </b-table-column>
-
-
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">

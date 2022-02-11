@@ -61,6 +61,7 @@ Route::resource('/dashboard-admin', App\Http\Controllers\Administrator\AdminDash
 
 Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
 Route::get('/get-users', [App\Http\Controllers\Administrator\UserController::class, 'getUsers']);
+Route::get('/get-user-offices', [App\Http\Controllers\Administrator\UserController::class, 'getOffices']);
 
 //AppointmentType
 Route::resource('/appointment-type', App\Http\Controllers\Administrator\AppointmentTypeController::class);
@@ -69,6 +70,7 @@ Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeO
 //Offices Administrator (For office management
 Route::resource('/offices', App\Http\Controllers\Administrator\OfficeController::class);
 Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'getOffices']);
+Route::get('/load-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'loadOffices']);
 
 
 
@@ -79,19 +81,31 @@ Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController:
 
 
 //OFFICE ROLE
-Route::resource('/dashboard-office', App\Http\Controllers\Administrator\OfficeDashboardController::class);
+Route::resource('/dashboard-office', App\Http\Controllers\Office\OfficeDashboardController::class);
+
+Route::resource('/office-appointment', App\Http\Controllers\Office\OfficeAppointmentController::class);
+Route::get('/get-office-appointments', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'getOfficeAppointments']);
+Route::post('/office-appointment-approve/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'approveAppointment']);
+Route::post('/office-appointment-cancel/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'cancelAppointment']);
+
+
+
+
 
 
 //USER
 Route::resource('/dashboard-user', App\Http\Controllers\User\DashboardUserController::class);
 Route::get('/get-user', [App\Http\Controllers\User\DashboardUserController::class, 'getUser']);
 
-
 Route::resource('/my-appointment', App\Http\Controllers\User\MyAppointmentController::class);
 Route::get('/get-my-appointments', [App\Http\Controllers\User\MyAppointmentController::class, 'getMyAppointment']);
+Route::post('/cancel-my-appointment/{id}', [App\Http\Controllers\User\MyAppointmentController::class, 'cancelMyAppointment']);
+
 
 Route::resource('/my-profile', App\Http\Controllers\User\MyProfileController::class);
 Route::get('/get-my-profile', [App\Http\Controllers\User\MyProfileController::class, 'getProfile']);
+
+Route::get('/my-upcoming-appointment', [App\Http\Controllers\User\MyAppointmentController::class, 'upcomingAppointment']);
 
 
 

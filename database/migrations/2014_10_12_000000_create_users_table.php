@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('contact_no')->nullable();
             $table->string('role')->nullable();
+            $table->unsignedBigInteger('office_id')->nullable();
             $table->string('remark', 50)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

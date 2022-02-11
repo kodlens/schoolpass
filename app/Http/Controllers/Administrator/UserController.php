@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Administrator;
 
+use App\Models\Office;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -48,6 +49,7 @@ class UserController extends Controller
             'email' => ['required', 'unique:users'],
             'password' => ['required', 'string', 'confirmed'],
             'role' => ['required', 'string'],
+            'remark' => ['required', 'string'],
             'province' => ['required', 'string'],
             'city' => ['required', 'string'],
             'barangay' => ['required', 'string'],
@@ -64,6 +66,8 @@ class UserController extends Controller
             'email' => $req->email,
             'contact_no' => $req->contact_no,
             'role' => $req->role,
+            'remark' => strtoupper($req->remark),
+            'office_id' => $req->role == 'OFFICE' ? $req->office : 0,
             'province' => $req->province,
             'city' => $req->city,
             'barangay' => $req->barangay,
@@ -84,6 +88,7 @@ class UserController extends Controller
             'sex' => ['required', 'string', 'max:20'],
             'email' => ['required', 'unique:users,email,'.$id.',user_id'],
             'role' => ['required', 'string'],
+            'remark' => ['required', 'string'],
             'province' => ['required', 'string'],
             'city' => ['required', 'string'],
             'barangay' => ['required', 'string'],
@@ -97,6 +102,8 @@ class UserController extends Controller
         $data->sex = $req->sex;
         $data->email = $req->email;
         $data->role = $req->role;
+        $data->remark = strtoupper($req->remark);
+        $data->office_id = $req->role == 'OFFICE' ? $req->office : 0;
         $data->province = $req->province;
         $data->city = $req->city;
         $data->barangay = $req->barangay;
@@ -106,6 +113,11 @@ class UserController extends Controller
         return response()->json([
             'status' => 'updated'
         ]);
+    }
+
+
+    public function getOffices(){
+        return Office::orderBy('office_name', 'asc')->get();
     }
 
 

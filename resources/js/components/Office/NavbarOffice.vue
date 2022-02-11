@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="mynav">
-            <div class="mynav-brand">{{ showName }}</div>
+            <div class="mynav-brand">OFFICE PANEL</div>
             <div class="burger-button" @click="open = true">
                 <div class="burger-div"></div>
                 <div class="burger-div"></div>
@@ -18,24 +18,25 @@
                 :right="right"
                 v-model="open">
                 <div class="p-4">
-                    <h3 class="title is-4">{{ showName}} PANEL</h3>
+                    <h3 class="title is-4">{{ showName}}</h3>
                     <b-menu>
                         <b-menu-list>
                             <b-menu-item label="Home" icon="home" tag="a" href="/"></b-menu-item>
                         </b-menu-list>
 
                         <b-menu-list label="Menu">
-                            <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-user"></b-menu-item>
+                            <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-office"></b-menu-item>
+
                         </b-menu-list>
 
                         <b-menu-list>
-                            <b-menu-item label="My Apointment" icon="calendar" tag="a" href="/my-appointment"></b-menu-item>
+                            <b-menu-item label="Office Apointments" icon="calendar" tag="a" href="/office-appointment"></b-menu-item>
                         </b-menu-list>
 
 
-                        <b-menu-list>
-                            <b-menu-item label="My Profile" icon="account" tag="a" href="/my-profile"></b-menu-item>
-                        </b-menu-list>
+<!--                        <b-menu-list>-->
+<!--                            <b-menu-item label="My Profile" icon="account" tag="a" href="/my-profile"></b-menu-item>-->
+<!--                        </b-menu-list>-->
 
 
                         <b-menu-list label="Actions">

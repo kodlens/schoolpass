@@ -221,12 +221,33 @@
                                 <div class="column">
                                     <b-field label="Role" label-position="on-border" expanded
                                              :type="this.errors.role ? 'is-danger':''"
-                                             :message="this.errors.role ? this.errors.role[0] : ''"
-                                            >
+                                             :message="this.errors.role ? this.errors.role[0] : ''">
                                         <b-select v-model="fields.role" expanded>
                                             <option value="ADMIN">ADMINISTRATOR</option>
+                                            <option value="OFFICE">OFFICE</option>
                                             <option value="USER">USER</option>
                                         </b-select>
+                                    </b-field>
+                                </div>
+
+                            </div>
+
+                            <div class="columns">
+                                <div class="column" v-if="fields.role === 'OFFICE'">
+                                    <b-field label="Office" label-position="on-border" expanded
+                                             :type="this.errors.office ? 'is-danger':''"
+                                             :message="this.errors.office ? this.errors.office[0] : ''">
+                                        <b-select v-model="fields.office" expanded>
+                                            <option v-for="(item, index) in offices" :key="index" :value="item.office_id">{{ item.office_name }}</option>
+                                        </b-select>
+                                    </b-field>
+                                </div>
+
+                                <div class="column">
+                                    <b-field label="Remark" label-position="on-border" expanded
+                                             :type="this.errors.remark ? 'is-danger':''"
+                                             :message="this.errors.remark ? this.errors.remark[0] : ''">
+                                        <b-input type="text" v-model="fields.remark" expanded></b-input>
                                     </b-field>
                                 </div>
                             </div>
@@ -320,10 +341,11 @@ export default{
                 username: '',
                 lname: '', fname: '', mname: '',
                 password: '', password_confirmation : '',
-                sex : '', role: '',  email : '', contact_no : '',
+                sex : '', role: '', office: '', remark: '',  email : '', contact_no : '',
                 province: '', city: '', barangay: '', street: ''
             },
             errors: {},
+            offices: [],
 
             btnClass: {
                 'is-success': true,
@@ -421,7 +443,7 @@ export default{
                 //update
                 axios.put('/users/'+this.global_id, this.fields).then(res=>{
                     if(res.data.status === 'updated'){
-                        this.$buefy.dialog.confirm({
+                        this.$buefy.dialog.alert({
                             title: 'UPDATED!',
                             message: 'Successfully updated.',
                             type: 'is-success',
@@ -442,7 +464,7 @@ export default{
                 //INSERT HERE
                 axios.post('/users', this.fields).then(res=>{
                     if(res.data.status === 'saved'){
-                        this.$buefy.dialog.confirm({
+                        this.$buefy.dialog.alert({
                             title: 'SAVED!',
                             message: 'Successfully saved.',
                             type: 'is-success',
@@ -509,6 +531,7 @@ export default{
             //nested axios for getting the address 1 by 1 or request by request
             axios.get('/users/'+data_id).then(res=>{
                 this.fields = res.data;
+                this.fields.office = res.data.office_id;
                 let tempData = res.data;
                 //load city first
                 axios.get('/load-cities?prov=' + this.fields.province).then(res=>{
@@ -520,12 +543,19 @@ export default{
                     });
                 });
             });
+        },
+
+        loadOffices(){
+            axios.get('/get-user-offices').then(res=>{
+                this.offices = res.data
+            });
         }
 
 
     },
 
     mounted() {
+        this.loadOffices();
         this.loadAsyncData();
         this.loadProvince();
     }

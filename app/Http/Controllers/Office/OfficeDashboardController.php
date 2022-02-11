@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Office\Controllers;
+namespace App\Http\Controllers\Office;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AboutPageController extends Controller
+class OfficeDashboardController extends Controller
 {
     //
 

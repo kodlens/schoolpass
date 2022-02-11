@@ -18,7 +18,7 @@ class OfficeMiddleware
     public function handle(Request $request, Closure $next)
     {
         $role = Auth::user()->role;
-        if($role === 'STAFF'){
+        if($role === 'OFFICE'){
             return $next($request);
         }
 

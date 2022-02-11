@@ -24,6 +24,7 @@
 <body>
 <div id="app">
 
+    <navbar-office></navbar-office>
     <div>
         @yield('content')
     </div>

@@ -260,6 +260,137 @@
             </div>
         </b-modal>
 
+
+
+        <b-modal v-model="modalHealDeclaration" has-modal-card
+                 trap-focus width="640" aria-role="dialog" aria-modal>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">HEALTH DECLARATIONS</p>
+                    <button type="button" class="delete"
+                            @click="modalHealDeclaration = false"/>
+                </header>
+
+                <section class="modal-card-body">
+                    <div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">FEVER?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.fever">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">DRY COUGH?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.dry_cough">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">FATIGUE?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.fatigue">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">ACHES AND PAIN?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.aches_pain">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">RUNNY NOSE?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.runny_nose">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">SORE THROAT?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.sore_throat">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">SHORTNESS OF BREATH?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.short_breath">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">DIARRHEA?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.diarrhea">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">HEADACHE?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.headache">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <div class="health-question-container">
+                            <div class="h-question">LOSS OF SMELL AND TASTE?</div>
+                            <div class="h-ans">
+                                <b-select v-model="declarataions.loss_smell_taste">
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </b-select>
+                            </div>
+                        </div>
+
+                        <footer class="modal-card-foot">
+                            <button
+                                class="button is-success"
+                                label="LOGIN"
+                                type="is-success" @click="submitAppointmentNow">OK</button>
+
+                            <b-button
+                                label="Close"
+                                @click="modalHealDeclaration=false"></b-button>
+                        </footer>
+
+                    </div>
+                </section>
+
+            </div>
+        </b-modal>
+
     </div> <!--root div-->
 </template>
 
@@ -269,6 +400,7 @@ export default {
     data(){
         return{
             locale: undefined,
+            modalHealDeclaration: false,
             isModalActive: false,
             fields: {},
             errors: {},
@@ -277,6 +409,10 @@ export default {
             appointment_type: '',
 
             appointmentTypes: [],
+
+            health_questions: [],
+            declarataions: {},
+
 
             appointment: {
                 appointment_date: null,
@@ -314,7 +450,35 @@ export default {
             });
         },
 
-        submitAppointment: function(){
+        submitAppointment: function() {
+            //before proceed, health declaration first
+            this.modalHealDeclaration = true;
+            // axios.get('/get-healt-questions').then(res => {
+            //     this.health_questions = res.data;
+            // })
+        },
+
+        submitAppointmentNow(){
+
+            if (Object.values(this.declarataions).indexOf('1') > -1) {
+                this.$buefy.toast.open({
+                    message: 'Sorry, you cannot proceed with the appointment.',
+                    type: 'is-danger'
+                })
+                this.modalHealDeclaration = false;
+                return false;
+            }
+            var size = Object.keys(this.declarataions).length;
+            if(size < 10){
+                this.$buefy.toast.open({
+                    message: 'Please complete the health declaration.',
+                    type: 'is-danger'
+                })
+                return false;
+            }
+
+
+            this.modalHealDeclaration = false;
             this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
             this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
             axios.post('/my-appointment', this.appointment).then(res=>{
@@ -338,6 +502,7 @@ export default {
                 }
             });
         },
+
 
         initData: function(){
             if(this.propUser){
@@ -476,6 +641,17 @@ export default {
         justify-content: center;
         align-items: center;
         margin: auto;
+    }
+
+    .health-question-container{
+        display: flex;
+        margin: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid gray;
+    }
+
+    .h-ans{
+        margin-left: auto;
     }
 
 </style>

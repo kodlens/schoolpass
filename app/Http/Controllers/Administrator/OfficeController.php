@@ -18,20 +18,19 @@ class OfficeController extends Controller
         return view('administrator.office');
     }
 
-    public function getOffices(){
-
+    public function getOffices(Request $req){
         //this is for select box in appointment
-        return Office::all();
-    }
-
-    public function loadOffices(Request $req){
         $sort = explode('.',$req->sort_by);
         $data = Office::where('office_name', 'like', $req->office . '%')
             ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
-
         return $data;
     }
+
+    public function loadOffices(){
+        return Office::all();
+    }
+
 
     public function show($id){
         return Office::find($id);

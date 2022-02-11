@@ -291,7 +291,7 @@ export default {
         },
 
         loadOffices(){
-            axios.get('/get-offices').then(res=>{
+            axios.get('/load-offices').then(res=>{
                 this.offices = res.data;
             })
         },

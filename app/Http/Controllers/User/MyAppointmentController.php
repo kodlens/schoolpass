@@ -38,16 +38,24 @@ class MyAppointmentController extends Controller
             ->paginate($req->perpage);
     }
 
+    public function upcomingAppointment(){
+        $data = DB::table('appointments as a')
+            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
+            ->join('users as c', 'a.appointment_user_id', 'c.user_id')
+            ->orderBy('appointment_id', 'desc')
+            ->where('c.user_id', Auth::user()->user_id)
+            ->first();
+        return $data;
+    }
+
     public function store(Request $req){
+
         $req->validate([
             'app_date' => ['required'],
             'appointment_type' => ['required']
         ], $message = [
             'app_date.required' => 'Please select date and time.',
         ]); //validating input
-
-
-
 
         $date =  $req->app_date;
         $ndate = date("Y-m-d", strtotime($date)); //convert to date format UNIX
@@ -106,4 +114,13 @@ class MyAppointmentController extends Controller
 
     }
 
+    public function cancelMyAppointment($id){
+        $data = Appointment::find($id);
+        $data->is_approved = 2;
+        $data->save();
+
+        return response()->json([
+            'status' => 'cancelled'
+        ],200);
+    }
 }
