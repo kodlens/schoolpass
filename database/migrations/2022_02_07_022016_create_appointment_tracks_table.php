@@ -18,6 +18,7 @@ class CreateAppointmentTracksTable extends Migration
             $table->unsignedBigInteger('appointment_id');
             $table->foreign('appointment_id')->references('appointment_id')->on('appointments');
             $table->unsignedBigInteger('office_id');
+            $table->string('remark')->nullable();
             $table->foreign('office_id')->references('office_id')->on('offices');
 
             $table->timestamps();

@@ -26,7 +26,7 @@
 
                         <b-menu-list label="Menu">
                             <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-office"></b-menu-item>
-
+                            <b-menu-item icon="information-outline" label="Scanner" tag="a" href="/office-scanner"></b-menu-item>
                         </b-menu-list>
 
                         <b-menu-list>

@@ -55,14 +55,20 @@
                         </b-menu-list>
 
                         <b-menu-list>
-                            <b-menu-item label="Offices" icon="calendar-blank" tag="a" href="/offices"></b-menu-item>
+                            <b-menu-item label="Report Track" icon="calendar-blank" tag="a" href="/report-track"></b-menu-item>
                         </b-menu-list>
 
+                        <b-menu-list>
+                            <b-menu-item label="Offices" icon="calendar-blank" tag="a" href="/offices"></b-menu-item>
+                        </b-menu-list>
 
                         <b-menu-list>
                             <b-menu-item label="Appointment Type" icon="calendar-blank" tag="a" href="/appointment-type"></b-menu-item>
                         </b-menu-list>
 
+                        <b-menu-list>
+                            <b-menu-item label="Offices" icon="calendar-blank" tag="a" href="/offices"></b-menu-item>
+                        </b-menu-list>
 
 
 <!--                        <b-menu-list>-->

@@ -20,7 +20,7 @@ Route::get('/', function () {
     if(Auth::check()){
         $user = Auth::user();
         return view('welcome')
-            ->with('user', $user->only(['lname', 'fname', 'mname', 'suffix']));
+            ->with('user', $user->only(['lname', 'fname', 'mname', 'suffix', 'role', 'remark', 'office_id']));
     }
     return view('welcome');
 
@@ -88,6 +88,10 @@ Route::get('/get-office-appointments', [App\Http\Controllers\Office\OfficeAppoin
 Route::post('/office-appointment-approve/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'approveAppointment']);
 Route::post('/office-appointment-cancel/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'cancelAppointment']);
 
+Route::resource('/office-scanner', App\Http\Controllers\Office\OfficeScannerController::class);
+Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerController::class, 'validateQR']);
+
+Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
 
 
 

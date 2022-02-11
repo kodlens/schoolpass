@@ -4,7 +4,7 @@
             <div class="columns is-centered">
                 <div class="column is-6">
                     <div class="box">
-                        <h1 class="title is-5">UPCOMING APPOINTMENT</h1>
+                        <h1 class="title is-5">LAST REQUESTED APPOINTMENT</h1>
                         <div class="appointment-detail">
                             <div>
                                 <strong>DATE:</strong> {{ appointment.app_date }}

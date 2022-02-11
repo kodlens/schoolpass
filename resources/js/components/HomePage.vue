@@ -34,7 +34,11 @@
                                 </a>
                             </div>
                             <div class="buttons" v-else>
-                                <a class="button is-link" href="/dashboard-user">
+
+                                <a v-if="user.role === 'USER'" class="button is-link" href="/dashboard-user">
+                                    DASHBOARD
+                                </a>
+                                <a v-if="user.role === 'OFFICE'" class="button is-link" href="/dashboard-office">
                                     DASHBOARD
                                 </a>
                             </div>

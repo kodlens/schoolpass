@@ -250,9 +250,8 @@
                                         <b-input type="text" v-model="fields.remark" expanded></b-input>
                                     </b-field>
                                 </div>
+
                             </div>
-
-
 
                             <div class="columns">
                                 <div class="column">
