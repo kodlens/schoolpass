@@ -33613,7 +33613,7 @@ var render = function () {
                     }),
                     _vm._v(" "),
                     _c("b-table-column", {
-                      attrs: { field: "max_multiple", label: "Time Allocated" },
+                      attrs: { field: "max_multiple", label: "Max Multiple" },
                       scopedSlots: _vm._u([
                         {
                           key: "default",
@@ -34069,7 +34069,7 @@ var render = function () {
                             icon: "information-outline",
                             label: "Dashboard",
                             tag: "a",
-                            href: "/dashboard",
+                            href: "/dashboard-admin",
                           },
                         }),
                       ],

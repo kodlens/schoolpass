@@ -72,7 +72,7 @@
                                 {{ props.row.cc_time }}
                             </b-table-column>
 
-                            <b-table-column field="max_multiple" label="Time Allocated" v-slot="props">
+                            <b-table-column field="max_multiple" label="Max Multiple" v-slot="props">
                                 {{ props.row.max_multiple }}
                             </b-table-column>
 

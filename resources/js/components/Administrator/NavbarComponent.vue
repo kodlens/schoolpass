@@ -23,7 +23,7 @@
 
                         <b-menu-list label="Menu">
 
-                            <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard"></b-menu-item>
+                            <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-admin"></b-menu-item>
 <!--                            <b-menu-item icon="settings">-->
 <!--                                <template #label="props">-->
 <!--                                    Administrator-->
