@@ -39,7 +39,6 @@
                         </div>
 
 
-
                         <b-table
                             :data="data"
                             :loading="loading"

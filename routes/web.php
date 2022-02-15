@@ -23,7 +23,6 @@ Route::get('/', function () {
             ->with('user', $user->only(['lname', 'fname', 'mname', 'suffix', 'role', 'remark', 'office_id']));
     }
     return view('welcome');
-
 });
 
 Auth::routes([
@@ -56,7 +55,7 @@ Route::get('/load-barangays', [App\Http\Controllers\AddressController::class, 'l
 
 
 
-//ADMINSITRATOR
+/*     ADMINSITRATOR          */
 Route::resource('/dashboard-admin', App\Http\Controllers\Administrator\AdminDashboardController::class);
 
 Route::resource('/users', App\Http\Controllers\Administrator\UserController::class);
@@ -68,11 +67,13 @@ Route::resource('/appointment-type', App\Http\Controllers\Administrator\Appointm
 Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
 //Offices Administrator (For office management
+/*     ADMINSITRATOR          */
+
+
+
 Route::resource('/offices', App\Http\Controllers\Administrator\OfficeController::class);
 Route::get('/get-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'getOffices']);
 Route::get('/load-offices', [App\Http\Controllers\Administrator\OfficeController::class, 'loadOffices']);
-
-
 
 
 

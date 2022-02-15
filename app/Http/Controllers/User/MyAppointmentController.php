@@ -50,6 +50,7 @@ class MyAppointmentController extends Controller
 
     public function store(Request $req){
 
+
         $req->validate([
             'app_date' => ['required'],
             'appointment_type' => ['required']
@@ -66,6 +67,9 @@ class MyAppointmentController extends Controller
         $appData = AppointmentType::where('appointment_type_id', $req->appointment_type)->first(); //get first the appointment type so we can get the cc_time
         $nTimeString = '+'.$appData->cc_time.' minutes'; //concat string..
 
+        $max_multiple = $appData->max_multiple;
+
+
         $addedTime = date("H:i", strtotime($nTimeString, strtotime($time))); //time added base on the time set in appointment type
 
         $appClock = AppClock::where('start_time', '<=', $ntime)
@@ -74,7 +78,7 @@ class MyAppointmentController extends Controller
         if(!$appClock){
             return response()->json([
                 'errors' => [
-                    'not_allowed' =>  'Booking is not allowed this time.'
+                    'not_allowed' =>  ['Booking is not allowed this time.']
                 ]
             ], 422);
         }
@@ -85,12 +89,12 @@ class MyAppointmentController extends Controller
             ->where('app_time_from', '<=', $ntime)
             ->where('app_time_to', '>=', $ntime)
             ->where('a.appointment_type_id', $req->appointment_type)
-            ->exists();
+            ->count();
 
-        if($countExist){
+        if($countExist >= $max_multiple){
             return response()->json([
                 'errors' => [
-                    'conflict' =>  'Time already appointed to other. Please select another schedule.'
+                    'limit' =>  ['Sorry, no available slot at the moment. Please select another schedule.']
                 ]
             ], 422);
         }

@@ -100,18 +100,19 @@
                                     </b-select>
                                 </b-field>
 
-                                <b-notification v-if="this.errors.conflict"
-                                    type="is-danger is-light"
-                                    aria-close-label="Close notification"
-                                    role="alert">
-                                    {{ this.errors.conflict }}
-                                </b-notification>
 
                                 <b-notification v-if="this.errors.not_allowed"
                                         type="is-danger is-light"
                                         aria-close-label="Close notification"
                                         role="alert">
-                                    {{ this.errors.not_allowed }}
+                                    {{ this.errors.not_allowed[0] }}
+                                </b-notification>
+
+                                <b-notification v-if="this.errors.limit"
+                                                type="is-danger is-light"
+                                                aria-close-label="Close notification"
+                                                role="alert">
+                                    {{ this.errors.limit[0] }}
                                 </b-notification>
 
                                 <div class="buttons is-right">
@@ -486,7 +487,9 @@ export default {
             this.modalHealDeclaration = false;
             this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
             this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
+
             axios.post('/my-appointment', this.appointment).then(res=>{
+
                 if(res.data.status === 'saved'){
                     this.$buefy.dialog.alert({
                         title: 'APPOINTMENT SAVED!',

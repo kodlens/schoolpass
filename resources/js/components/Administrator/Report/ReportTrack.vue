@@ -38,8 +38,6 @@
                             </div>
                         </div>
 
-
-
                         <b-table
                             :data="data"
                             :loading="loading"
@@ -153,7 +151,6 @@ export default {
             perPage: 5,
             defaultSortDirection: 'asc',
 
-
             global_id : 0,
 
             search: {
@@ -165,8 +162,8 @@ export default {
             fields: {
                 office_id: 0,
                 appointment_type: '',
-
             },
+
             errors: {},
 
             offices: [],
@@ -176,7 +173,6 @@ export default {
                 'button': true,
                 'is-loading':false,
             },
-
         }
     },
 
@@ -237,8 +233,6 @@ export default {
             this.isModalCreate=true;
             this.fields = {};
             this.errors = {};
-
-
         },
 
         //alert box ask for deletion
@@ -281,7 +275,6 @@ export default {
                 appointment_type: '',
             };
         },
-
 
         submit: function(){
             if(this.global_id > 0){
