@@ -10228,10 +10228,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
     return {
+      locale: undefined,
       data: [],
       total: 0,
       loading: false,
@@ -10241,11 +10293,13 @@ __webpack_require__.r(__webpack_exports__);
       perPage: 5,
       defaultSortDirection: 'asc',
       global_id: 0,
+      appointment: {},
       search: {
         appointment_type: '',
         appointment_date: new Date()
       },
       isModalCreate: false,
+      modalChangeTime: false,
       fields: {
         appointment_type: ''
       },
@@ -10445,6 +10499,9 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+    },
+    changeTime: function changeTime(row) {
+      this.modalChangeTime = true; //this.appointment.appointment_date = new Date(row.);
     }
   },
   mounted: function mounted() {
@@ -30284,6 +30341,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-a9fccc38]{\n    padding
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal .animation-content .modal-card[data-v-144c09fb] {\n    overflow: visible !important;\n}\n.modal-card-body[data-v-144c09fb] {\n    overflow: visible !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeScanner.vue?vue&type=style&index=0&id=58579eda&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeScanner.vue?vue&type=style&index=0&id=58579eda&scoped=true&lang=css& ***!
@@ -31577,6 +31658,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OfficeAppointment_vue_vue_type_style_index_0_id_144c09fb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OfficeAppointment_vue_vue_type_style_index_0_id_144c09fb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OfficeAppointment_vue_vue_type_style_index_0_id_144c09fb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeScanner.vue?vue&type=style&index=0&id=58579eda&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeScanner.vue?vue&type=style&index=0&id=58579eda&scoped=true&lang=css& ***!
@@ -32453,15 +32564,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _OfficeAppointment_vue_vue_type_template_id_144c09fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OfficeAppointment.vue?vue&type=template&id=144c09fb&scoped=true& */ "./resources/js/components/Office/OfficeAppointment.vue?vue&type=template&id=144c09fb&scoped=true&");
 /* harmony import */ var _OfficeAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OfficeAppointment.vue?vue&type=script&lang=js& */ "./resources/js/components/Office/OfficeAppointment.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _OfficeAppointment_vue_vue_type_style_index_0_id_144c09fb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& */ "./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _OfficeAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _OfficeAppointment_vue_vue_type_template_id_144c09fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
   _OfficeAppointment_vue_vue_type_template_id_144c09fb_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -33114,6 +33227,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarOffice_vue_vue_type_style_index_0_id_a9fccc38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NavbarOffice.vue?vue&type=style&index=0&id=a9fccc38&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/NavbarOffice.vue?vue&type=style&index=0&id=a9fccc38&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OfficeAppointment_vue_vue_type_style_index_0_id_144c09fb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Office/OfficeAppointment.vue?vue&type=style&index=0&id=144c09fb&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -37551,6 +37677,7 @@ var staticRenderFns = [
                 _c("div", [
                   _c("img", {
                     staticClass: "footer-logo",
+                    staticStyle: { height: "100px" },
                     attrs: { src: "/img/footerlogo1.png" },
                   }),
                 ]),
@@ -38160,6 +38287,20 @@ var render = function () {
                                 [
                                   _c("b-button", {
                                     staticClass:
+                                      "button is-small is-primary mr-1",
+                                    attrs: {
+                                      tag: "a",
+                                      "icon-right": "clock-minus-outline",
+                                    },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.changeTime(props.row)
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("b-button", {
+                                    staticClass:
                                       "button is-small is-warning mr-1",
                                     attrs: {
                                       tag: "a",
@@ -38330,6 +38471,112 @@ var render = function () {
                       on: {
                         click: function ($event) {
                           _vm.isModalCreate = false
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        class: _vm.btnClass,
+                        attrs: { label: "Save", type: "is-success" },
+                      },
+                      [_vm._v("SAVE")]
+                    ),
+                  ],
+                  1
+                ),
+              ]),
+            ]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: {
+            "has-modal-card": "",
+            "trap-focus": "",
+            width: 640,
+            "aria-role": "dialog",
+            "aria-label": "Modal",
+            "aria-modal": "",
+            type: "is-link",
+          },
+          model: {
+            value: _vm.modalChangeTime,
+            callback: function ($$v) {
+              _vm.modalChangeTime = $$v
+            },
+            expression: "modalChangeTime",
+          },
+        },
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.submit.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "modal-card" }, [
+                _c("header", { staticClass: "modal-card-head" }, [
+                  _c("p", { staticClass: "modal-card-title" }, [
+                    _vm._v("Appointment Type"),
+                  ]),
+                  _vm._v(" "),
+                  _c("button", {
+                    staticClass: "delete",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        _vm.modalChangeTime = false
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("section", { staticClass: "modal-card-body" }, [
+                  _c(
+                    "div",
+                    {},
+                    [
+                      _c("b-datetimepicker", {
+                        attrs: {
+                          rounded: "",
+                          expanded: "",
+                          placeholder: "Type or select a date...",
+                          icon: "calendar-today",
+                          locale: _vm.locale,
+                          editable: "",
+                        },
+                        model: {
+                          value: _vm.appointment.appointment_date,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.appointment, "appointment_date", $$v)
+                          },
+                          expression: "appointment.appointment_date",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "footer",
+                  { staticClass: "modal-card-foot" },
+                  [
+                    _c("b-button", {
+                      attrs: { label: "Close" },
+                      on: {
+                        click: function ($event) {
+                          _vm.modalChangeTime = false
                         },
                       },
                     }),

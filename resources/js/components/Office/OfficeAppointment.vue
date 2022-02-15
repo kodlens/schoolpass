@@ -77,6 +77,7 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
+                                    <b-button class="button is-small is-primary mr-1" tag="a" icon-right="clock-minus-outline" @click="changeTime(props.row)"></b-button>
                                     <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
                                     <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
                                 </div>
@@ -151,6 +152,56 @@
         <!--close modal-->
 
 
+
+
+
+
+        <!--modal change time-->
+        <b-modal v-model="modalChangeTime" has-modal-card
+                 trap-focus
+                 :width="640"
+                 aria-role="dialog"
+                 aria-label="Modal"
+                 aria-modal
+                 type = "is-link">
+
+            <form @submit.prevent="submit">
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Appointment Type</p>
+                        <button
+                            type="button"
+                            class="delete"
+                            @click="modalChangeTime = false"/>
+                    </header>
+
+                    <section class="modal-card-body">
+                        <div class="">
+                            <b-datetimepicker rounded expanded
+                                      v-model="appointment.appointment_date"
+                                      placeholder="Type or select a date..."
+                                      icon="calendar-today"
+                                      :locale="locale"
+                                      editable>
+                            </b-datetimepicker>
+
+                        </div>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Close"
+                            @click="modalChangeTime=false"/>
+                        <button
+                            :class="btnClass"
+                            label="Save"
+                            type="is-success">SAVE</button>
+                    </footer>
+                </div>
+            </form><!--close form-->
+        </b-modal>
+        <!--close modal-->
+
+
     </div>
 </template>
 
@@ -159,6 +210,8 @@ export default {
     name: "AppointmentType",
     data(){
         return{
+            locale: undefined,
+
             data: [],
             total: 0,
             loading: false,
@@ -171,12 +224,15 @@ export default {
 
             global_id : 0,
 
+            appointment: {},
+
             search: {
                 appointment_type: '',
                 appointment_date: new Date(),
             },
 
             isModalCreate: false,
+            modalChangeTime: false,
 
             fields: {
                 appointment_type: '',
@@ -378,6 +434,13 @@ export default {
                     }
                 });
             }
+        },
+
+
+
+        changeTime(row){
+            this.modalChangeTime = true;
+            //this.appointment.appointment_date = new Date(row.);
         }
 
     },
@@ -390,5 +453,11 @@ export default {
 </script>
 
 <style scoped>
+    .modal .animation-content .modal-card {
+        overflow: visible !important;
+    }
 
+    .modal-card-body {
+        overflow: visible !important;
+    }
 </style>

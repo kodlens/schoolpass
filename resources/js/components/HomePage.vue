@@ -213,7 +213,7 @@
                             <div class="footer-component-title">
                             </div>
                              <div>
-                                <img class="footer-logo" src="/img/footerlogo1.png">
+                                <img style="height: 100px;" class="footer-logo" src="/img/footerlogo1.png">
                             </div>
                         </div>
                     </div>
