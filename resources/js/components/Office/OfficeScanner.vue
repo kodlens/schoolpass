@@ -43,6 +43,92 @@
                 </div><!--col-->
             </div><!--close div -->
 
+
+            <!--TABLE-->
+            <div class="columns">
+                <div class="column is-8 is-offset-2">
+                    <div class="box">
+                        <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">SCANNED APPOINTMENT</div>
+
+                        <div class="level">
+                            <div class="level-left">
+                                <b-field label="Page">
+                                    <b-select v-model="perPage" @input="setPerPage">
+                                        <option value="5">5 per page</option>
+                                        <option value="10">10 per page</option>
+                                        <option value="15">15 per page</option>
+                                        <option value="20">20 per page</option>
+                                    </b-select>
+                                    <b-select v-model="sortOrder" @input="loadAsyncData">
+                                        <option value="asc">ASC</option>
+                                        <option value="desc">DESC</option>
+                                    </b-select>
+                                </b-field>
+                            </div>
+
+                            <div class="level-right">
+                                <div class="level-item">
+                                    <b-field label="Search">
+                                        <b-datepicker
+                                            v-model="search.appointment_date" placeholder="Search Appointment Date"
+                                            @keyup.native.enter="loadAsyncData"/>
+                                        <p class="control">
+                                            <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
+                                        </p>
+                                    </b-field>
+                                </div>
+                            </div>
+                        </div>
+
+                        <b-table
+                            :data="data"
+                            :loading="loading"
+                            paginated
+                            backend-pagination
+                            :total="total"
+                            :per-page="perPage"
+                            @page-change="onPageChange"
+                            aria-next-label="Next page"
+                            aria-previous-label="Previous page"
+                            aria-page-label="Page"
+                            aria-current-label="Current page"
+                            backend-sorting
+                            :default-sort-direction="defaultSortDirection"
+                            @sort="onSort">
+
+                            <b-table-column field="appointment_id" label="ID" v-slot="props">
+                                {{ props.row.appointment_id }}
+                            </b-table-column>
+
+                            <b-table-column field="appointment_type" label="Appointment" v-slot="props">
+                                {{ props.row.appointment_type }}
+                            </b-table-column>
+
+                            <b-table-column field="appointment_name" label="Student Name" v-slot="props">
+                                {{ props.row.lname }}, {{ props.row.fname }}
+                            </b-table-column>
+
+                            <b-table-column field="from_to" label="From/To" v-slot="props">
+                                {{ props.row.app_time_from }} -   {{ props.row.app_time_to }}
+                            </b-table-column>
+
+                            <b-table-column label="Action" v-slot="props">
+                                <div class="is-flex">
+                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
+                                    <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                </div>
+                            </b-table-column>
+
+                        </b-table>
+
+
+
+                    </div>
+                </div><!--close column-->
+            </div> <!--cols-->
+
+
+
         </div>
         <!--section -->
 
@@ -124,6 +210,19 @@
 export default {
     data(){
         return{
+            data: [],
+            total: 0,
+            loading: false,
+            sortField: 'appointment_id',
+            sortOrder: 'desc',
+            page: 1,
+            perPage: 5,
+            defaultSortDirection: 'asc',
+
+            search: {
+                appointment_date: new Date()
+            },
+
             user: {
                 user: {},
 
@@ -143,6 +242,63 @@ export default {
         }
     },
     methods: {
+
+        /*
+        * Load async data
+        */
+        loadAsyncData() {
+
+            this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+
+            const params = [
+                `sort_by=${this.sortField}.${this.sortOrder}`,
+                `appdate=${this.search.ndate}`,
+                `perpage=${this.perPage}`,
+                `page=${this.page}`
+            ].join('&')
+
+            this.loading = true
+            axios.get(`/office-appointment-tracks?${params}`)
+                .then(({ data }) => {
+                    this.data = [];
+                    let currentTotal = data.total
+                    if (data.total / this.perPage > 1000) {
+                        currentTotal = this.perPage * 1000
+                    }
+
+                    this.total = currentTotal
+                    data.data.forEach((item) => {
+                        //item.release_date = item.release_date ? item.release_date.replace(/-/g, '/') : null
+                        this.data.push(item)
+                    })
+                    this.loading = false
+                })
+                .catch((error) => {
+                    this.data = []
+                    this.total = 0
+                    this.loading = false
+                    throw error
+                })
+        },
+        /*
+        * Handle page-change event
+        */
+        onPageChange(page) {
+            this.page = page
+            this.loadAsyncData()
+        },
+
+        onSort(field, order) {
+            this.sortField = field
+            this.sortOrder = order
+            this.loadAsyncData()
+        },
+
+        setPerPage(){
+            this.loadAsyncData()
+        },
+
+
         onInit (promise) {
             promise
                 .catch(console.error)
@@ -170,6 +326,7 @@ export default {
 
                 if(res.data === 1){
                     this.isValid = true;
+                    this.loadAsyncData();
                     //this.submitTrack();
                 }else{
                     this.isProcessing = false;
@@ -229,6 +386,7 @@ export default {
 
     mounted(){
         this.loadCurrentUser();
+        this.loadAsyncData();
     },
 
     computed: {

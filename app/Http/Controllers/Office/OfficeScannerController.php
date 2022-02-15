@@ -8,6 +8,7 @@ use App\Models\AppointmentTrack;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OfficeScannerController extends Controller
 {
@@ -64,6 +65,17 @@ class OfficeScannerController extends Controller
 
         return 0;
         //return $exist;
+    }
+
+    public function getOfficeAppointmentTracks(Request $req){
+        $user = Auth::user();
+        $data = DB::table('appointment_tracks as a')
+            ->join('appointments as b', 'a.appointment_id', 'b.appointment_id')
+            ->join('users as c', 'b.appointment_user_id', 'c.user_id')
+            ->where('a.office_id', $user->office_id)
+            ->paginate($req->perpage);
+
+        return $data;
     }
 
 

@@ -237,13 +237,13 @@
                             <b-field label="Username"
                                  label-position="on-border"
                                  :type="errors.username ? 'is-danger' : ''"
-                                 :message="errors.username ? errors.username[0] : ''">
+                                 :message="errors.username ? errors.username : ''">
                             <b-input type="text" v-model="fields.username" placeholder="Username" expanded auto-focus></b-input>
                             </b-field>
 
                             <b-field label="Password" label-position="on-border"
                                     :type="errors.password ? 'is-danger' : ''"
-                                    :message="errors.password ? errors.password[0] : ''">
+                                    :message="errors.password ? errors.password : ''">
                                 <b-input type="password" v-model="fields.password" password-reveal placeholder="Password" expanded auto-focus></b-input>
                             </b-field>
 
@@ -408,6 +408,7 @@ export default {
             isModalActive: false,
             fields: {},
             errors: {},
+
             user: null,
 
             appointment_type: '',
@@ -423,8 +424,8 @@ export default {
                 nAppointmentDate: '',
                 appointment_type: '',
             },
-
         }
+
     },
 
     methods: {

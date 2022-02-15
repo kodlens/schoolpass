@@ -93,6 +93,8 @@ Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerContr
 
 Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
 
+Route::get('/office-appointment-tracks', [App\Http\Controllers\Office\OfficeScannerController::class, 'getOfficeAppointmentTracks']);
+
 
 
 

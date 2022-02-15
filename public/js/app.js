@@ -10623,9 +10623,106 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      data: [],
+      total: 0,
+      loading: false,
+      sortField: 'appointment_id',
+      sortOrder: 'desc',
+      page: 1,
+      perPage: 5,
+      defaultSortDirection: 'asc',
+      search: {
+        appointment_date: new Date()
+      },
       user: {
         user: {}
       },
@@ -10640,6 +10737,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    /*
+    * Load async data
+    */
+    loadAsyncData: function loadAsyncData() {
+      var _this = this;
+
+      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "appdate=".concat(this.search.ndate), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
+      this.loading = true;
+      axios.get("/office-appointment-tracks?".concat(params)).then(function (_ref) {
+        var data = _ref.data;
+        _this.data = [];
+        var currentTotal = data.total;
+
+        if (data.total / _this.perPage > 1000) {
+          currentTotal = _this.perPage * 1000;
+        }
+
+        _this.total = currentTotal;
+        data.data.forEach(function (item) {
+          //item.release_date = item.release_date ? item.release_date.replace(/-/g, '/') : null
+          _this.data.push(item);
+        });
+        _this.loading = false;
+      })["catch"](function (error) {
+        _this.data = [];
+        _this.total = 0;
+        _this.loading = false;
+        throw error;
+      });
+    },
+
+    /*
+    * Handle page-change event
+    */
+    onPageChange: function onPageChange(page) {
+      this.page = page;
+      this.loadAsyncData();
+    },
+    onSort: function onSort(field, order) {
+      this.sortField = field;
+      this.sortOrder = order;
+      this.loadAsyncData();
+    },
+    setPerPage: function setPerPage() {
+      this.loadAsyncData();
+    },
     onInit: function onInit(promise) {
       promise["catch"](console.error).then(this.resetValidationState);
     },
@@ -10647,7 +10791,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.isValid = undefined;
     },
     onDecode: function onDecode(content) {
-      var _this = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -10655,36 +10799,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 //console.log(content);
-                _this.result = content;
+                _this2.result = content;
 
-                _this.turnCameraOff(); // pretend it's taking really long
+                _this2.turnCameraOff(); // pretend it's taking really long
 
 
-                _this.isProcessing = true; //await this.timeout(3000);
+                _this2.isProcessing = true; //await this.timeout(3000);
 
                 192;
                 axios.post('/validate-qr/' + content, {
-                  remark: _this.currentUser.remark
+                  remark: _this2.currentUser.remark
                 }).then(function (res) {
-                  _this.user = res.data;
-                  _this.isProcessing = false;
+                  _this2.user = res.data;
+                  _this2.isProcessing = false;
 
                   if (res.data === 1) {
-                    _this.isValid = true; //this.submitTrack();
+                    _this2.isValid = true;
+
+                    _this2.loadAsyncData(); //this.submitTrack();
+
                   } else {
-                    _this.isProcessing = false;
-                    _this.isValid = false;
+                    _this2.isProcessing = false;
+                    _this2.isValid = false;
                   }
                 })["catch"](function (err) {
-                  _this.isProcessing = false;
+                  _this2.isProcessing = false;
                 }); //this.isValid = content.startsWith('http') //this will return boolean value
                 // some more delay, so users have time to read the message
 
                 _context.next = 7;
-                return _this.timeout(2000);
+                return _this2.timeout(2000);
 
               case 7:
-                _this.turnCameraOn();
+                _this2.turnCameraOn();
 
               case 8:
               case "end":
@@ -10706,35 +10853,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     submitTrack: function submitTrack() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.fields.appointment_id = '';
       this.fields.office_id = '';
       this.fields.remark = '';
       axios.post('/save-submit-track', this.fields).then(function (res) {
         if (res.data.status === 'saved') {
-          _this2.isModalValidModal = false;
+          _this3.isModalValidModal = false;
 
-          _this2.$buefy.toast.open({
+          _this3.$buefy.toast.open({
             message: 'Frist item save successfully.',
             type: 'is-success'
           });
 
-          _this2.fields = {};
+          _this3.fields = {};
         }
       });
     },
     loadCurrentUser: function loadCurrentUser() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('/get-current-user').then(function (res) {
-        _this3.currentUser = res.data;
-        _this3.tempRemark = res.data.remark;
+        _this4.currentUser = res.data;
+        _this4.tempRemark = res.data.remark;
       });
     }
   },
   mounted: function mounted() {
     this.loadCurrentUser();
+    this.loadAsyncData();
   },
   computed: {
     validationPending: function validationPending() {
@@ -30155,7 +30303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\r\n.validation-failure[data-v-58579eda],\r\n.validation-pending[data-v-58579eda] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    background-color: rgba(255, 255, 255, .8);\r\n    text-align: center;\r\n    font-weight: bold;\r\n    font-size: 1.4rem;\r\n    padding: 10px;\r\n\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\r\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\r\n    color: red;\n}\n.camera[data-v-58579eda]{\r\n    margin: auto;\r\n    width: 240px;\r\n    height: 320px;\r\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\r\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\n}\n.companion[data-v-58579eda]{\r\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\r\n    margin: auto;\n}\n.debug[data-v-58579eda]{\r\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\r\n    display: flex;\r\n    justify-content: center;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\n.validation-failure[data-v-58579eda],\n.validation-pending[data-v-58579eda] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n\n    background-color: rgba(255, 255, 255, .8);\n    text-align: center;\n    font-weight: bold;\n    font-size: 1.4rem;\n    padding: 10px;\n\n    display: flex;\n    flex-flow: column nowrap;\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\n    color: red;\n}\n.camera[data-v-58579eda]{\n    margin: auto;\n    width: 240px;\n    height: 320px;\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 50%;\n}\n.companion[data-v-58579eda]{\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\n    margin: auto;\n}\n.debug[data-v-58579eda]{\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\n    display: flex;\n    justify-content: center;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36723,7 +36871,7 @@ var render = function () {
                           "label-position": "on-border",
                           type: _vm.errors.username ? "is-danger" : "",
                           message: _vm.errors.username
-                            ? _vm.errors.username[0]
+                            ? _vm.errors.username
                             : "",
                         },
                       },
@@ -36755,7 +36903,7 @@ var render = function () {
                           "label-position": "on-border",
                           type: _vm.errors.password ? "is-danger" : "",
                           message: _vm.errors.password
-                            ? _vm.errors.password[0]
+                            ? _vm.errors.password
                             : "",
                         },
                       },
@@ -38359,6 +38507,297 @@ var render = function () {
               1
             ),
           ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-8 is-offset-2" }, [
+          _c(
+            "div",
+            { staticClass: "box" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "is-flex is-justify-content-center mb-2",
+                  staticStyle: { "font-size": "20px", "font-weight": "bold" },
+                },
+                [_vm._v("SCANNED APPOINTMENT")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "level" }, [
+                _c(
+                  "div",
+                  { staticClass: "level-left" },
+                  [
+                    _c(
+                      "b-field",
+                      { attrs: { label: "Page" } },
+                      [
+                        _c(
+                          "b-select",
+                          {
+                            on: { input: _vm.setPerPage },
+                            model: {
+                              value: _vm.perPage,
+                              callback: function ($$v) {
+                                _vm.perPage = $$v
+                              },
+                              expression: "perPage",
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "5" } }, [
+                              _vm._v("5 per page"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v("10 per page"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v("15 per page"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v("20 per page"),
+                            ]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-select",
+                          {
+                            on: { input: _vm.loadAsyncData },
+                            model: {
+                              value: _vm.sortOrder,
+                              callback: function ($$v) {
+                                _vm.sortOrder = $$v
+                              },
+                              expression: "sortOrder",
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "asc" } }, [
+                              _vm._v("ASC"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "desc" } }, [
+                              _vm._v("DESC"),
+                            ]),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "level-right" }, [
+                  _c(
+                    "div",
+                    { staticClass: "level-item" },
+                    [
+                      _c(
+                        "b-field",
+                        { attrs: { label: "Search" } },
+                        [
+                          _c("b-datepicker", {
+                            attrs: { placeholder: "Search Appointment Date" },
+                            nativeOn: {
+                              keyup: function ($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.loadAsyncData.apply(null, arguments)
+                              },
+                            },
+                            model: {
+                              value: _vm.search.appointment_date,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.search, "appointment_date", $$v)
+                              },
+                              expression: "search.appointment_date",
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "control" },
+                            [
+                              _c("b-button", {
+                                attrs: {
+                                  type: "is-primary",
+                                  "icon-right": "account-filter",
+                                },
+                                on: { click: _vm.loadAsyncData },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-table",
+                {
+                  attrs: {
+                    data: _vm.data,
+                    loading: _vm.loading,
+                    paginated: "",
+                    "backend-pagination": "",
+                    total: _vm.total,
+                    "per-page": _vm.perPage,
+                    "aria-next-label": "Next page",
+                    "aria-previous-label": "Previous page",
+                    "aria-page-label": "Page",
+                    "aria-current-label": "Current page",
+                    "backend-sorting": "",
+                    "default-sort-direction": _vm.defaultSortDirection,
+                  },
+                  on: { "page-change": _vm.onPageChange, sort: _vm.onSort },
+                },
+                [
+                  _c("b-table-column", {
+                    attrs: { field: "appointment_id", label: "ID" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(props.row.appointment_id) +
+                                "\n                            "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "appointment_type", label: "Appointment" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(props.row.appointment_type) +
+                                "\n                            "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "appointment_name", label: "Student Name" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(props.row.lname) +
+                                ", " +
+                                _vm._s(props.row.fname) +
+                                "\n                            "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "from_to", label: "From/To" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(props.row.app_time_from) +
+                                " -   " +
+                                _vm._s(props.row.app_time_to) +
+                                "\n                            "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Action" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _c(
+                              "div",
+                              { staticClass: "is-flex" },
+                              [
+                                _c("b-button", {
+                                  staticClass:
+                                    "button is-small is-warning mr-1",
+                                  attrs: {
+                                    tag: "a",
+                                    "icon-right": "thumb-up-outline",
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.approveAppointment(props.row)
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("b-button", {
+                                  staticClass: "button is-small is-danger mr-1",
+                                  attrs: { "icon-right": "minus-circle" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.cancelAppointment(props.row)
+                                    },
+                                  },
+                                }),
+                              ],
+                              1
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
         ]),
       ]),
     ]),

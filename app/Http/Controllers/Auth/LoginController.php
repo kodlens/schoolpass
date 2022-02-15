@@ -59,7 +59,7 @@ class LoginController extends Controller
         }
         return response()->json([
             'errors' => [
-                'username' => 'Username and password error. Access denied.'
+                'username' => ['Username and password error. Access denied.']
             ]
         ], 422);
     }
