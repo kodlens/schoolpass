@@ -85,7 +85,6 @@ Route::get('/load-offices', [App\Http\Controllers\Administrator\OfficeController
 
 
 
-
 //OFFICE ROLE
 Route::resource('/dashboard-office', App\Http\Controllers\Office\OfficeDashboardController::class);
 
@@ -95,12 +94,16 @@ Route::post('/office-appointment-approve/{id}', [App\Http\Controllers\Office\Off
 Route::post('/office-appointment-cancel/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'cancelAppointment']);
 Route::post('/office-appointment-update-time/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'updateTime']);
 
+Route::get('/get-no-request', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'noOfRequest']);
 
 Route::resource('/office-scanner', App\Http\Controllers\Office\OfficeScannerController::class);
 Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerController::class, 'validateQR']);
 
 Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
 Route::get('/office-appointment-tracks', [App\Http\Controllers\Office\OfficeScannerController::class, 'getOfficeAppointmentTracks']);
+
+Route::resource('/my-office', App\Http\Controllers\Office\MyOfficeController::class);
+Route::get('/get-my-office', [App\Http\Controllers\Office\MyOfficeController::class, 'getOffice']);
 
 
 

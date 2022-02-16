@@ -20,13 +20,14 @@
                 <div class="p-4">
                     <h3 class="title is-4">{{ showName}}</h3>
                     <b-menu>
-                        <b-menu-list>
-                            <b-menu-item label="Home" icon="home" tag="a" href="/"></b-menu-item>
-                        </b-menu-list>
+<!--                        <b-menu-list>-->
+<!--                            <b-menu-item label="Home" icon="home" tag="a" href="/"></b-menu-item>-->
+<!--                        </b-menu-list>-->
 
                         <b-menu-list label="Menu">
                             <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-office"></b-menu-item>
                             <b-menu-item icon="information-outline" label="Scanner" tag="a" href="/office-scanner"></b-menu-item>
+<!--                            <b-menu-item icon="home" label="My Office" tag="a" href="/my-office"></b-menu-item>-->
                         </b-menu-list>
 
                         <b-menu-list>

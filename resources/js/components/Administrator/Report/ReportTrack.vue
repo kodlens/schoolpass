@@ -15,7 +15,7 @@
                                     <th>STUDENT/GUEST</th>
                                     <th>APPOINTMENT TYPE</th>
                                     <th>OFFICE</th>
-                                    <th>TIME OUT</th>
+                                    <th>DONE AT</th>
                                     <th>REMARK</th>
                                 </tr>
                                 <tr v-for="(item, index) in data" :key="index">

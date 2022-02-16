@@ -25,15 +25,31 @@ class OfficeAppointmentController extends Controller
 
     public function getOfficeAppointments(Request $req){
         $user = Auth::user();
+        $ndate = date("Y-m-d", strtotime($req->appdate));
+
         $data = DB::table('appointments as a')
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
             ->join('offices as c', 'b.office_id', 'c.office_id')
             ->leftJoin('users as d', 'c.office_id', 'd.office_id')
             ->leftJoin('users as e', 'a.appointment_user_id', 'e.user_id')
+            ->where('a.app_date', 'like', $ndate . '%')
             ->where('d.user_id', $user->user_id)
             ->paginate($req->perpage);
 
         return $data;
+    }
+
+    public function noOfRequest(){
+        $user = Auth::user();
+        $ndate = date("Y-m-d", strtotime(now()));
+
+        $count = DB::table('appointments as a')
+            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
+            ->where('b.office_id', $user->office_id)
+            ->where('a.app_date', $ndate)
+            ->count();
+
+        return $count;
     }
 
     public function approveAppointment($id){

@@ -27,6 +27,8 @@ class OfficeController extends Controller
         return $data;
     }
 
+
+
     public function loadOffices(){
         return Office::all();
     }

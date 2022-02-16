@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="app">
-    <navbar-user></navbar-user>
+    <navbar-component></navbar-component>
     <div>
         @yield('content')
     </div>

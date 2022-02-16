@@ -82,11 +82,22 @@ class MyAppointmentController extends Controller
             ], 422);
         }
 
+//        $countExist = DB::table('appointments as a')
+//            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
+//            ->where('app_date', $ndate)
+//            ->where('app_time_from', '<=', $ntime)
+//            ->where('app_time_to', '>=', $ntime)
+//            ->where('a.appointment_type_id', $req->appointment_type)
+//            ->count();
+
+        //labad sa ulo ang filtering conflict sa time
         $countExist = DB::table('appointments as a')
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
             ->where('app_date', $ndate)
-            ->where('app_time_from', '<=', $ntime)
-            ->where('app_time_to', '>=', $ntime)
+            ->where(function($query) use ($ntime, $addedTime){
+                $query->whereBetween('app_time_from', [$ntime, $addedTime])
+                    ->orWhereBetween('app_time_to', [$ntime,$addedTime]);
+            })
             ->where('a.appointment_type_id', $req->appointment_type)
             ->count();
 

@@ -65,8 +65,12 @@
                                 {{ props.row.lname }}, {{ props.row.fname }}
                             </b-table-column>
 
+                            <b-table-column field="app_date" label="Date Appoint" v-slot="props">
+                                {{ props.row.app_date }}
+                            </b-table-column>
+
                             <b-table-column field="from_to" label="From/To" v-slot="props">
-                                {{ props.row.app_time_from }} -   {{ props.row.app_time_to }}
+                                {{ props.row.app_time_from | formatTime }} -   {{ props.row.app_time_to | formatTime }}
                             </b-table-column>
 
                             <b-table-column field="is_approved" label="Is Approved" v-slot="props">
