@@ -69,7 +69,6 @@ class MyAppointmentController extends Controller
 
         $max_multiple = $appData->max_multiple;
 
-
         $addedTime = date("H:i", strtotime($nTimeString, strtotime($time))); //time added base on the time set in appointment type
 
         $appClock = AppClock::where('start_time', '<=', $ntime)

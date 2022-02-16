@@ -77,9 +77,17 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
-                                    <b-button class="button is-small is-primary mr-1" tag="a" icon-right="clock-minus-outline" @click="changeTime(props.row)"></b-button>
-                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
-                                    <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                    <b-tooltip label="Change Time" type="is-primary">
+                                        <b-button class="button is-small is-primary mr-1" tag="a" icon-right="clock-minus-outline" @click="changeTime(props.row)"></b-button>
+                                    </b-tooltip>
+                                    <b-tooltip label="Approve Appointment" type="is-warning">
+                                        <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
+                                    </b-tooltip>
+                                    <b-tooltip label="Cancel Appointment" type="is-danger">
+                                        <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                    </b-tooltip>
+
+
                                 </div>
                             </b-table-column>
 
@@ -134,7 +142,6 @@
                                 </b-numberinput>
                             </b-field>
 
-
                         </div>
                     </section>
                     <footer class="modal-card-foot">
@@ -165,7 +172,7 @@
                  aria-modal
                  type = "is-link">
 
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submitChangeTime">
                 <div class="modal-card">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Appointment Type</p>
@@ -177,13 +184,27 @@
 
                     <section class="modal-card-body">
                         <div class="">
-                            <b-datetimepicker rounded expanded
-                                      v-model="appointment.appointment_date"
-                                      placeholder="Type or select a date..."
-                                      icon="calendar-today"
-                                      :locale="locale"
-                                      editable>
+                            <b-datetimepicker rounded expanded class="mb-2"
+                                  v-model="appointment.appointment_date"
+                                  placeholder="Type or select a date..."
+                                  icon="calendar-today"
+                                  :locale="locale"
+                                  editable>
                             </b-datetimepicker>
+
+                            <b-notification v-if="this.errors.not_allowed"
+                                            type="is-danger is-light"
+                                            aria-close-label="Close notification"
+                                            role="alert">
+                                {{ this.errors.not_allowed[0] }}
+                            </b-notification>
+
+                            <b-notification v-if="this.errors.limit"
+                                            type="is-danger is-light"
+                                            aria-close-label="Close notification"
+                                            role="alert">
+                                {{ this.errors.limit[0] }}
+                            </b-notification>
 
                         </div>
                     </section>
@@ -236,7 +257,6 @@ export default {
 
             fields: {
                 appointment_type: '',
-
             },
             errors: {},
 
@@ -440,7 +460,33 @@ export default {
 
         changeTime(row){
             this.modalChangeTime = true;
-            //this.appointment.appointment_date = new Date(row.);
+            let stringDateTime = row.app_date + " " + row.app_time_from;
+            let dateTime = new Date(stringDateTime);
+            this.appointment.appointment_date = dateTime;
+            this.global_id = row.appointment_id;
+            this.appointment.appointment_type_id = row.appointment_type_id;
+
+        },
+
+        submitChangeTime(){
+            this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
+            this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
+
+            axios.post('/office-appointment-update-time/'+this.global_id, this.appointment).then(res=>{
+                if(res.data.status === 'saved'){
+                    this.$buefy.toast.open({
+                        message: 'Time changed successfully.',
+                        type: 'is-success'
+                    });
+                    this.modalChangeTime = false;
+                    this.loadAsyncData();
+                }
+                console.log(res.data)
+            }).catch(err=>{
+                if(err.response.status === 422){
+                    this.errors = err.response.data.errors;
+                }
+            });
         }
 
     },

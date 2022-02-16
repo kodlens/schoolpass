@@ -317,7 +317,7 @@ export default {
             // pretend it's taking really long
             this.isProcessing = true;
             //await this.timeout(3000);
-192
+
             axios.post('/validate-qr/' + content, {
                 remark : this.currentUser.remark
             }).then(res=>{

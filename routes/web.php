@@ -88,12 +88,13 @@ Route::resource('/office-appointment', App\Http\Controllers\Office\OfficeAppoint
 Route::get('/get-office-appointments', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'getOfficeAppointments']);
 Route::post('/office-appointment-approve/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'approveAppointment']);
 Route::post('/office-appointment-cancel/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'cancelAppointment']);
+Route::post('/office-appointment-update-time/{id}', [App\Http\Controllers\Office\OfficeAppointmentController::class, 'updateTime']);
+
 
 Route::resource('/office-scanner', App\Http\Controllers\Office\OfficeScannerController::class);
 Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerController::class, 'validateQR']);
 
 Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
-
 Route::get('/office-appointment-tracks', [App\Http\Controllers\Office\OfficeScannerController::class, 'getOfficeAppointmentTracks']);
 
 

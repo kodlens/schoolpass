@@ -10279,6 +10279,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -10501,7 +10522,36 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     changeTime: function changeTime(row) {
-      this.modalChangeTime = true; //this.appointment.appointment_date = new Date(row.);
+      this.modalChangeTime = true;
+      var stringDateTime = row.app_date + " " + row.app_time_from;
+      var dateTime = new Date(stringDateTime);
+      this.appointment.appointment_date = dateTime;
+      this.global_id = row.appointment_id;
+      this.appointment.appointment_type_id = row.appointment_type_id;
+    },
+    submitChangeTime: function submitChangeTime() {
+      var _this8 = this;
+
+      this.appointment.app_date = new Date(this.appointment.appointment_date).toLocaleDateString();
+      this.appointment.app_time = new Date(this.appointment.appointment_date).toLocaleTimeString();
+      axios.post('/office-appointment-update-time/' + this.global_id, this.appointment).then(function (res) {
+        if (res.data.status === 'saved') {
+          _this8.$buefy.toast.open({
+            message: 'Time changed successfully.',
+            type: 'is-success'
+          });
+
+          _this8.modalChangeTime = false;
+
+          _this8.loadAsyncData();
+        }
+
+        console.log(res.data);
+      })["catch"](function (err) {
+        if (err.response.status === 422) {
+          _this8.errors = err.response.data.errors;
+        }
+      });
     }
   },
   mounted: function mounted() {
@@ -10861,7 +10911,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.isProcessing = true; //await this.timeout(3000);
 
-                192;
                 axios.post('/validate-qr/' + content, {
                   remark: _this2.currentUser.remark
                 }).then(function (res) {
@@ -10882,13 +10931,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }); //this.isValid = content.startsWith('http') //this will return boolean value
                 // some more delay, so users have time to read the message
 
-                _context.next = 7;
+                _context.next = 6;
                 return _this2.timeout(2000);
 
-              case 7:
+              case 6:
                 _this2.turnCameraOn();
 
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -30334,7 +30383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-a9fccc38]{\n    padding: 0 30px 0 30px;\n    height: 90px;\n}\n.burger-div[data-v-a9fccc38]{\n    width: 20px;\n    height: 3px;\n    background-color: #696969;\n    margin: 0 0 3px 0;\n    margin-left: auto;\n    border-radius: 10px;\n}\n.burger-button[data-v-a9fccc38]{\n    display: flex;\n    flex-direction: column;\n    margin-left: auto;\n}\n.mynav[data-v-a9fccc38]{\n    padding: 25px;\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n    display: flex;\n}\n.mynav-brand[data-v-a9fccc38]{\n    font-weight: bold;\n    font-size: 1.2em;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-a9fccc38]{\r\n    padding: 0 30px 0 30px;\r\n    height: 90px;\n}\n.burger-div[data-v-a9fccc38]{\r\n    width: 20px;\r\n    height: 3px;\r\n    background-color: #696969;\r\n    margin: 0 0 3px 0;\r\n    margin-left: auto;\r\n    border-radius: 10px;\n}\n.burger-button[data-v-a9fccc38]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-left: auto;\n}\n.mynav[data-v-a9fccc38]{\r\n    padding: 25px;\r\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\r\n    display: flex;\n}\n.mynav-brand[data-v-a9fccc38]{\r\n    font-weight: bold;\r\n    font-size: 1.2em;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30382,7 +30431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\r\n.validation-failure[data-v-58579eda],\r\n.validation-pending[data-v-58579eda] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    background-color: rgba(255, 255, 255, .8);\r\n    text-align: center;\r\n    font-weight: bold;\r\n    font-size: 1.4rem;\r\n    padding: 10px;\r\n\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\r\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\r\n    color: red;\n}\n.camera[data-v-58579eda]{\r\n    margin: auto;\r\n    width: 240px;\r\n    height: 320px;\r\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\r\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\n}\n.companion[data-v-58579eda]{\r\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\r\n    margin: auto;\n}\n.debug[data-v-58579eda]{\r\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\r\n    display: flex;\r\n    justify-content: center;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\n.validation-failure[data-v-58579eda],\n.validation-pending[data-v-58579eda] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n\n    background-color: rgba(255, 255, 255, .8);\n    text-align: center;\n    font-weight: bold;\n    font-size: 1.4rem;\n    padding: 10px;\n\n    display: flex;\n    flex-flow: column nowrap;\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\n    color: red;\n}\n.camera[data-v-58579eda]{\n    margin: auto;\n    width: 240px;\n    height: 320px;\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 50%;\n}\n.companion[data-v-58579eda]{\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\n    margin: auto;\n}\n.debug[data-v-58579eda]{\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\n    display: flex;\n    justify-content: center;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30454,7 +30503,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-080a7dc4]{\r\n    padding: 0 30px 0 30px;\r\n    height: 90px;\n}\n.burger-div[data-v-080a7dc4]{\r\n    width: 20px;\r\n    height: 3px;\r\n    background-color: #696969;\r\n    margin: 0 0 3px 0;\r\n    margin-left: auto;\r\n    border-radius: 10px;\n}\n.burger-button[data-v-080a7dc4]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-left: auto;\n}\n.mynav[data-v-080a7dc4]{\r\n    padding: 25px;\r\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\r\n    display: flex;\n}\n.mynav-brand[data-v-080a7dc4]{\r\n    font-weight: bold;\r\n    font-size: 1.2em;\n}\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-080a7dc4]{\n    padding: 0 30px 0 30px;\n    height: 90px;\n}\n.burger-div[data-v-080a7dc4]{\n    width: 20px;\n    height: 3px;\n    background-color: #696969;\n    margin: 0 0 3px 0;\n    margin-left: auto;\n    border-radius: 10px;\n}\n.burger-button[data-v-080a7dc4]{\n    display: flex;\n    flex-direction: column;\n    margin-left: auto;\n}\n.mynav[data-v-080a7dc4]{\n    padding: 25px;\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n    display: flex;\n}\n.mynav-brand[data-v-080a7dc4]{\n    font-weight: bold;\n    font-size: 1.2em;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38285,44 +38334,84 @@ var render = function () {
                                 "div",
                                 { staticClass: "is-flex" },
                                 [
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-primary mr-1",
-                                    attrs: {
-                                      tag: "a",
-                                      "icon-right": "clock-minus-outline",
-                                    },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.changeTime(props.row)
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Change Time",
+                                        type: "is-primary",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-primary mr-1",
+                                        attrs: {
+                                          tag: "a",
+                                          "icon-right": "clock-minus-outline",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.changeTime(props.row)
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-warning mr-1",
-                                    attrs: {
-                                      tag: "a",
-                                      "icon-right": "thumb-up-outline",
-                                    },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.approveAppointment(props.row)
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Approve Appointment",
+                                        type: "is-warning",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-warning mr-1",
+                                        attrs: {
+                                          tag: "a",
+                                          "icon-right": "thumb-up-outline",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.approveAppointment(
+                                              props.row
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-danger mr-1",
-                                    attrs: { "icon-right": "minus-circle" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.cancelAppointment(props.row)
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Cancel Appointment",
+                                        type: "is-danger",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-danger mr-1",
+                                        attrs: { "icon-right": "minus-circle" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.cancelAppointment(
+                                              props.row
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
@@ -38519,7 +38608,7 @@ var render = function () {
               on: {
                 submit: function ($event) {
                   $event.preventDefault()
-                  return _vm.submit.apply(null, arguments)
+                  return _vm.submitChangeTime.apply(null, arguments)
                 },
               },
             },
@@ -38547,6 +38636,7 @@ var render = function () {
                     {},
                     [
                       _c("b-datetimepicker", {
+                        staticClass: "mb-2",
                         attrs: {
                           rounded: "",
                           expanded: "",
@@ -38563,6 +38653,46 @@ var render = function () {
                           expression: "appointment.appointment_date",
                         },
                       }),
+                      _vm._v(" "),
+                      this.errors.not_allowed
+                        ? _c(
+                            "b-notification",
+                            {
+                              attrs: {
+                                type: "is-danger is-light",
+                                "aria-close-label": "Close notification",
+                                role: "alert",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(this.errors.not_allowed[0]) +
+                                  "\n                        "
+                              ),
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      this.errors.limit
+                        ? _c(
+                            "b-notification",
+                            {
+                              attrs: {
+                                type: "is-danger is-light",
+                                "aria-close-label": "Close notification",
+                                role: "alert",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(this.errors.limit[0]) +
+                                  "\n                        "
+                              ),
+                            ]
+                          )
+                        : _vm._e(),
                     ],
                     1
                   ),
@@ -64475,7 +64605,7 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\Users\\\\eshen\\\\Desktop\\\\Github\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
