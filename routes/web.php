@@ -66,6 +66,11 @@ Route::get('/get-user-offices', [App\Http\Controllers\Administrator\UserControll
 Route::resource('/appointment-type', App\Http\Controllers\Administrator\AppointmentTypeController::class);
 Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\AppointmentTypeController::class, 'getAppointmentTypes']);
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
+
+
+Route::get('/report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'index']);
+Route::get('/get-report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'getReportTrack']);
+
 //Offices Administrator (For office management
 /*     ADMINSITRATOR          */
 

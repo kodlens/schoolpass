@@ -3,136 +3,36 @@
         <div class="section">
 
             <div class="columns is-centered">
-                <div class="column is-6">
-                    <div class="box">
-                        <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">LIST OF OFFICES</div>
-
-                        <div class="level">
-                            <div class="level-left">
-                                <b-field label="Page">
-                                    <b-select v-model="perPage" @input="setPerPage">
-                                        <option value="5">5 per page</option>
-                                        <option value="10">10 per page</option>
-                                        <option value="15">15 per page</option>
-                                        <option value="20">20 per page</option>
-                                    </b-select>
-                                    <b-select v-model="sortOrder" @input="loadAsyncData">
-                                        <option value="asc">ASC</option>
-                                        <option value="desc">DESC</option>
-
-                                    </b-select>
-                                </b-field>
-                            </div>
-
-                            <div class="level-right">
-                                <div class="level-item">
-                                    <b-field label="Search">
-                                        <b-input type="text"
-                                                 v-model="search.office" placeholder="Search Office"
-                                                 @keyup.native.enter="loadAsyncData"/>
-                                        <p class="control">
-                                            <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
-                                        </p>
-                                    </b-field>
-                                </div>
-                            </div>
+                <div class="column">
+                    <div class="nprint">
+                        <div style="font-weight: bold; text-align: center;">
+                            TRACK LOGS
                         </div>
 
-                        <b-table
-                            :data="data"
-                            :loading="loading"
-                            paginated
-                            backend-pagination
-                            :total="total"
-                            :per-page="perPage"
-                            @page-change="onPageChange"
-                            aria-next-label="Next page"
-                            aria-previous-label="Previous page"
-                            aria-page-label="Page"
-                            aria-current-label="Current page"
-                            backend-sorting
-                            :default-sort-direction="defaultSortDirection"
-                            @sort="onSort">
-
-                            <b-table-column field="office_id" label="ID" v-slot="props">
-                                {{ props.row.office_id }}
-                            </b-table-column>
-
-                            <b-table-column field="office_name" label="Office Name" v-slot="props">
-                                {{ props.row.office_name }}
-                            </b-table-column>
-
-                            <b-table-column label="Action" v-slot="props">
-                                <div class="is-flex">
-                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="pencil" @click="getData(props.row.office_id)"></b-button>
-                                    <b-button class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.office_id)"></b-button>
-                                </div>
-                            </b-table-column>
-
-                        </b-table>
-
-                        <div class="buttons mt-3">
-                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
+                        <div class="report-table">
+                            <table>
+                                <tr>
+                                    <th>STUDENT/GUEST</th>
+                                    <th>APPOINTMENT TYPE</th>
+                                    <th>OFFICE</th>
+                                    <th>TIME OUT</th>
+                                    <th>REMARK</th>
+                                </tr>
+                                <tr v-for="(item, index) in data" :key="index">
+                                    <td>{{ item.lname }}, {{ item.fname }} {{ item.mname }}</td>
+                                    <td>{{ item.appointment_type }}</td>
+                                    <td>{{ item.office_name }}</td>
+                                    <td>
+                                        <span v-if="item.time_out">{{ item.time_out | formatTime }}</span>
+                                    </td>
+                                    <td>{{ item.remark }}</td>
+                                </tr>
+                            </table>
                         </div>
-
                     </div>
                 </div><!--close column-->
             </div>
-
-
         </div><!--section div-->
-
-
-
-        <!--modal create-->
-        <b-modal v-model="isModalCreate" has-modal-card
-                 trap-focus
-                 :width="640"
-                 aria-role="dialog"
-                 aria-label="Modal"
-                 aria-modal
-                 type = "is-link">
-
-            <form @submit.prevent="submit">
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Office Information</p>
-                        <button
-                            type="button"
-                            class="delete"
-                            @click="isModalCreate = false"/>
-                    </header>
-
-                    <section class="modal-card-body">
-                        <div class="">
-                            <div class="columns">
-                                <div class="column">
-                                    <b-field label="Office Name"
-                                             :type="this.errors.office_name ? 'is-danger':''"
-                                             :message="this.errors.office_name ? this.errors.office_name[0] : ''">
-                                        <b-input v-model="fields.office_name"
-                                                 placeholder="Office Name" required>
-                                        </b-input>
-                                    </b-field>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <b-button
-                            label="Close"
-                            @click="isModalCreate=false"/>
-                        <button
-                            :class="btnClass"
-                            label="Save"
-                            type="is-success">SAVE</button>
-                    </footer>
-                </div>
-            </form><!--close form-->
-        </b-modal>
-        <!--close modal-->
-
 
     </div>
 </template>
@@ -189,7 +89,7 @@ export default {
             ].join('&')
 
             this.loading = true
-            axios.get(`/get-offices?${params}`)
+            axios.get(`/get-report-track?${params}`)
                 .then(({ data }) => {
                     this.data = [];
                     let currentTotal = data.total
@@ -198,7 +98,7 @@ export default {
                     }
 
                     this.total = currentTotal
-                    data.data.forEach((item) => {
+                    data.forEach((item) => {
                         //item.release_date = item.release_date ? item.release_date.replace(/-/g, '/') : null
                         this.data.push(item)
                     })
@@ -229,99 +129,6 @@ export default {
             this.loadAsyncData()
         },
 
-        openModal(){
-            this.isModalCreate=true;
-            this.fields = {};
-            this.errors = {};
-        },
-
-        //alert box ask for deletion
-        confirmDelete(delete_id) {
-            this.$buefy.dialog.confirm({
-                title: 'DELETE!',
-                type: 'is-danger',
-                message: 'Are you sure you want to delete this data?',
-                cancelText: 'Cancel',
-                confirmText: 'Delete',
-                onConfirm: () => this.deleteSubmit(delete_id)
-            });
-        },
-        //execute delete after confirming
-        deleteSubmit(delete_id) {
-            axios.delete('/offices/' + delete_id).then(res => {
-                this.loadAsyncData();
-            }).catch(err => {
-                if (err.response.status === 422) {
-                    this.errors = err.response.data.errors;
-                }
-            });
-        },
-
-        //update code here
-        getData: function(data_id){
-            this.clearFields();
-            this.global_id = data_id;
-            this.isModalCreate = true;
-
-
-            //nested axios for getting the address 1 by 1 or request by request
-            axios.get('/offices/'+data_id).then(res=>{
-                this.fields = res.data;
-            });
-        },
-
-        clearFields(){
-            this.fields = {
-                appointment_type: '',
-            };
-        },
-
-        submit: function(){
-            if(this.global_id > 0){
-                //update
-                axios.put('/offices/'+this.global_id, this.fields).then(res=>{
-                    if(res.data.status === 'updated'){
-                        this.$buefy.dialog.alert({
-                            title: 'UPDATED!',
-                            message: 'Successfully updated.',
-                            type: 'is-success',
-                            onConfirm: () => {
-                                this.loadAsyncData();
-                                this.clearFields();
-                                this.global_id = 0;
-                                this.isModalCreate = false;
-                            }
-                        })
-                    }
-                }).catch(err=>{
-                    if(err.response.status === 422){
-                        this.errors = err.response.data.errors;
-                    }
-                })
-            }else{
-                //INSERT HERE
-                axios.post('/offices', this.fields).then(res=>{
-                    if(res.data.status === 'saved'){
-                        this.$buefy.dialog.alert({
-                            title: 'SAVED!',
-                            message: 'Successfully saved.',
-                            type: 'is-success',
-                            confirmText: 'OK',
-                            onConfirm: () => {
-                                this.isModalCreate = false;
-                                this.loadAsyncData();
-                                this.clearFields();
-                                this.global_id = 0;
-                            }
-                        })
-                    }
-                }).catch(err=>{
-                    if(err.response.status === 422){
-                        this.errors = err.response.data.errors;
-                    }
-                });
-            }
-        }
 
     },
 

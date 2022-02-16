@@ -25,7 +25,7 @@ class AppointmentTypeController extends Controller
 
         $data = \DB::table('appointment_types as a')
             ->join('offices as b', 'a.office_id', 'b.office_id')
-            ->where('appointment_type', 'like', $req->type . '%')
+            ->where('a.appointment_type', 'like', $req->type . '%')
             ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
 
