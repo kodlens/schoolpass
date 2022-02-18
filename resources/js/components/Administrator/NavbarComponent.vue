@@ -61,6 +61,10 @@
                         </b-menu-list>
 
                         <b-menu-list>
+                            <b-menu-item label="Ordinance" icon="clipboard-list" tag="a" href="/ordinance"></b-menu-item>
+                        </b-menu-list>
+
+                        <b-menu-list>
                             <b-menu-item label="Report Track" icon="chart-timeline" tag="a" href="/report-track"></b-menu-item>
                         </b-menu-list>
 

@@ -10,7 +10,8 @@ class AppointmentTypeOpenController extends Controller
     //
 
     public function getAppointmentTypes(){
-        return AppointmentType::orderBy('appointment_type', 'asc')->get();
+        return AppointmentType::where('is_active', 1) //only active appointment type return
+        ->orderBy('appointment_type', 'asc')->get();
     }
 
 }

@@ -68,12 +68,16 @@ Route::get('/get-appointment-types', [App\Http\Controllers\Administrator\Appoint
 Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeOpenController::class, 'getAppointmentTypes']);
 
 
+Route::resource('/ordinance', App\Http\Controllers\Administrator\OrdinanceController::class);
+Route::get('/get-ordinances', [App\Http\Controllers\Administrator\OrdinanceController::class, 'getOrdinances']);
+
+
 Route::get('/report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'index']);
 Route::get('/get-report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'getReportTrack']);
 
-//Offices Administrator (For office management
-/*     ADMINSITRATOR          */
+//Offices Administrator (For office management)
 
+/*     ADMINSITRATOR          */
 
 
 Route::resource('/offices', App\Http\Controllers\Administrator\OfficeController::class);
@@ -102,8 +106,11 @@ Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerContr
 Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
 Route::get('/office-appointment-tracks', [App\Http\Controllers\Office\OfficeScannerController::class, 'getOfficeAppointmentTracks']);
 
-Route::resource('/my-office', App\Http\Controllers\Office\MyOfficeController::class);
-Route::get('/get-my-office', [App\Http\Controllers\Office\MyOfficeController::class, 'getOffice']);
+Route::resource('/my-appointment-type', App\Http\Controllers\Office\MyAppointmentTypeController::class);
+Route::get('/get-my-appointment-type-list', [App\Http\Controllers\Office\MyAppointmentTypeController::class, 'getOffice']);
+Route::get('/get-my-appointment-type/{appid}', [App\Http\Controllers\Office\MyAppointmentTypeController::class, 'show']);
+Route::post('/my-appointment-type-deactivate/{appid}', [App\Http\Controllers\Office\MyAppointmentTypeController::class, 'deactivate']);
+Route::post('/my-appointment-type-activate/{appid}', [App\Http\Controllers\Office\MyAppointmentTypeController::class, 'activate']);
 
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.office-layout')
 
 @section('content')
-    <my-office></my-office>
+    <my-appointment-type></my-appointment-type>
 @endsection
 

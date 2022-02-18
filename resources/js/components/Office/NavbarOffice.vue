@@ -27,7 +27,7 @@
                         <b-menu-list label="Menu">
                             <b-menu-item icon="information-outline" label="Dashboard" tag="a" href="/dashboard-office"></b-menu-item>
                             <b-menu-item icon="information-outline" label="Scanner" tag="a" href="/office-scanner"></b-menu-item>
-<!--                            <b-menu-item icon="home" label="My Office" tag="a" href="/my-office"></b-menu-item>-->
+                            <b-menu-item icon="home" label="My Appointment Type" tag="a" href="/my-appointment-type"></b-menu-item>
                         </b-menu-list>
 
                         <b-menu-list>
