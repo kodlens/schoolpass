@@ -9562,6 +9562,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['propUser'],
   data: function data() {
@@ -36862,8 +36863,14 @@ var render = function () {
             _vm._v(" "),
             _c("section", { staticClass: "modal-card-body" }, [
               _c("div", [
+                _c("h1", { staticClass: "title is-6" }, [
+                  _vm._v("Do you experience any of the following?"),
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
-                  _c("div", { staticClass: "h-question" }, [_vm._v("FEVER?")]),
+                  _c("div", { staticClass: "h-question" }, [
+                    _vm._v("Fever (Lagnat)"),
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -36882,11 +36889,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -36897,7 +36904,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("DRY COUGH?"),
+                    _vm._v("Dry Cough (Tuyong ubo)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -36917,11 +36924,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -36932,7 +36939,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("FATIGUE?"),
+                    _vm._v("Fatigue (Pagkapagod)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -36952,11 +36959,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -36967,7 +36974,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("ACHES AND PAIN?"),
+                    _vm._v("Aches and Pain (Pananakit ng katawan)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -36987,11 +36994,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37002,7 +37009,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("RUNNY NOSE?"),
+                    _vm._v("Runny Nose (Sipon)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37022,11 +37029,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37037,7 +37044,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("SORE THROAT?"),
+                    _vm._v("Sore Throat (Namamagang lalamunan)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37057,11 +37064,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37072,7 +37079,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("SHORTNESS OF BREATH?"),
+                    _vm._v("Shortness of breath (Hirap sa paghinga)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37092,11 +37099,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37107,7 +37114,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("DIARRHEA?"),
+                    _vm._v("Diarrhea (Pagtatae)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37127,11 +37134,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37142,7 +37149,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("HEADACHE?"),
+                    _vm._v("Headache (Pananakit ng ulo)"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37162,11 +37169,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),
@@ -37177,7 +37184,9 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "health-question-container" }, [
                   _c("div", { staticClass: "h-question" }, [
-                    _vm._v("LOSS OF SMELL AND TASTE?"),
+                    _vm._v(
+                      "Loss of smell and taste (Walang pang amoy at panglasa)"
+                    ),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -37201,11 +37210,11 @@ var render = function () {
                         },
                         [
                           _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("YES"),
+                            _vm._v("YES (OO)"),
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("NO"),
+                            _vm._v("NO (HINDI)"),
                           ]),
                         ]
                       ),

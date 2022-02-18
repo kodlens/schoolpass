@@ -278,103 +278,104 @@
 
                 <section class="modal-card-body">
                     <div>
+                        <h1 class="title is-6">Do you experience any of the following?</h1>
 
                         <div class="health-question-container">
-                            <div class="h-question">FEVER?</div>
+                            <div class="h-question">Fever (Lagnat)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.fever">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">DRY COUGH?</div>
+                            <div class="h-question">Dry Cough (Tuyong ubo)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.dry_cough">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">FATIGUE?</div>
+                            <div class="h-question">Fatigue (Pagkapagod)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.fatigue">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">ACHES AND PAIN?</div>
+                            <div class="h-question">Aches and Pain (Pananakit ng katawan)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.aches_pain">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">RUNNY NOSE?</div>
+                            <div class="h-question">Runny Nose (Sipon)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.runny_nose">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">SORE THROAT?</div>
+                            <div class="h-question">Sore Throat (Namamagang lalamunan)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.sore_throat">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">SHORTNESS OF BREATH?</div>
+                            <div class="h-question">Shortness of breath (Hirap sa paghinga)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.short_breath">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">DIARRHEA?</div>
+                            <div class="h-question">Diarrhea (Pagtatae)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.diarrhea">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">HEADACHE?</div>
+                            <div class="h-question">Headache (Pananakit ng ulo)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.headache">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
 
                         <div class="health-question-container">
-                            <div class="h-question">LOSS OF SMELL AND TASTE?</div>
+                            <div class="h-question">Loss of smell and taste (Walang pang amoy at panglasa)</div>
                             <div class="h-ans">
                                 <b-select v-model="declarataions.loss_smell_taste">
-                                    <option value="1">YES</option>
-                                    <option value="0">NO</option>
+                                    <option value="1">YES (OO)</option>
+                                    <option value="0">NO (HINDI)</option>
                                 </b-select>
                             </div>
                         </div>
