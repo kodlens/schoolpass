@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\office;
+namespace App\Http\Controllers\Office;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppointmentType;

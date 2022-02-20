@@ -107,24 +107,24 @@ class OfficeAppointmentController extends Controller
         }
 
         //labad sa ulo ang filtering conflict sa time
-        $countExist = DB::table('appointments as a')
-            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
-            ->where('app_date', $ndate)
-            ->where(function($query) use ($ntime, $addedTime){
-                $query->whereBetween('app_time_from', [$ntime, $addedTime])
-                    ->orWhereBetween('app_time_to', [$ntime,$addedTime]);
-            })
-            ->where('a.appointment_type_id', $req->appointment_type_id)
-            ->where('a.appointment_id', '!=', $id)
-            ->count();
+//        $countExist = DB::table('appointments as a')
+//            ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
+//            ->where('app_date', $ndate)
+//            ->where(function($query) use ($ntime, $addedTime){
+//                $query->whereBetween('app_time_from', [$ntime, $addedTime])
+//                    ->orWhereBetween('app_time_to', [$ntime,$addedTime]);
+//            })
+//            ->where('a.appointment_type_id', $req->appointment_type_id)
+//            ->where('a.appointment_id', '!=', $id)
+//            ->count();
 
-        if($countExist >= $max_multiple){
-            return response()->json([
-                'errors' => [
-                    'limit' =>  ['Sorry, no available slot at the moment. Please select another schedule.']
-                ]
-            ], 422);
-        }
+//        if($countExist >= $max_multiple){
+//            return response()->json([
+//                'errors' => [
+//                    'limit' =>  ['Sorry, no available slot at the moment. Please select another schedule.']
+//                ]
+//            ], 422);
+//        }
 
 
         Appointment::where('appointment_id', $id)
