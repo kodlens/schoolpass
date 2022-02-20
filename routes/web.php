@@ -71,6 +71,8 @@ Route::get('/get-open-appointment-types', [App\Http\Controllers\AppointmentTypeO
 Route::resource('/ordinance', App\Http\Controllers\Administrator\OrdinanceController::class);
 Route::get('/get-ordinances', [App\Http\Controllers\Administrator\OrdinanceController::class, 'getOrdinances']);
 
+Route::get('/get-open-ordinances', [App\Http\Controllers\CovidUpdatesController::class, 'getOrdinances']);
+
 
 Route::get('/report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'index']);
 Route::get('/get-report-track', [App\Http\Controllers\Administrator\ReportTrackController::class, 'getReportTrack']);

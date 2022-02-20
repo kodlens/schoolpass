@@ -1,5 +1,5 @@
  <template>
-    <div> 
+    <div>
         <section>
             <div style="background-color: #1d6530; padding: 30px; margin: 20px 0 20px 0; text-align: center;">
                 <div class="title" style="color: white;">
@@ -69,10 +69,40 @@
                     </div>
                 </div>
             </div>
-
         </section>
+
+        <hr>
+        <div class="section">
+            <h1 class="title is-4 has-text-centered">ORDINANCES</h1>
+            <div class="columns mt-5 is-centered" v-for="(item, index) in data" :key="index">
+                <div class="column is-6">
+                    <img :src="`/storage/ordinances/${item.ordinance_img_path}`" />
+                </div>
+            </div>
+        </div>
      </div>
  </template>
+
+ <script>
+export default {
+    data(){
+        return {
+            data: [],
+
+        }
+    },
+    methods: {
+        loadData(){
+            axios.get('/get-open-ordinances').then(res=>{
+                this.data = res.data
+            })
+        }
+    },
+    mounted() {
+        this.loadData();
+    }
+}
+ </script
 
  <style scoped>
        .mask{
@@ -108,5 +138,5 @@
   padding: 10px;
   font-size: 20px;
 }
- 
+
  </style>
