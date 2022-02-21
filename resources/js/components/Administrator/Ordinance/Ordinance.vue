@@ -65,8 +65,9 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
-
-                                    <b-button class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.ordinance_id)"></b-button>
+                                    <b-tooltip label="Delete" type="is-danger">
+                                        <b-button class="button is-small is-danger mr-1" icon-right="delete" @click="confirmDelete(props.row.ordinance_id)"></b-button>
+                                    </b-tooltip>
                                 </div>
                             </b-table-column>
 

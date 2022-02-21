@@ -114,8 +114,14 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
-                                    <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
-                                    <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                    <b-tooltip label="Approve appointment" type="is-warning">
+                                        <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
+                                    </b-tooltip>
+
+                                    <b-tooltip label="Cancel Appointment" type="is-danger">
+                                        <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                    </b-tooltip>
+
                                 </div>
                             </b-table-column>
 

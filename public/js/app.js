@@ -7784,6 +7784,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -8109,6 +8113,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -8601,6 +8609,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -8909,6 +8918,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -11285,6 +11298,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -31118,7 +31137,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\r\n.validation-failure[data-v-58579eda],\r\n.validation-pending[data-v-58579eda] {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    background-color: rgba(255, 255, 255, .8);\r\n    text-align: center;\r\n    font-weight: bold;\r\n    font-size: 1.4rem;\r\n    padding: 10px;\r\n\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\r\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\r\n    color: red;\n}\n.camera[data-v-58579eda]{\r\n    margin: auto;\r\n    width: 240px;\r\n    height: 320px;\r\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\r\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    width: 50%;\n}\n.companion[data-v-58579eda]{\r\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\r\n    margin: auto;\n}\n.debug[data-v-58579eda]{\r\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\r\n    display: flex;\r\n    justify-content: center;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.validation-success[data-v-58579eda],\n.validation-failure[data-v-58579eda],\n.validation-pending[data-v-58579eda] {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n\n    background-color: rgba(255, 255, 255, .8);\n    text-align: center;\n    font-weight: bold;\n    font-size: 1.4rem;\n    padding: 10px;\n\n    display: flex;\n    flex-flow: column nowrap;\n    justify-content: center;\n}\n.validation-success[data-v-58579eda] {\n    color: green;\n}\n.validation-failure[data-v-58579eda] {\n    color: red;\n}\n.camera[data-v-58579eda]{\n    margin: auto;\n    width: 240px;\n    height: 320px;\n    border: 1px solid gray;\n}\n.decode-result[data-v-58579eda]{\n    text-align: center;\n}\n.visitor-img[data-v-58579eda]{\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 50%;\n}\n.companion[data-v-58579eda]{\n    margin: 15px 0 10px 25px;\n}\n.select-container[data-v-58579eda]{\n    margin: auto;\n}\n.debug[data-v-58579eda]{\n    border: 1px solid red;\n}\n.select-container[data-v-58579eda]{\n    display: flex;\n    justify-content: center;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34775,31 +34794,58 @@ var render = function () {
                                 "div",
                                 { staticClass: "is-flex" },
                                 [
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-warning mr-1",
-                                    attrs: { tag: "a", "icon-right": "pencil" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.getData(
-                                          props.row.appointment_type_id
-                                        )
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Edit",
+                                        type: "is-warning",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-warning mr-1",
+                                        attrs: {
+                                          tag: "a",
+                                          "icon-right": "pencil",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.getData(
+                                              props.row.appointment_type_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-danger mr-1",
-                                    attrs: { "icon-right": "delete" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.confirmDelete(
-                                          props.row.appointment_type_id
-                                        )
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Delete",
+                                        type: "is-danger",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-danger mr-1",
+                                        attrs: { "icon-right": "delete" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.confirmDelete(
+                                              props.row.appointment_type_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
@@ -35535,29 +35581,58 @@ var render = function () {
                                 "div",
                                 { staticClass: "is-flex" },
                                 [
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-warning mr-1",
-                                    attrs: { tag: "a", "icon-right": "pencil" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.getData(props.row.office_id)
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Edit",
+                                        type: "is-warning",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-warning mr-1",
+                                        attrs: {
+                                          tag: "a",
+                                          "icon-right": "pencil",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.getData(
+                                              props.row.office_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-danger mr-1",
-                                    attrs: { "icon-right": "delete" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.confirmDelete(
-                                          props.row.office_id
-                                        )
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Delete",
+                                        type: "is-danger",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-danger mr-1",
+                                        attrs: { "icon-right": "delete" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.confirmDelete(
+                                              props.row.office_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
@@ -35966,18 +36041,30 @@ var render = function () {
                                 "div",
                                 { staticClass: "is-flex" },
                                 [
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-danger mr-1",
-                                    attrs: { "icon-right": "delete" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.confirmDelete(
-                                          props.row.ordinance_id
-                                        )
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Delete",
+                                        type: "is-danger",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-danger mr-1",
+                                        attrs: { "icon-right": "delete" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.confirmDelete(
+                                              props.row.ordinance_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
@@ -36627,29 +36714,58 @@ var render = function () {
                                 "div",
                                 { staticClass: "is-flex" },
                                 [
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-warning mr-1",
-                                    attrs: { tag: "a", "icon-right": "pencil" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.getData(props.row.user_id)
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Edit",
+                                        type: "is-warning",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-warning mr-1",
+                                        attrs: {
+                                          tag: "a",
+                                          "icon-right": "pencil",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.getData(
+                                              props.row.user_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                   _vm._v(" "),
-                                  _c("b-button", {
-                                    staticClass:
-                                      "button is-small is-danger mr-1",
-                                    attrs: { "icon-right": "delete" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.confirmDelete(
-                                          props.row.user_id
-                                        )
+                                  _c(
+                                    "b-tooltip",
+                                    {
+                                      attrs: {
+                                        label: "Delete",
+                                        type: "is-danger",
                                       },
                                     },
-                                  }),
+                                    [
+                                      _c("b-button", {
+                                        staticClass:
+                                          "button is-small is-danger mr-1",
+                                        attrs: { "icon-right": "delete" },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.confirmDelete(
+                                              props.row.user_id
+                                            )
+                                          },
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
@@ -40834,29 +40950,58 @@ var render = function () {
                               "div",
                               { staticClass: "is-flex" },
                               [
-                                _c("b-button", {
-                                  staticClass:
-                                    "button is-small is-warning mr-1",
-                                  attrs: {
-                                    tag: "a",
-                                    "icon-right": "thumb-up-outline",
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.approveAppointment(props.row)
+                                _c(
+                                  "b-tooltip",
+                                  {
+                                    attrs: {
+                                      label: "Approve appointment",
+                                      type: "is-warning",
                                     },
                                   },
-                                }),
+                                  [
+                                    _c("b-button", {
+                                      staticClass:
+                                        "button is-small is-warning mr-1",
+                                      attrs: {
+                                        tag: "a",
+                                        "icon-right": "thumb-up-outline",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.approveAppointment(
+                                            props.row
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
                                 _vm._v(" "),
-                                _c("b-button", {
-                                  staticClass: "button is-small is-danger mr-1",
-                                  attrs: { "icon-right": "minus-circle" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.cancelAppointment(props.row)
+                                _c(
+                                  "b-tooltip",
+                                  {
+                                    attrs: {
+                                      label: "Cancel Appointment",
+                                      type: "is-danger",
                                     },
                                   },
-                                }),
+                                  [
+                                    _c("b-button", {
+                                      staticClass:
+                                        "button is-small is-danger mr-1",
+                                      attrs: { "icon-right": "minus-circle" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.cancelAppointment(
+                                            props.row
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
                               ],
                               1
                             ),
