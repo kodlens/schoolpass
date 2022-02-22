@@ -27,7 +27,7 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-input type="text"
-                                            v-model="search.appointment_date" placeholder="Search Appointment Type"
+                                            v-model="search.type" placeholder="Search Appointment Type"
                                             @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
@@ -197,7 +197,9 @@ export default {
             perPage: 5,
             defaultSortDirection: 'asc',
 
-            search: {},
+            search: {
+                type: '',
+            },
 
             isModalCreate: false,
             fields: {},
@@ -219,8 +221,7 @@ export default {
         */
         loadAsyncData() {
 
-            this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
-
+        
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,
                 `type=${this.search.type}`,

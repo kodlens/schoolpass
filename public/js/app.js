@@ -10425,7 +10425,9 @@ __webpack_require__.r(__webpack_exports__);
       page: 1,
       perPage: 5,
       defaultSortDirection: 'asc',
-      search: {},
+      search: {
+        type: ''
+      },
       isModalCreate: false,
       fields: {},
       errors: {},
@@ -10444,7 +10446,6 @@ __webpack_require__.r(__webpack_exports__);
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
       var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "type=".concat(this.search.type), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
       axios.get("/get-my-appointment-type-list?".concat(params)).then(function (_ref) {
@@ -39110,11 +39111,11 @@ var render = function () {
                                 },
                               },
                               model: {
-                                value: _vm.search.appointment_date,
+                                value: _vm.search.type,
                                 callback: function ($$v) {
-                                  _vm.$set(_vm.search, "appointment_date", $$v)
+                                  _vm.$set(_vm.search, "type", $$v)
                                 },
-                                expression: "search.appointment_date",
+                                expression: "search.type",
                               },
                             }),
                             _vm._v(" "),
