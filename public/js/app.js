@@ -12156,6 +12156,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -41807,7 +41812,10 @@ var render = function () {
                           { attrs: { label: "Search" } },
                           [
                             _c("b-datepicker", {
-                              attrs: { placeholder: "Search Appointment Date" },
+                              attrs: {
+                                editable: "",
+                                placeholder: "Search Appointment Date",
+                              },
                               nativeOn: {
                                 keyup: function ($event) {
                                   if (
@@ -41911,6 +41919,24 @@ var render = function () {
                               _vm._v(
                                 "\n                            " +
                                   _vm._s(props.row.appointment_type) +
+                                  "\n                        "
+                              ),
+                            ]
+                          },
+                        },
+                      ]),
+                    }),
+                    _vm._v(" "),
+                    _c("b-table-column", {
+                      attrs: { field: "app_date", label: "Appointment Date" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "default",
+                          fn: function (props) {
+                            return [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(props.row.app_date) +
                                   "\n                        "
                               ),
                             ]
