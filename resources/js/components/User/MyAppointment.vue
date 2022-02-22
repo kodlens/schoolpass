@@ -27,6 +27,7 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-datepicker
+                                            editable
                                                  v-model="search.appointment_date" placeholder="Search Appointment Date"
                                                  @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
@@ -59,6 +60,10 @@
 
                             <b-table-column field="appointment_type" label="Appointment" v-slot="props">
                                 {{ props.row.appointment_type }}
+                            </b-table-column>
+
+                            <b-table-column field="app_date" label="Appointment Date" v-slot="props">
+                                {{ props.row.app_date }}
                             </b-table-column>
 
                             <b-table-column field="from_to" label="From/To" v-slot="props">
