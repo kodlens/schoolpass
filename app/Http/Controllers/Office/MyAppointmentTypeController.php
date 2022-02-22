@@ -29,12 +29,14 @@ class MyAppointmentTypeController extends Controller
 
 
     public function getOffice(Request $req){
+
         $user = Auth::user();
         $sort = explode('.', $req->sort_by);
 
         $data = DB::table('appointment_types as a')
             ->join('offices as b', 'a.office_id', 'b.office_id')
             ->where('a.office_id', $user->office_id)
+            ->where('a.appointment_type', 'like', $req->type . '%')
             ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
 
