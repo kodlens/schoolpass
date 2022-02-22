@@ -10961,6 +10961,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -39900,7 +39901,10 @@ var render = function () {
                           { attrs: { label: "Search" } },
                           [
                             _c("b-datepicker", {
-                              attrs: { placeholder: "Search Appointment Date" },
+                              attrs: {
+                                placeholder: "Search Appointment Date",
+                                editable: "",
+                              },
                               nativeOn: {
                                 keyup: function ($event) {
                                   if (
