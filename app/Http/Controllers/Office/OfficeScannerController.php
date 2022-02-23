@@ -68,11 +68,14 @@ class OfficeScannerController extends Controller
     }
 
     public function getOfficeAppointmentTracks(Request $req){
+        $sort = explode('.', $req->sort_by);
         $user = Auth::user();
         $data = DB::table('appointment_tracks as a')
             ->join('appointments as b', 'a.appointment_id', 'b.appointment_id')
             ->join('users as c', 'b.appointment_user_id', 'c.user_id')
+            ->join('appointment_types as d', 'b.appointment_type_id', 'd.appointment_type_id')
             ->where('a.office_id', $user->office_id)
+            ->orderBy('a.' . $sort[0], $sort[1])
             ->paginate($req->perpage);
 
         return $data;

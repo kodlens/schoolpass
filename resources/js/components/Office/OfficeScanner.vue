@@ -46,7 +46,7 @@
 
             <!--TABLE-->
             <div class="columns">
-                <div class="column is-8 is-offset-2">
+                <div class="column is-10 is-offset-1">
                     <div class="box">
                         <div class="is-flex is-justify-content-center mb-2" style="font-size: 20px; font-weight: bold;">SCANNED APPOINTMENT</div>
 
@@ -96,8 +96,11 @@
                             :default-sort-direction="defaultSortDirection"
                             @sort="onSort">
 
-                            <b-table-column field="appointment_id" label="ID" v-slot="props">
-                                {{ props.row.appointment_id }}
+                            <b-table-column field="appintment_track_id" label="ID" v-slot="props">
+                                {{ props.row.appointment_track_id }}
+                            </b-table-column>
+                            <b-table-column field="app_date" label="Appointment Date" v-slot="props">
+                                {{ props.row.app_date }}
                             </b-table-column>
 
                             <b-table-column field="appointment_type" label="Appointment" v-slot="props">
@@ -112,18 +115,6 @@
                                 {{ props.row.app_time_from }} -   {{ props.row.app_time_to }}
                             </b-table-column>
 
-                            <b-table-column label="Action" v-slot="props">
-                                <div class="is-flex">
-                                    <b-tooltip label="Approve appointment" type="is-warning">
-                                        <b-button class="button is-small is-warning mr-1" tag="a" icon-right="thumb-up-outline" @click="approveAppointment(props.row)"></b-button>
-                                    </b-tooltip>
-
-                                    <b-tooltip label="Cancel Appointment" type="is-danger">
-                                        <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
-                                    </b-tooltip>
-
-                                </div>
-                            </b-table-column>
 
                         </b-table>
 

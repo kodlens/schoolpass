@@ -28,7 +28,7 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-input type="text"
-                                                 v-model="search.ordinance_name" placeholder="Search Office"
+                                                 v-model="search.ordinance_name" placeholder="Search Ordinance Name"
                                                  @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
@@ -155,13 +155,12 @@
 
 <script>
 export default {
-    name: "AppointmentType",
     data(){
         return{
             data: [],
             total: 0,
             loading: false,
-            sortField: 'office_id',
+            sortField: 'ordinance_id',
             sortOrder: 'desc',
             page: 1,
             perPage: 5,
