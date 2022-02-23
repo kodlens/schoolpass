@@ -28,6 +28,7 @@
                                     <b-field label="Search">
                                         <b-datepicker
                                             v-model="search.appointment_date" placeholder="Search Appointment Date"
+                                            editable
                                             @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>

@@ -27,6 +27,7 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-datepicker
+                                            editable
                                                  v-model="search.appointment_date" placeholder="Search Appointment Date"
                                                  @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
@@ -61,6 +62,10 @@
                                 {{ props.row.appointment_type }}
                             </b-table-column>
 
+                            <b-table-column field="app_date" label="Appointment Date" v-slot="props">
+                                {{ props.row.app_date }}
+                            </b-table-column>
+
                             <b-table-column field="from_to" label="From/To" v-slot="props">
                                 {{ props.row.app_time_from }} -   {{ props.row.app_time_to }}
                             </b-table-column>
@@ -73,7 +78,10 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
-                                    <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+
+                                    <b-tooltip label="Cancel appointment" type="is-danger">
+                                        <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>
+                                    </b-tooltip>
                                 </div>
                             </b-table-column>
 

@@ -33,7 +33,7 @@ class MyAppointmentController extends Controller
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
             ->join('offices as c', 'b.office_id', 'c.office_id')
             ->where('appointment_user_id', $user->user_id)
-            ->where('app_date', $ndate)
+            ->where('app_date', 'like',  $ndate . '%')
             ->orderBy('appointment_id', 'desc')
             ->paginate($req->perpage);
     }
