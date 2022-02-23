@@ -9589,6 +9589,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9622,9 +9632,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -37659,7 +37666,7 @@ var staticRenderFns = [
             { staticClass: "subtitle", staticStyle: { color: "white" } },
             [
               _vm._v(
-                "\n                Help prevent the prevent the spread of respiratory disease like COVID-19\n            "
+                "\n                Help prevent the prevent the spread of respiratory disease like COVID-19.\n            "
               ),
             ]
           ),
@@ -37672,9 +37679,24 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [_vm._v("WEAR FACEMASK")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("WEAR FACEMASK")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v(" Everyone must wear mask ")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [_c("b", [_vm._v(" Everyone must wear mask.")])]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/mask.png" } }),
                 ]),
@@ -37684,13 +37706,30 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _vm._v("WASH YOUR HANDS"),
-                  ]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("WASH YOUR HANDS")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Wash your hands frequently with soap and water"),
-                  ]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(
+                          "Wash your hands frequently with soap and water. "
+                        ),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/hands.png" } }),
                 ]),
@@ -37700,9 +37739,28 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", [_vm._v("DON'T TOUCH")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v(" DON'T TOUCH ")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v(" Do not touch your eyes with dirty hands")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(" Do not touch your eyes with dirty hands. "),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/touch.png" } }),
                 ]),
@@ -37714,9 +37772,24 @@ var staticRenderFns = [
             _c("div", { staticClass: "column is-4" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", [_vm._v("COVER A COUGH OR SNEEZE")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("COVER A COUGH OR SNEEZE")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v("use tissue when cough/ sneeze")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [_c("b", [_vm._v("Use tissue when cough/ sneeze.")])]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/tissue.png" } }),
                 ]),
@@ -37726,15 +37799,63 @@ var staticRenderFns = [
             _c("div", { staticClass: "column is-4" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _vm._v("KEEP YOUR DISTANCE"),
-                  ]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("KEEP YOUR DISTANCE")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Avoid close contact with poeple wwho are sick."),
-                  ]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v("Avoid close contact with people who are sick."),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/dist.png" } }),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-4" }, [
+              _c("div", { staticClass: "panel" }, [
+                _c("div", { staticClass: "panel-body" }, [
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("GET A COVID-19 VACCINE")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(
+                          "Getting vaccinated can help protect you and others from covid-19."
+                        ),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("img", { attrs: { src: "/img/vaccine.png" } }),
                 ]),
               ]),
             ]),
@@ -37827,12 +37948,6 @@ var render = function () {
                       _c("b-navbar-item", { attrs: { href: "/" } }, [
                         _vm._v(
                           "\n                            Home\n                        "
-                        ),
-                      ]),
-                      _vm._v(" "),
-                      _c("b-navbar-item", { attrs: { href: "#" } }, [
-                        _vm._v(
-                          "\n                            About\n                        "
                         ),
                       ]),
                       _vm._v(" "),
