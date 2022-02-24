@@ -25,7 +25,10 @@ class OfficeAppointmentController extends Controller
 
     public function getOfficeAppointments(Request $req){
         $sort = explode('.', $req->sort_by);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a4346dc071f128467db54c5713e4caaf9632884
         $user = Auth::user();
         $ndate = date("Y-m-d", strtotime($req->appdate));
 
@@ -36,6 +39,10 @@ class OfficeAppointmentController extends Controller
             ->leftJoin('users as e', 'a.appointment_user_id', 'e.user_id')
             ->where('a.app_date', 'like', $ndate . '%')
             ->where('d.user_id', $user->user_id)
+<<<<<<< HEAD
+=======
+            ->where('d.user_id', $user->user_id)
+>>>>>>> 6a4346dc071f128467db54c5713e4caaf9632884
             ->orderBy('a.' . $sort[0], $sort[1])
             ->paginate($req->perpage);
 

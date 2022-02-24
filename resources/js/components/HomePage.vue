@@ -14,9 +14,6 @@
                         <b-navbar-item href="/">
                             Home
                         </b-navbar-item>
-                        <b-navbar-item href="#">
-                            About
-                        </b-navbar-item>
                         <b-navbar-item href="/covid-updates">
                             Covid Updates
                         </b-navbar-item>

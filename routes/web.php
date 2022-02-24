@@ -104,6 +104,7 @@ Route::get('/get-no-request', [App\Http\Controllers\Office\OfficeAppointmentCont
 
 Route::resource('/office-scanner', App\Http\Controllers\Office\OfficeScannerController::class);
 Route::post('/validate-qr/{qr}', [App\Http\Controllers\Office\OfficeScannerController::class, 'validateQR']);
+//Route::get('/get-scanned-appointment', [App\Http\Controllers\Office\OfficeScannerController::class, 'getScannedAppointment']);
 
 Route::get('/get-current-user', [App\Http\Controllers\Office\OfficeScannerController::class, 'getCurrentUser']);
 Route::get('/office-appointment-tracks', [App\Http\Controllers\Office\OfficeScannerController::class, 'getOfficeAppointmentTracks']);

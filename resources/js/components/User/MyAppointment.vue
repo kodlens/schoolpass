@@ -78,6 +78,7 @@
 
                             <b-table-column label="Action" v-slot="props">
                                 <div class="is-flex">
+        
 
                                     <b-tooltip label="Cancel appointment" type="is-danger">
                                         <b-button class="button is-small is-danger mr-1" icon-right="minus-circle" @click="cancelAppointment(props.row)"></b-button>

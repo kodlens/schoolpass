@@ -21,7 +21,10 @@ class OrdinanceController extends Controller
     }
 
     public function getOrdinances(Request $req){
+        $sort = explode('.', $req->sort_by);
+
         return Ordinance::where('ordinance_name', 'like', $req->ordinance . '%')
+            ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
     }
 

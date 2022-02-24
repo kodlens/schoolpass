@@ -8611,13 +8611,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "AppointmentType",
   data: function data() {
     return {
       data: [],
       total: 0,
       loading: false,
-      sortField: 'office_id',
+      sortField: 'ordinance_id',
       sortOrder: 'desc',
       page: 1,
       perPage: 5,
@@ -9590,6 +9589,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9623,9 +9632,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -11506,15 +11512,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -12000,6 +11997,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -35929,7 +35927,7 @@ var render = function () {
                             _c("b-input", {
                               attrs: {
                                 type: "text",
-                                placeholder: "Search Office",
+                                placeholder: "Search Ordinance Name",
                               },
                               nativeOn: {
                                 keyup: function ($event) {
@@ -37670,7 +37668,7 @@ var staticRenderFns = [
             { staticClass: "subtitle", staticStyle: { color: "white" } },
             [
               _vm._v(
-                "\n                Help prevent the prevent the spread of respiratory disease like COVID-19\n            "
+                "\n                Help prevent the prevent the spread of respiratory disease like COVID-19.\n            "
               ),
             ]
           ),
@@ -37683,9 +37681,24 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [_vm._v("WEAR FACEMASK")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("WEAR FACEMASK")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v(" Everyone must wear mask ")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [_c("b", [_vm._v(" Everyone must wear mask.")])]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/mask.png" } }),
                 ]),
@@ -37695,13 +37708,30 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _vm._v("WASH YOUR HANDS"),
-                  ]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("WASH YOUR HANDS")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Wash your hands frequently with soap and water"),
-                  ]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(
+                          "Wash your hands frequently with soap and water. "
+                        ),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/hands.png" } }),
                 ]),
@@ -37711,9 +37741,28 @@ var staticRenderFns = [
             _c("div", { staticClass: "column" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", [_vm._v("DON'T TOUCH")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v(" DON'T TOUCH ")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v(" Do not touch your eyes with dirty hands")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(" Do not touch your eyes with dirty hands. "),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/touch.png" } }),
                 ]),
@@ -37725,9 +37774,24 @@ var staticRenderFns = [
             _c("div", { staticClass: "column is-4" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", [_vm._v("COVER A COUGH OR SNEEZE")]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("COVER A COUGH OR SNEEZE")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v("use tissue when cough/ sneeze")]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [_c("b", [_vm._v("Use tissue when cough/ sneeze.")])]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/tissue.png" } }),
                 ]),
@@ -37737,15 +37801,63 @@ var staticRenderFns = [
             _c("div", { staticClass: "column is-4" }, [
               _c("div", { staticClass: "panel" }, [
                 _c("div", { staticClass: "panel-body" }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _vm._v("KEEP YOUR DISTANCE"),
-                  ]),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("KEEP YOUR DISTANCE")]
+                  ),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v("Avoid close contact with poeple wwho are sick."),
-                  ]),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v("Avoid close contact with people who are sick."),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("img", { attrs: { src: "/img/dist.png" } }),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-4" }, [
+              _c("div", { staticClass: "panel" }, [
+                _c("div", { staticClass: "panel-body" }, [
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "title",
+                      staticStyle: {
+                        padding: "1em",
+                        "text-align": "center",
+                        "font-size": "1.50em",
+                      },
+                    },
+                    [_vm._v("GET A COVID-19 VACCINE")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticStyle: { padding: "2em", "text-align": "center" } },
+                    [
+                      _c("b", [
+                        _vm._v(
+                          "Getting vaccinated can help protect you and others from covid-19."
+                        ),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("img", { attrs: { src: "/img/vaccine.png" } }),
                 ]),
               ]),
             ]),
@@ -37838,12 +37950,6 @@ var render = function () {
                       _c("b-navbar-item", { attrs: { href: "/" } }, [
                         _vm._v(
                           "\n                            Home\n                        "
-                        ),
-                      ]),
-                      _vm._v(" "),
-                      _c("b-navbar-item", { attrs: { href: "#" } }, [
-                        _vm._v(
-                          "\n                            About\n                        "
                         ),
                       ]),
                       _vm._v(" "),
@@ -40715,7 +40821,7 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "columns" }, [
-        _c("div", { staticClass: "column is-8 is-offset-2" }, [
+        _c("div", { staticClass: "column is-10 is-offset-1" }, [
           _c(
             "div",
             { staticClass: "box" },
@@ -40879,7 +40985,7 @@ var render = function () {
                 },
                 [
                   _c("b-table-column", {
-                    attrs: { field: "appointment_id", label: "ID" },
+                    attrs: { field: "appintment_track_id", label: "ID" },
                     scopedSlots: _vm._u([
                       {
                         key: "default",
@@ -40887,7 +40993,25 @@ var render = function () {
                           return [
                             _vm._v(
                               "\n                                " +
-                                _vm._s(props.row.appointment_id) +
+                                _vm._s(props.row.appointment_track_id) +
+                                "\n                            "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "app_date", label: "Appointment Date" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(props.row.app_date) +
                                 "\n                            "
                             ),
                           ]
@@ -40947,78 +41071,6 @@ var render = function () {
                                 " -   " +
                                 _vm._s(props.row.app_time_to) +
                                 "\n                            "
-                            ),
-                          ]
-                        },
-                      },
-                    ]),
-                  }),
-                  _vm._v(" "),
-                  _c("b-table-column", {
-                    attrs: { label: "Action" },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function (props) {
-                          return [
-                            _c(
-                              "div",
-                              { staticClass: "is-flex" },
-                              [
-                                _c(
-                                  "b-tooltip",
-                                  {
-                                    attrs: {
-                                      label: "Approve appointment",
-                                      type: "is-warning",
-                                    },
-                                  },
-                                  [
-                                    _c("b-button", {
-                                      staticClass:
-                                        "button is-small is-warning mr-1",
-                                      attrs: {
-                                        tag: "a",
-                                        "icon-right": "thumb-up-outline",
-                                      },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.approveAppointment(
-                                            props.row
-                                          )
-                                        },
-                                      },
-                                    }),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "b-tooltip",
-                                  {
-                                    attrs: {
-                                      label: "Cancel Appointment",
-                                      type: "is-danger",
-                                    },
-                                  },
-                                  [
-                                    _c("b-button", {
-                                      staticClass:
-                                        "button is-small is-danger mr-1",
-                                      attrs: { "icon-right": "minus-circle" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.cancelAppointment(
-                                            props.row
-                                          )
-                                        },
-                                      },
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ],
-                              1
                             ),
                           ]
                         },
