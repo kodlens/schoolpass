@@ -11218,6 +11218,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.search.appointment_date = null;
     this.loadAsyncData();
   }
 });
@@ -12341,6 +12342,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.search.appointment_date = null;
     this.loadAsyncData();
   }
 });

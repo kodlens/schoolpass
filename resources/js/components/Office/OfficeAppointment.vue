@@ -497,6 +497,8 @@ export default {
     },
 
     mounted() {
+        this.search.appointment_date = null;
+
         this.loadAsyncData();
     }
 

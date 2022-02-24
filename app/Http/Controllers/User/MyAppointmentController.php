@@ -24,6 +24,8 @@ class MyAppointmentController extends Controller
     }
 
     public function getMyAppointment(Request $req){
+        $sort = explode('.', $req->sort_by);
+
         $user =  Auth::user();
 
         $date = $req->appdate;
@@ -34,7 +36,7 @@ class MyAppointmentController extends Controller
             ->join('offices as c', 'b.office_id', 'c.office_id')
             ->where('appointment_user_id', $user->user_id)
             ->where('app_date', 'like',  $ndate . '%')
-            ->orderBy('appointment_id', 'desc')
+            ->orderBy($sort[0], $sort[1])
             ->paginate($req->perpage);
     }
 
