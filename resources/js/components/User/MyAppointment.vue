@@ -88,74 +88,11 @@
 
                         </b-table>
 
-                        <div class="buttons mt-3">
-                            <b-button @click="openModal" icon-right="account-arrow-up-outline" class="is-success">NEW</b-button>
-                        </div>
-
                     </div>
                 </div><!--close column-->
             </div>
 
-
         </div><!--section div-->
-
-
-
-        <!--modal create-->
-        <b-modal v-model="isModalCreate" has-modal-card
-                 trap-focus
-                 :width="640"
-                 aria-role="dialog"
-                 aria-label="Modal"
-                 aria-modal
-                 type = "is-link">
-
-            <form @submit.prevent="submit">
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Appointment Type</p>
-                        <button
-                            type="button"
-                            class="delete"
-                            @click="isModalCreate = false"/>
-                    </header>
-
-                    <section class="modal-card-body">
-                        <div class="">
-
-                            <b-field label="Appointment Type" label-position="on-border"
-                                     :type="this.errors.appointment_type ? 'is-danger':''"
-                                     :message="this.errors.appointment_type ? this.errors.appointment_type[0] : ''">
-                                <b-input v-model="fields.appointment_type"
-                                         placeholder="Appointment Type" required>
-                                </b-input>
-                            </b-field>
-
-                            <b-field label="Allocated Time" label-position="on-border"
-                                     :type="this.errors.cc_time ? 'is-danger':''"
-                                     :message="this.errors.cc_time ? this.errors.cc_time[0] : ''">
-                                <b-numberinput v-model="fields.cc_time" :controls="false"
-                                               placeholder="Allocated Time" required>
-                                </b-numberinput>
-                            </b-field>
-
-
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <b-button
-                            label="Close"
-                            @click="isModalCreate=false"/>
-                        <button
-                            :class="btnClass"
-                            label="Save"
-                            type="is-success">SAVE</button>
-                    </footer>
-                </div>
-            </form><!--close form-->
-        </b-modal>
-        <!--close modal-->
-
 
     </div>
 </template>
@@ -173,23 +110,13 @@ export default {
             page: 1,
             perPage: 5,
             defaultSortDirection: 'asc',
-
-
-            global_id : 0,
-
+            
             search: {
                 appointment_type: '',
                 appointment_date: new Date(),
             },
 
-            isModalCreate: false,
-
-            fields: {
-                appointment_type: '',
-
-            },
-            errors: {},
-
+     
             btnClass: {
                 'is-success': true,
                 'button': true,
@@ -254,12 +181,6 @@ export default {
             this.loadAsyncData()
         },
 
-        openModal(){
-            this.isModalCreate=true;
-            this.fields = {};
-            this.errors = {};
-        },
-
 
         //alert box ask for deletion
         cancelAppointment(row) {
@@ -283,72 +204,6 @@ export default {
             });
         },
 
-        //update code here
-        getData: function(data_id){
-            this.clearFields();
-            this.global_id = data_id;
-            this.isModalCreate = true;
-
-
-            //nested axios for getting the address 1 by 1 or request by request
-            axios.get('/appointment-type/'+data_id).then(res=>{
-                this.fields = res.data;
-            });
-        },
-
-        clearFields(){
-            this.fields = {
-                appointment_type: '',
-            };
-        },
-
-
-        submit: function(){
-            if(this.global_id > 0){
-                //update
-                axios.put('/appointment-type/'+this.global_id, this.fields).then(res=>{
-                    if(res.data.status === 'updated'){
-                        this.$buefy.dialog.alert({
-                            title: 'UPDATED!',
-                            message: 'Successfully updated.',
-                            type: 'is-success',
-                            onConfirm: () => {
-                                this.loadAsyncData();
-                                this.clearFields();
-                                this.global_id = 0;
-                                this.isModalCreate = false;
-                            }
-                        })
-                    }
-                }).catch(err=>{
-                    if(err.response.status === 422){
-                        this.errors = err.response.data.errors;
-                    }
-                })
-            }else{
-                //INSERT HERE
-                axios.post('/appointment-type', this.fields).then(res=>{
-                    if(res.data.status === 'saved'){
-                        this.$buefy.dialog.alert({
-                            title: 'SAVED!',
-                            message: 'Successfully saved.',
-                            type: 'is-success',
-                            confirmText: 'OK',
-                            onConfirm: () => {
-                                this.isModalCreate = false;
-                                this.loadAsyncData();
-                                this.clearFields();
-                                this.global_id = 0;
-                            }
-                        })
-                    }
-                }).catch(err=>{
-                    if(err.response.status === 422){
-                        this.errors = err.response.data.errors;
-                    }
-                });
-            }
-        }
 
     },
 
