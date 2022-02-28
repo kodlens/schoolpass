@@ -31,7 +31,9 @@
                                                  v-model="search.appointment_type" placeholder="Search Appointment Type"
                                                  @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
+                                             <b-tooltip label="Search" type="is-success">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
+                                             </b-tooltip>
                                         </p>
                                     </b-field>
                                 </div>

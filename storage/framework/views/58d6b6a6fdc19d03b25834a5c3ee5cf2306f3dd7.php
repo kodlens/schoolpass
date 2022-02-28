@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-
+    <admin-dashboard></admin-dashboard>
 <?php $__env->stopSection(); ?>
 
 
