@@ -4,7 +4,7 @@
 
             <div class="columns is-centered">
                 <div class="column">
-                    <div class="nprint">
+                    <div class="myDivToPrint">
                         <div style="font-weight: bold; text-align: center;">
                             TRACK LOGS
                         </div>
