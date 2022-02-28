@@ -51,14 +51,18 @@ CREATE TABLE `appointment_tracks` (
   KEY `appointment_tracks_office_id_foreign` (`office_id`),
   CONSTRAINT `appointment_tracks_appointment_id_foreign` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`appointment_id`),
   CONSTRAINT `appointment_tracks_office_id_foreign` FOREIGN KEY (`office_id`) REFERENCES `offices` (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `appointment_tracks` */
 
 insert  into `appointment_tracks`(`appointment_track_id`,`appointment_id`,`office_id`,`time_out`,`remark`,`created_at`,`updated_at`) values 
 (17,19,1,NULL,'PROCESSING','2022-02-17 06:37:49','2022-02-17 06:37:49'),
 (18,20,1,NULL,'PROCESSING','2022-02-17 06:42:53','2022-02-17 06:42:53'),
-(19,19,1,'07:00:00','DONE','2022-02-17 07:00:02','2022-02-17 07:00:02');
+(19,19,1,'07:00:00','DONE','2022-02-17 07:00:02','2022-02-17 07:00:02'),
+(20,30,1,NULL,'PROCESSING','2022-02-23 17:58:48','2022-02-23 17:58:48'),
+(21,30,1,NULL,'PROCESSING','2022-02-23 18:01:29','2022-02-23 18:01:29'),
+(22,30,1,NULL,'PROCESSING','2022-02-23 18:01:35','2022-02-23 18:01:35'),
+(23,30,1,NULL,'PROCESSING','2022-02-23 18:01:49','2022-02-23 18:01:49');
 
 /*Table structure for table `appointment_types` */
 
@@ -108,7 +112,7 @@ CREATE TABLE `appointments` (
   KEY `appointments_appointment_user_id_foreign` (`appointment_user_id`),
   CONSTRAINT `appointments_appointment_type_id_foreign` FOREIGN KEY (`appointment_type_id`) REFERENCES `appointment_types` (`appointment_type_id`),
   CONSTRAINT `appointments_appointment_user_id_foreign` FOREIGN KEY (`appointment_user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `appointments` */
 
@@ -127,7 +131,8 @@ insert  into `appointments`(`appointment_id`,`appointment_type_id`,`appointment_
 (26,2,2,'1970-01-01','07:19:00','07:34:00',0,'PENDING','2022-02-17 07:19:28','2022-02-17 07:19:28'),
 (27,2,2,'1970-01-01','07:37:00','07:52:00',0,'PENDING','2022-02-17 07:37:27','2022-02-17 07:37:27'),
 (28,2,2,'1970-01-01','07:38:00','07:53:00',0,'PENDING','2022-02-17 07:38:11','2022-02-17 07:38:11'),
-(29,2,2,'2022-02-17','08:04:00','08:19:00',0,'PENDING','2022-02-17 08:05:00','2022-02-17 08:05:00');
+(29,2,2,'2022-02-17','08:04:00','08:19:00',0,'PENDING','2022-02-17 08:05:00','2022-02-17 08:05:00'),
+(30,2,2,'2022-02-23','17:57:00','18:12:00',1,'PENDING','2022-02-23 17:57:50','2022-02-23 17:58:39');
 
 /*Table structure for table `barangays` */
 
@@ -43976,12 +43981,13 @@ CREATE TABLE `ordinances` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ordinance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `ordinances` */
 
 insert  into `ordinances`(`ordinance_id`,`ordinance_name`,`ordinance_img_path`,`created_at`,`updated_at`) values 
-(2,'ORDINANCE 1','0WlBKqS3GZdWSbCMEx947huNORVhjhl4aPDsZzxG.png','2022-02-20 17:23:16','2022-02-20 17:23:16');
+(2,'ORDINANCE 1','0WlBKqS3GZdWSbCMEx947huNORVhjhl4aPDsZzxG.png','2022-02-20 17:23:16','2022-02-20 17:23:16'),
+(3,'ORDINANCE 2','yinn1zSe4RUFlZkav1fuUjJSk4ZNQEQKcKKHlfaU.png','2022-02-23 18:04:07','2022-02-23 18:04:07');
 
 /*Table structure for table `password_resets` */
 
