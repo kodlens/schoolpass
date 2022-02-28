@@ -8821,6 +8821,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -12096,69 +12098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppointmentType",
   data: function data() {
@@ -12171,16 +12110,10 @@ __webpack_require__.r(__webpack_exports__);
       page: 1,
       perPage: 5,
       defaultSortDirection: 'asc',
-      global_id: 0,
       search: {
         appointment_type: '',
         appointment_date: new Date()
       },
-      isModalCreate: false,
-      fields: {
-        appointment_type: ''
-      },
-      errors: {},
       btnClass: {
         'is-success': true,
         'button': true,
@@ -12236,11 +12169,6 @@ __webpack_require__.r(__webpack_exports__);
     setPerPage: function setPerPage() {
       this.loadAsyncData();
     },
-    openModal: function openModal() {
-      this.isModalCreate = true;
-      this.fields = {};
-      this.errors = {};
-    },
     //alert box ask for deletion
     cancelAppointment: function cancelAppointment(row) {
       var _this2 = this;
@@ -12267,76 +12195,6 @@ __webpack_require__.r(__webpack_exports__);
           _this3.errors = err.response.data.errors;
         }
       });
-    },
-    //update code here
-    getData: function getData(data_id) {
-      var _this4 = this;
-
-      this.clearFields();
-      this.global_id = data_id;
-      this.isModalCreate = true; //nested axios for getting the address 1 by 1 or request by request
-
-      axios.get('/appointment-type/' + data_id).then(function (res) {
-        _this4.fields = res.data;
-      });
-    },
-    clearFields: function clearFields() {
-      this.fields = {
-        appointment_type: ''
-      };
-    },
-    submit: function submit() {
-      var _this5 = this;
-
-      if (this.global_id > 0) {
-        //update
-        axios.put('/appointment-type/' + this.global_id, this.fields).then(function (res) {
-          if (res.data.status === 'updated') {
-            _this5.$buefy.dialog.alert({
-              title: 'UPDATED!',
-              message: 'Successfully updated.',
-              type: 'is-success',
-              onConfirm: function onConfirm() {
-                _this5.loadAsyncData();
-
-                _this5.clearFields();
-
-                _this5.global_id = 0;
-                _this5.isModalCreate = false;
-              }
-            });
-          }
-        })["catch"](function (err) {
-          if (err.response.status === 422) {
-            _this5.errors = err.response.data.errors;
-          }
-        });
-      } else {
-        //INSERT HERE
-        axios.post('/appointment-type', this.fields).then(function (res) {
-          if (res.data.status === 'saved') {
-            _this5.$buefy.dialog.alert({
-              title: 'SAVED!',
-              message: 'Successfully saved.',
-              type: 'is-success',
-              confirmText: 'OK',
-              onConfirm: function onConfirm() {
-                _this5.isModalCreate = false;
-
-                _this5.loadAsyncData();
-
-                _this5.clearFields();
-
-                _this5.global_id = 0;
-              }
-            });
-          }
-        })["catch"](function (err) {
-          if (err.response.status === 422) {
-            _this5.errors = err.response.data.errors;
-          }
-        });
-      }
     }
   },
   mounted: function mounted() {
@@ -36364,6 +36222,8 @@ var render = function () {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(item.office_name))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(item.app_date))]),
+                      _vm._v(" "),
                       _c("td", [
                         item.time_out
                           ? _c("span", [
@@ -36398,6 +36258,8 @@ var staticRenderFns = [
       _c("th", [_vm._v("APPOINTMENT TYPE")]),
       _vm._v(" "),
       _c("th", [_vm._v("OFFICE")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("DATE")]),
       _vm._v(" "),
       _c("th", [_vm._v("DONE AT")]),
       _vm._v(" "),
@@ -41767,485 +41629,146 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "section" }, [
-        _c("div", { staticClass: "columns" }, [
-          _c("div", { staticClass: "column is-8 is-offset-2" }, [
-            _c(
-              "div",
-              { staticClass: "box" },
-              [
+  return _c("div", [
+    _c("div", { staticClass: "section" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-8 is-offset-2" }, [
+          _c(
+            "div",
+            { staticClass: "box" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "is-flex is-justify-content-center mb-2",
+                  staticStyle: { "font-size": "20px", "font-weight": "bold" },
+                },
+                [_vm._v("MY APPOINTMENT")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "level" }, [
                 _c(
                   "div",
-                  {
-                    staticClass: "is-flex is-justify-content-center mb-2",
-                    staticStyle: { "font-size": "20px", "font-weight": "bold" },
-                  },
-                  [_vm._v("MY APPOINTMENT")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "level" }, [
-                  _c(
-                    "div",
-                    { staticClass: "level-left" },
-                    [
-                      _c(
-                        "b-field",
-                        { attrs: { label: "Page" } },
-                        [
-                          _c(
-                            "b-select",
-                            {
-                              on: { input: _vm.setPerPage },
-                              model: {
-                                value: _vm.perPage,
-                                callback: function ($$v) {
-                                  _vm.perPage = $$v
-                                },
-                                expression: "perPage",
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "5" } }, [
-                                _vm._v("5 per page"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "10" } }, [
-                                _vm._v("10 per page"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "15" } }, [
-                                _vm._v("15 per page"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "20" } }, [
-                                _vm._v("20 per page"),
-                              ]),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-select",
-                            {
-                              on: { input: _vm.loadAsyncData },
-                              model: {
-                                value: _vm.sortOrder,
-                                callback: function ($$v) {
-                                  _vm.sortOrder = $$v
-                                },
-                                expression: "sortOrder",
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "asc" } }, [
-                                _vm._v("ASC"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "desc" } }, [
-                                _vm._v("DESC"),
-                              ]),
-                            ]
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "level-right" }, [
+                  { staticClass: "level-left" },
+                  [
                     _c(
-                      "div",
-                      { staticClass: "level-item" },
+                      "b-field",
+                      { attrs: { label: "Page" } },
                       [
                         _c(
-                          "b-field",
-                          { attrs: { label: "Search" } },
+                          "b-select",
+                          {
+                            on: { input: _vm.setPerPage },
+                            model: {
+                              value: _vm.perPage,
+                              callback: function ($$v) {
+                                _vm.perPage = $$v
+                              },
+                              expression: "perPage",
+                            },
+                          },
                           [
-                            _c("b-datepicker", {
-                              attrs: {
-                                editable: "",
-                                placeholder: "Search Appointment Date",
-                              },
-                              nativeOn: {
-                                keyup: function ($event) {
-                                  if (
-                                    !$event.type.indexOf("key") &&
-                                    _vm._k(
-                                      $event.keyCode,
-                                      "enter",
-                                      13,
-                                      $event.key,
-                                      "Enter"
-                                    )
-                                  ) {
-                                    return null
-                                  }
-                                  return _vm.loadAsyncData.apply(
-                                    null,
-                                    arguments
-                                  )
-                                },
-                              },
-                              model: {
-                                value: _vm.search.appointment_date,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.search, "appointment_date", $$v)
-                                },
-                                expression: "search.appointment_date",
-                              },
-                            }),
+                            _c("option", { attrs: { value: "5" } }, [
+                              _vm._v("5 per page"),
+                            ]),
                             _vm._v(" "),
-                            _c(
-                              "p",
-                              { staticClass: "control" },
-                              [
-                                _c("b-button", {
-                                  attrs: {
-                                    type: "is-primary",
-                                    "icon-right": "account-filter",
-                                  },
-                                  on: { click: _vm.loadAsyncData },
-                                }),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v("10 per page"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v("15 per page"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v("20 per page"),
+                            ]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-select",
+                          {
+                            on: { input: _vm.loadAsyncData },
+                            model: {
+                              value: _vm.sortOrder,
+                              callback: function ($$v) {
+                                _vm.sortOrder = $$v
+                              },
+                              expression: "sortOrder",
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "asc" } }, [
+                              _vm._v("ASC"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "desc" } }, [
+                              _vm._v("DESC"),
+                            ]),
+                          ]
                         ),
                       ],
                       1
                     ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "b-table",
-                  {
-                    attrs: {
-                      data: _vm.data,
-                      loading: _vm.loading,
-                      paginated: "",
-                      "backend-pagination": "",
-                      total: _vm.total,
-                      "per-page": _vm.perPage,
-                      "aria-next-label": "Next page",
-                      "aria-previous-label": "Previous page",
-                      "aria-page-label": "Page",
-                      "aria-current-label": "Current page",
-                      "backend-sorting": "",
-                      "default-sort-direction": _vm.defaultSortDirection,
-                    },
-                    on: { "page-change": _vm.onPageChange, sort: _vm.onSort },
-                  },
-                  [
-                    _c("b-table-column", {
-                      attrs: { field: "appointment_type_id", label: "ID" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(props.row.appointment_id) +
-                                  "\n                        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      attrs: {
-                        field: "appointment_type",
-                        label: "Appointment",
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(props.row.appointment_type) +
-                                  "\n                        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      attrs: { field: "app_date", label: "Appointment Date" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(props.row.app_date) +
-                                  "\n                        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      attrs: { field: "from_to", label: "From/To" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(props.row.app_time_from) +
-                                  " -   " +
-                                  _vm._s(props.row.app_time_to) +
-                                  "\n                        "
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      attrs: { field: "is_approved", label: "Is Approved" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              props.row.is_approved === 1
-                                ? _c(
-                                    "span",
-                                    {
-                                      staticStyle: {
-                                        "font-weight": "bold",
-                                        color: "green",
-                                      },
-                                    },
-                                    [_vm._v("APPROVED")]
-                                  )
-                                : props.row.is_approved === 2
-                                ? _c(
-                                    "span",
-                                    {
-                                      staticStyle: {
-                                        "font-weight": "bold",
-                                        color: "red",
-                                      },
-                                    },
-                                    [_vm._v("CANCELLED")]
-                                  )
-                                : _c(
-                                    "span",
-                                    {
-                                      staticStyle: {
-                                        "font-weight": "bold",
-                                        color: "blue",
-                                      },
-                                    },
-                                    [_vm._v("PENDING")]
-                                  ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
-                    _vm._v(" "),
-                    _c("b-table-column", {
-                      attrs: { label: "Action" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function (props) {
-                            return [
-                              _c(
-                                "div",
-                                { staticClass: "is-flex" },
-                                [
-                                  _c(
-                                    "b-tooltip",
-                                    {
-                                      attrs: {
-                                        label: "Cancel appointment",
-                                        type: "is-danger",
-                                      },
-                                    },
-                                    [
-                                      _c("b-button", {
-                                        staticClass:
-                                          "button is-small is-danger mr-1",
-                                        attrs: { "icon-right": "minus-circle" },
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.cancelAppointment(
-                                              props.row
-                                            )
-                                          },
-                                        },
-                                      }),
-                                    ],
-                                    1
-                                  ),
-                                ],
-                                1
-                              ),
-                            ]
-                          },
-                        },
-                      ]),
-                    }),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "buttons mt-3" },
-                  [
-                    _c(
-                      "b-button",
-                      {
-                        staticClass: "is-success",
-                        attrs: { "icon-right": "account-arrow-up-outline" },
-                        on: { click: _vm.openModal },
-                      },
-                      [_vm._v("NEW")]
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: {
-            "has-modal-card": "",
-            "trap-focus": "",
-            width: 640,
-            "aria-role": "dialog",
-            "aria-label": "Modal",
-            "aria-modal": "",
-            type: "is-link",
-          },
-          model: {
-            value: _vm.isModalCreate,
-            callback: function ($$v) {
-              _vm.isModalCreate = $$v
-            },
-            expression: "isModalCreate",
-          },
-        },
-        [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function ($event) {
-                  $event.preventDefault()
-                  return _vm.submit.apply(null, arguments)
-                },
-              },
-            },
-            [
-              _c("div", { staticClass: "modal-card" }, [
-                _c("header", { staticClass: "modal-card-head" }, [
-                  _c("p", { staticClass: "modal-card-title" }, [
-                    _vm._v("Appointment Type"),
-                  ]),
-                  _vm._v(" "),
-                  _c("button", {
-                    staticClass: "delete",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        _vm.isModalCreate = false
-                      },
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c("section", { staticClass: "modal-card-body" }, [
+                _c("div", { staticClass: "level-right" }, [
                   _c(
                     "div",
-                    {},
+                    { staticClass: "level-item" },
                     [
                       _c(
                         "b-field",
-                        {
-                          attrs: {
-                            label: "Appointment Type",
-                            "label-position": "on-border",
-                            type: this.errors.appointment_type
-                              ? "is-danger"
-                              : "",
-                            message: this.errors.appointment_type
-                              ? this.errors.appointment_type[0]
-                              : "",
-                          },
-                        },
+                        { attrs: { label: "Search" } },
                         [
-                          _c("b-input", {
+                          _c("b-datepicker", {
                             attrs: {
-                              placeholder: "Appointment Type",
-                              required: "",
+                              editable: "",
+                              placeholder: "Search Appointment Date",
+                            },
+                            nativeOn: {
+                              keyup: function ($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.loadAsyncData.apply(null, arguments)
+                              },
                             },
                             model: {
-                              value: _vm.fields.appointment_type,
+                              value: _vm.search.appointment_date,
                               callback: function ($$v) {
-                                _vm.$set(_vm.fields, "appointment_type", $$v)
+                                _vm.$set(_vm.search, "appointment_date", $$v)
                               },
-                              expression: "fields.appointment_type",
+                              expression: "search.appointment_date",
                             },
                           }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-field",
-                        {
-                          attrs: {
-                            label: "Allocated Time",
-                            "label-position": "on-border",
-                            type: this.errors.cc_time ? "is-danger" : "",
-                            message: this.errors.cc_time
-                              ? this.errors.cc_time[0]
-                              : "",
-                          },
-                        },
-                        [
-                          _c("b-numberinput", {
-                            attrs: {
-                              controls: false,
-                              placeholder: "Allocated Time",
-                              required: "",
-                            },
-                            model: {
-                              value: _vm.fields.cc_time,
-                              callback: function ($$v) {
-                                _vm.$set(_vm.fields, "cc_time", $$v)
-                              },
-                              expression: "fields.cc_time",
-                            },
-                          }),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "control" },
+                            [
+                              _c("b-button", {
+                                attrs: {
+                                  type: "is-primary",
+                                  "icon-right": "account-filter",
+                                },
+                                on: { click: _vm.loadAsyncData },
+                              }),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
@@ -42253,39 +41776,200 @@ var render = function () {
                     1
                   ),
                 ]),
-                _vm._v(" "),
-                _c(
-                  "footer",
-                  { staticClass: "modal-card-foot" },
-                  [
-                    _c("b-button", {
-                      attrs: { label: "Close" },
-                      on: {
-                        click: function ($event) {
-                          _vm.isModalCreate = false
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-table",
+                {
+                  attrs: {
+                    data: _vm.data,
+                    loading: _vm.loading,
+                    paginated: "",
+                    "backend-pagination": "",
+                    total: _vm.total,
+                    "per-page": _vm.perPage,
+                    "aria-next-label": "Next page",
+                    "aria-previous-label": "Previous page",
+                    "aria-page-label": "Page",
+                    "aria-current-label": "Current page",
+                    "backend-sorting": "",
+                    "default-sort-direction": _vm.defaultSortDirection,
+                  },
+                  on: { "page-change": _vm.onPageChange, sort: _vm.onSort },
+                },
+                [
+                  _c("b-table-column", {
+                    attrs: { field: "appointment_type_id", label: "ID" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(props.row.appointment_id) +
+                                "\n                        "
+                            ),
+                          ]
                         },
                       },
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "appointment_type", label: "Appointment" },
+                    scopedSlots: _vm._u([
                       {
-                        class: _vm.btnClass,
-                        attrs: { label: "Save", type: "is-success" },
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(props.row.appointment_type) +
+                                "\n                        "
+                            ),
+                          ]
+                        },
                       },
-                      [_vm._v("SAVE")]
-                    ),
-                  ],
-                  1
-                ),
-              ]),
-            ]
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "app_date", label: "Appointment Date" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(props.row.app_date) +
+                                "\n                        "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "from_to", label: "From/To" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(props.row.app_time_from) +
+                                " -   " +
+                                _vm._s(props.row.app_time_to) +
+                                "\n                        "
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { field: "is_approved", label: "Is Approved" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            props.row.is_approved === 1
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "bold",
+                                      color: "green",
+                                    },
+                                  },
+                                  [_vm._v("APPROVED")]
+                                )
+                              : props.row.is_approved === 2
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "bold",
+                                      color: "red",
+                                    },
+                                  },
+                                  [_vm._v("CANCELLED")]
+                                )
+                              : _c(
+                                  "span",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "bold",
+                                      color: "blue",
+                                    },
+                                  },
+                                  [_vm._v("PENDING")]
+                                ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                  _vm._v(" "),
+                  _c("b-table-column", {
+                    attrs: { label: "Action" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function (props) {
+                          return [
+                            _c(
+                              "div",
+                              { staticClass: "is-flex" },
+                              [
+                                _c(
+                                  "b-tooltip",
+                                  {
+                                    attrs: {
+                                      label: "Cancel appointment",
+                                      type: "is-danger",
+                                    },
+                                  },
+                                  [
+                                    _c("b-button", {
+                                      staticClass:
+                                        "button is-small is-danger mr-1",
+                                      attrs: { "icon-right": "minus-circle" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.cancelAppointment(
+                                            props.row
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ]
+                        },
+                      },
+                    ]),
+                  }),
+                ],
+                1
+              ),
+            ],
+            1
           ),
-        ]
-      ),
-    ],
-    1
-  )
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

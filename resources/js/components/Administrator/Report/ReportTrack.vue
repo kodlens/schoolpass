@@ -15,6 +15,7 @@
                                     <th>STUDENT/GUEST</th>
                                     <th>APPOINTMENT TYPE</th>
                                     <th>OFFICE</th>
+                                    <th>DATE</th>
                                     <th>DONE AT</th>
                                     <th>REMARK</th>
                                 </tr>
@@ -22,6 +23,7 @@
                                     <td>{{ item.lname }}, {{ item.fname }} {{ item.mname }}</td>
                                     <td>{{ item.appointment_type }}</td>
                                     <td>{{ item.office_name }}</td>
+                                    <td>{{ item.app_date }}</td>
                                     <td>
                                         <span v-if="item.time_out">{{ item.time_out | formatTime }}</span>
                                     </td>
