@@ -8081,6 +8081,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -31003,7 +31006,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-5dc66390]{\n    padding: 0 30px 0 30px;\n    height: 90px;\n}\n.burger-div[data-v-5dc66390]{\n    width: 20px;\n    height: 3px;\n    background-color: #696969;\n    margin: 0 0 3px 0;\n    margin-left: auto;\n    border-radius: 10px;\n}\n.burger-button[data-v-5dc66390]{\n    display: flex;\n    flex-direction: column;\n    margin-left: auto;\n}\n.mynav[data-v-5dc66390]{\n    padding: 25px;\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n    display: flex;\n}\n.mynav-brand[data-v-5dc66390]{\n    font-weight: bold;\n    font-size: 1.2em;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-5dc66390]{\n      padding: 0 30px 0 30px;\n      height: 90px;\n}\n.burger-div[data-v-5dc66390]{\n      width: 20px;\n      height: 3px;\n      background-color: #696969;\n      margin: 0 0 3px 0;\n      margin-left: auto;\n      border-radius: 10px;\n}\n.burger-button[data-v-5dc66390]{\n      display: flex;\n      flex-direction: column;\n      margin-left: auto;\n}\n.mynav[data-v-5dc66390]{\n      padding: 25px;\n      border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n      display: flex;\n}\n.mynav-brand[data-v-5dc66390]{\n      font-weight: bold;\n      font-size: 1.2em;\n}\n.hero[data-v-5dc66390]{\n      background-image: url(\"/img/bg-hero.jpg\");\n      background-repeat: no-repeat;\n      background-size: cover;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31075,7 +31078,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-a9fccc38]{\n    padding: 0 30px 0 30px;\n    height: 90px;\n}\n.burger-div[data-v-a9fccc38]{\n    width: 20px;\n    height: 3px;\n    background-color: #696969;\n    margin: 0 0 3px 0;\n    margin-left: auto;\n    border-radius: 10px;\n}\n.burger-button[data-v-a9fccc38]{\n    display: flex;\n    flex-direction: column;\n    margin-left: auto;\n}\n.mynav[data-v-a9fccc38]{\n    padding: 25px;\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n    display: flex;\n}\n.mynav-brand[data-v-a9fccc38]{\n    font-weight: bold;\n    font-size: 1.2em;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-a9fccc38]{\r\n    padding: 0 30px 0 30px;\r\n    height: 90px;\n}\n.burger-div[data-v-a9fccc38]{\r\n    width: 20px;\r\n    height: 3px;\r\n    background-color: #696969;\r\n    margin: 0 0 3px 0;\r\n    margin-left: auto;\r\n    border-radius: 10px;\n}\n.burger-button[data-v-a9fccc38]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-left: auto;\n}\n.mynav[data-v-a9fccc38]{\r\n    padding: 25px;\r\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\r\n    display: flex;\n}\n.mynav-brand[data-v-a9fccc38]{\r\n    font-weight: bold;\r\n    font-size: 1.2em;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31219,7 +31222,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-080a7dc4]{\n    padding: 0 30px 0 30px;\n    height: 90px;\n}\n.burger-div[data-v-080a7dc4]{\n    width: 20px;\n    height: 3px;\n    background-color: #696969;\n    margin: 0 0 3px 0;\n    margin-left: auto;\n    border-radius: 10px;\n}\n.burger-button[data-v-080a7dc4]{\n    display: flex;\n    flex-direction: column;\n    margin-left: auto;\n}\n.mynav[data-v-080a7dc4]{\n    padding: 25px;\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\n    display: flex;\n}\n.mynav-brand[data-v-080a7dc4]{\n    font-weight: bold;\n    font-size: 1.2em;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.logo[data-v-080a7dc4]{\r\n    padding: 0 30px 0 30px;\r\n    height: 90px;\n}\n.burger-div[data-v-080a7dc4]{\r\n    width: 20px;\r\n    height: 3px;\r\n    background-color: #696969;\r\n    margin: 0 0 3px 0;\r\n    margin-left: auto;\r\n    border-radius: 10px;\n}\n.burger-button[data-v-080a7dc4]{\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-left: auto;\n}\n.mynav[data-v-080a7dc4]{\r\n    padding: 25px;\r\n    border-bottom: 2px solid rgba(22, 69, 28, 0.53);\r\n    display: flex;\n}\n.mynav-brand[data-v-080a7dc4]{\r\n    font-weight: bold;\r\n    font-size: 1.2em;\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -35175,179 +35178,188 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "mynav" }, [
-      _c("div", { staticClass: "mynav-brand" }, [_vm._v("ADMINISTRATOR")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "burger-button",
-          on: {
-            click: function ($event) {
-              _vm.open = true
-            },
-          },
-        },
-        [
-          _c("div", { staticClass: "burger-div" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "burger-div" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "burger-div" }),
-        ]
-      ),
-    ]),
-    _vm._v(" "),
-    _c(
-      "section",
-      [
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "mynav" }, [
+        _c("div", { staticClass: "mynav-brand" }, [_vm._v("ADMINISTRATOR")]),
+        _vm._v(" "),
         _c(
-          "b-sidebar",
+          "div",
           {
-            attrs: {
-              type: "is-light",
-              fullheight: _vm.fullheight,
-              fullwidth: _vm.fullwidth,
-              overlay: _vm.overlay,
-              right: _vm.right,
-            },
-            model: {
-              value: _vm.open,
-              callback: function ($$v) {
-                _vm.open = $$v
+            staticClass: "burger-button",
+            on: {
+              click: function ($event) {
+                _vm.open = true
               },
-              expression: "open",
             },
           },
           [
-            _c(
-              "div",
-              { staticClass: "p-4" },
-              [
-                _c("h3", { staticClass: "title is-4" }, [
-                  _vm._v("ADMINISTRATOR"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "b-menu",
-                  [
-                    _c(
-                      "b-menu-list",
-                      { attrs: { label: "Menu" } },
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            icon: "information-outline",
-                            label: "Dashboard",
-                            tag: "a",
-                            href: "/dashboard-admin",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            label: "Offices",
-                            icon: "microsoft-office",
-                            tag: "a",
-                            href: "/offices",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            label: "User",
-                            icon: "account",
-                            tag: "a",
-                            href: "/users",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            label: "Appointment Type",
-                            icon: "calendar-blank",
-                            tag: "a",
-                            href: "/appointment-type",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            label: "Ordinance",
-                            icon: "clipboard-list",
-                            tag: "a",
-                            href: "/ordinance",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      [
-                        _c("b-menu-item", {
-                          attrs: {
-                            label: "Report Track",
-                            icon: "chart-timeline",
-                            tag: "a",
-                            href: "/report-track",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-menu-list",
-                      { attrs: { label: "Actions" } },
-                      [
-                        _c("b-menu-item", {
-                          attrs: { label: "Logout" },
-                          on: { click: _vm.logout },
-                        }),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ],
-              1
-            ),
+            _c("div", { staticClass: "burger-div" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "burger-div" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "burger-div" }),
           ]
         ),
-      ],
-      1
-    ),
-  ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "b-sidebar",
+        {
+          attrs: {
+            type: "is-light",
+            fullheight: _vm.fullheight,
+            fullwidth: _vm.fullwidth,
+            overlay: _vm.overlay,
+            right: _vm.right,
+          },
+          model: {
+            value: _vm.open,
+            callback: function ($$v) {
+              _vm.open = $$v
+            },
+            expression: "open",
+          },
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "p-4" },
+            [
+              _c("h3", { staticClass: "title is-4" }, [
+                _vm._v("ADMINISTRATOR"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-menu",
+                [
+                  _c(
+                    "b-menu-list",
+                    { attrs: { label: "Menu" } },
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          icon: "information-outline",
+                          label: "Dashboard",
+                          tag: "a",
+                          href: "/dashboard-admin",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          label: "Offices",
+                          icon: "microsoft-office",
+                          tag: "a",
+                          href: "/offices",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          label: "User",
+                          icon: "account",
+                          tag: "a",
+                          href: "/users",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          label: "Appointment Type",
+                          icon: "calendar-blank",
+                          tag: "a",
+                          href: "/appointment-type",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          label: "Ordinance",
+                          icon: "clipboard-list",
+                          tag: "a",
+                          href: "/ordinance",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    [
+                      _c("b-menu-item", {
+                        attrs: {
+                          label: "Report Track",
+                          icon: "chart-timeline",
+                          tag: "a",
+                          href: "/report-track",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-menu-list",
+                    { attrs: { label: "Actions" } },
+                    [
+                      _c("b-menu-item", {
+                        attrs: { label: "Logout" },
+                        on: { click: _vm.logout },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ]
+      ),
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "hero is-fullheight" }, [
+      _c("div", { staticClass: "hero-head" }),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -66524,7 +66536,7 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\wayne\\\\Desktop\\\\GitHub\\\\schoolpass","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

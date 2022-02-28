@@ -8,8 +8,11 @@
                 <div class="burger-div"></div>
             </div>
         </div>
-
-        <section>
+            <section class="hero is-fullheight">
+                <!-- Hero head: will stick at the top -->
+                <div class="hero-head">
+                </div>
+            </section>
             <b-sidebar
                 type="is-light"
                 :fullheight="fullheight"
@@ -80,8 +83,8 @@
                 </div>
             </b-sidebar>
 
-        </section>
     </div>
+    
 
 </template>
 
@@ -138,6 +141,10 @@ export default {
         font-size: 1.2em;
     }
 
-
+  .hero{
+        background-image: url("/img/bg-hero.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
 </style>
