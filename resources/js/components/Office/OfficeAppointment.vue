@@ -235,7 +235,7 @@
 
 <script>
 export default {
-    name: "AppointmentType",
+
     data(){
         return{
             locale: undefined,
@@ -282,7 +282,11 @@ export default {
         */
         loadAsyncData() {
 
-            this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+            if(this.search.appointment_date){
+                this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+            }else{
+                this.search.ndate = '';
+            }
 
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,

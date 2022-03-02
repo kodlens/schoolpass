@@ -24,12 +24,20 @@ class MyAppointmentController extends Controller
     }
 
     public function getMyAppointment(Request $req){
+
         $sort = explode('.', $req->sort_by);
 
         $user =  Auth::user();
 
         $date = $req->appdate;
-        $ndate = date('Y-m-d',strtotime($date)); //convert to format time UNIX
+       // $ndate = date('Y-m-d',strtotime($date)); //convert to format time UNIX
+
+        if($req->appdate){
+            $ndate = date("Y-m-d", strtotime($req->appdate));
+        }else{
+            $ndate = '';
+        }
+
 
         return Appointment::from('appointments as a')
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')

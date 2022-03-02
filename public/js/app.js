@@ -11009,7 +11009,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "AppointmentType",
   data: function data() {
     return {
       locale: undefined,
@@ -11047,7 +11046,12 @@ __webpack_require__.r(__webpack_exports__);
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      if (this.search.appointment_date) {
+        this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      } else {
+        this.search.ndate = '';
+      }
+
       var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "appdate=".concat(this.search.ndate), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
       axios.get("/get-office-appointments?".concat(params)).then(function (_ref) {
@@ -12169,7 +12173,12 @@ __webpack_require__.r(__webpack_exports__);
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      if (this.search.appointment_date) {
+        this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      } else {
+        this.search.ndate = '';
+      }
+
       var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "appdate=".concat(this.search.ndate), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
       axios.get("/get-my-appointments?".concat(params)).then(function (_ref) {

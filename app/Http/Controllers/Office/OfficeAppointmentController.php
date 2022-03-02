@@ -24,9 +24,17 @@ class OfficeAppointmentController extends Controller
     }
 
     public function getOfficeAppointments(Request $req){
+       
+
         $sort = explode('.', $req->sort_by);
         $user = Auth::user();
-        $ndate = date("Y-m-d", strtotime($req->appdate));
+
+        if($req->appdate){
+            $ndate = date("Y-m-d", strtotime($req->appdate));
+        }else{
+            $ndate = '';
+        }
+       
 
         $data = DB::table('appointments as a')
             ->join('appointment_types as b', 'a.appointment_type_id', 'b.appointment_type_id')
