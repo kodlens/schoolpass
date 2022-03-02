@@ -70,10 +70,11 @@
                                 <div class="level-item">
                                     <b-field label="Search">
                                         <b-datepicker
+                                            editable
                                             v-model="search.appointment_date" placeholder="Search Appointment Date"
                                             @keyup.native.enter="loadAsyncData"/>
                                         <p class="control">
-                                             <b-tooltip label="Search" type="is-success">
+                                            <b-tooltip label="Search" type="is-success">
                                             <b-button type="is-primary" icon-right="account-filter" @click="loadAsyncData"/>
                                              </b-tooltip>
                                         </p>
@@ -247,7 +248,12 @@ export default {
         */
         loadAsyncData() {
 
-            this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+            //this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+            if(this.search.appointment_date){
+                this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+            }else{
+                this.search.ndate = '';
+            }
 
             const params = [
                 `sort_by=${this.sortField}.${this.sortOrder}`,

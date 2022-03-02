@@ -11557,6 +11557,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -11591,7 +11592,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     loadAsyncData: function loadAsyncData() {
       var _this = this;
 
-      this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      //this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      if (this.search.appointment_date) {
+        this.search.ndate = new Date(this.search.appointment_date).toLocaleDateString();
+      } else {
+        this.search.ndate = '';
+      }
+
       var params = ["sort_by=".concat(this.sortField, ".").concat(this.sortOrder), "appdate=".concat(this.search.ndate), "perpage=".concat(this.perPage), "page=".concat(this.page)].join('&');
       this.loading = true;
       axios.get("/office-appointment-tracks?".concat(params)).then(function (_ref) {
@@ -41073,7 +41080,10 @@ var render = function () {
                         { attrs: { label: "Search" } },
                         [
                           _c("b-datepicker", {
-                            attrs: { placeholder: "Search Appointment Date" },
+                            attrs: {
+                              editable: "",
+                              placeholder: "Search Appointment Date",
+                            },
                             nativeOn: {
                               keyup: function ($event) {
                                 if (

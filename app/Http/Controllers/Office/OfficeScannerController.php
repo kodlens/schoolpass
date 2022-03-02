@@ -68,6 +68,13 @@ class OfficeScannerController extends Controller
     }
 
     public function getOfficeAppointmentTracks(Request $req){
+
+        if($req->appdate){
+            $ndate = date("Y-m-d", strtotime($req->appdate));
+        }else{
+            $ndate = '';
+        }
+
         $sort = explode('.', $req->sort_by);
         $user = Auth::user();
         $data = DB::table('appointment_tracks as a')
@@ -75,6 +82,7 @@ class OfficeScannerController extends Controller
             ->join('users as c', 'b.appointment_user_id', 'c.user_id')
             ->join('appointment_types as d', 'b.appointment_type_id', 'd.appointment_type_id')
             ->where('a.office_id', $user->office_id)
+            ->where('b.app_date', 'like', $ndate . '%')
             ->orderBy('a.' . $sort[0], $sort[1])
             ->paginate($req->perpage);
 
