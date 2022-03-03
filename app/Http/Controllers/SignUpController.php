@@ -15,6 +15,7 @@ class SignUpController extends Controller
 
 
     public function store(Request $req){
+    
 
         $validate = $req->validate([
             'username' => ['required', 'string', 'unique:users'],
@@ -26,6 +27,8 @@ class SignUpController extends Controller
             'province' => ['required', 'string'],
             'city' => ['required', 'string'],
             'barangay' => ['required', 'string'],
+            
+            
         ]);
 
         $qr_code = substr(md5(time() . $req->lname . $req->fname), -8);

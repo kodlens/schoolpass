@@ -39,7 +39,7 @@ class MyProfileController extends Controller
         $data->province = $req->province;
         $data->city = $req->city;
         $data->barangay = $req->barangay;
-
+        $data->street = strtoupper($req->street);
         $data->save();
 
         return response()->json([

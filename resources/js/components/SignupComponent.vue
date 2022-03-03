@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="column">
                                     <b-field label="House #. Street">
-                                        <b-input type="text"></b-input>
+                                        <b-input type="text"  v-model="fields.street"></b-input>
                                     </b-field>
                                 </div>
                             </div>

@@ -41821,7 +41821,18 @@ var render = function () {
                       _c(
                         "b-field",
                         { attrs: { label: "House #. Street" } },
-                        [_c("b-input", { attrs: { type: "text" } })],
+                        [
+                          _c("b-input", {
+                            attrs: { type: "text" },
+                            model: {
+                              value: _vm.fields.street,
+                              callback: function ($$v) {
+                                _vm.$set(_vm.fields, "street", $$v)
+                              },
+                              expression: "fields.street",
+                            },
+                          }),
+                        ],
                         1
                       ),
                     ],
